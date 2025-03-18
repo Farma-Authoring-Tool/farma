@@ -56,7 +56,7 @@ class Api::Professors::ExercisesController < ApplicationController
   private
 
   def exercise_params
-    params.require(:exercise).permit(:title, :description, :public)
+    params.expect(exercise: [:title, :description, :public])
   end
 
   def find_exercise

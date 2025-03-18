@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.4.2'
 
 gem 'pg', '~> 1.1'
-gem 'rails', '~> 7.1.2'
+gem 'rails', '~> 8.0.1'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 6.6'
@@ -22,7 +22,7 @@ gem 'bootsnap', require: false
 gem 'devise'
 gem 'devise-jwt'
 gem 'rack-cors'
-gem 'rails-i18n', '~> 7.0.0' # For 7.0.0
+gem 'rails-i18n', '~> 8.0.0'
 
 gem 'whenever'
 
@@ -32,6 +32,8 @@ group :development do
   gem 'rubocop-factory_bot', require: false
   gem 'rubocop-minitest', require: false
   gem 'rubocop-rails', require: false
+
+  gem 'ostruct'
   gem 'rubycritic', '4.7.0', require: false
 end
 
@@ -48,5 +50,5 @@ group :test do
   gem 'simplecov', require: false
 
   gem 'shoulda-context', '~> 2.0'
-  gem 'shoulda-matchers', '~> 4.3.0'
+  gem 'shoulda-matchers', '~> 6.4.0'
 end

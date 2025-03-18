@@ -55,7 +55,7 @@ class Api::Professors::IntroductionsController < ApplicationController
   private
 
   def introduction_params
-    params.require(:introduction).permit(:title, :description, :public)
+    params.expect(introduction: [:title, :description, :public])
   end
 
   def find_introduction
