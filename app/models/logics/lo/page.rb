@@ -14,8 +14,6 @@ module Logics::Lo
       end
     end
 
-    def visualizations
-      @content.visualizations
-    end
+    delegate :visualizations, to: :@content
   end
 end

@@ -1,11 +1,11 @@
-require:
+plugins:
   - rubocop-rails
   - rubocop-minitest
   - rubocop-factory_bot
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 3.2
+  TargetRubyVersion: 3.4
 
   # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
   # to ignore them, so only the ones explicitly set in this file are enabled.
