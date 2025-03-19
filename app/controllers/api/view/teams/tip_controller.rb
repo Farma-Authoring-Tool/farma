@@ -1,4 +1,4 @@
-class Api::View::Teams::TipController < ApplicationController
+class Api::View::Teams::TipController < Api::BaseController
   include ResourcesByCurrentUserTeams
 
   before_action :set_solution_step, :set_team

@@ -1,4 +1,4 @@
-class Api::View::Teams::PageController < ApplicationController
+class Api::View::Teams::PageController < Api::BaseController
   include ResourcesByCurrentUserTeams
 
   before_action :set_team, :set_page

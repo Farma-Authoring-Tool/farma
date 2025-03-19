@@ -1,4 +1,4 @@
-class Api::View::Teams::LosController < ApplicationController
+class Api::View::Teams::LosController < Api::BaseController
   include ResourcesByCurrentUserTeams
 
   before_action :set_lo, :set_team, :view_page

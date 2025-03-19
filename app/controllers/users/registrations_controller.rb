@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
              status: :created
     else
       render json: {
-        message: error_message, user: current_user.as_json, errors: current_user.errors
+        message: I18n.t('messages.actions.errors'), user: current_user.as_json, errors: current_user.errors
       }, status: :unprocessable_entity
     end
   end

@@ -1,4 +1,4 @@
-class Api::Professors::SolutionStepsController < ApplicationController
+class Api::Professors::SolutionStepsController < Api::BaseController
   include FindResources
 
   before_action :find_solution_step, except: [:create, :index, :reorder]

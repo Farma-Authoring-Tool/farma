@@ -1,4 +1,4 @@
-class Api::View::Professors::TipController < ApplicationController
+class Api::View::Professors::TipController < Api::BaseController
   before_action :set_solution_step
 
   def available_tip

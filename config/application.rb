@@ -31,20 +31,13 @@ module Farma
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
-    config.api_only = true
 
     config.autoload_paths += Rails.root.glob('app/resources/**')
-
     config.active_support.to_time_preserves_timezone = :zone
 
     # When both `If-Modified-Since` and `If-None-Match` are provided by the client
     # only consider `If-None-Match` as specified by RFC 7232 Section 6.
     # If set to `false` both conditions need to be satisfied.
     config.action_dispatch.strict_freshness = true
-
-    ###
-    # Set `Regexp.timeout` to `1`s by default to improve security over Regexp Denial-of-Service attacks.
-    #++
-    Regexp.timeout = 1
   end
 end

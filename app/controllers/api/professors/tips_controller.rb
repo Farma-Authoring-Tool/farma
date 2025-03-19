@@ -1,4 +1,4 @@
-class Api::Professors::TipsController < ApplicationController
+class Api::Professors::TipsController < Api::BaseController
   include FindResources
 
   before_action :find_tip, except: [:create, :index, :reorder]

@@ -1,4 +1,4 @@
-class Api::Professors::LosController < ApplicationController
+class Api::Professors::LosController < Api::BaseController
   before_action :find_lo, except: [:create, :index]
 
   def index

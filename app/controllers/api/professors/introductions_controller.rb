@@ -1,4 +1,4 @@
-class Api::Professors::IntroductionsController < ApplicationController
+class Api::Professors::IntroductionsController < Api::BaseController
   include FindResources
 
   before_action :find_introduction, except: [:create, :index]

@@ -1,4 +1,4 @@
-class Api::View::Guests::SolutionStepController < ApplicationController
+class Api::View::Guests::SolutionStepController < Api::BaseController
   before_action :set_solution_step
 
   def view

@@ -1,4 +1,4 @@
-class Api::Professors::ExercisesController < ApplicationController
+class Api::Professors::ExercisesController < Api::BaseController
   include FindResources
   before_action :find_exercise, except: [:create, :index]
 

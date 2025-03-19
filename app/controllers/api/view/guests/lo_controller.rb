@@ -1,4 +1,4 @@
-class Api::View::Guests::LoController < ApplicationController
+class Api::View::Guests::LoController < Api::BaseController
   include ResourcesByGuest
 
   before_action :find_lo, :set_or_create_user, :view_page

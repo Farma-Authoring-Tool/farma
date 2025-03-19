@@ -1,4 +1,4 @@
-class Api::View::Teams::SolutionStepController < ApplicationController
+class Api::View::Teams::SolutionStepController < Api::BaseController
   include ResourcesByCurrentUserTeams
 
   before_action :set_solution_step, :set_team
