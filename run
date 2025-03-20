@@ -40,13 +40,13 @@ function down {
 }
 
 function dcr {
-  # Run any command you want in the api container
+  # Run any command you want in the app container
   _dc run --rm "${@}"
 }
 
 function dc {
-  # Run any command you want in the api container
-  _dc_ api "${@}"
+  # Run any command you want in the app container
+  _dc_ app "${@}"
 }
 
 # -----------------------------------------------------------------------------
@@ -82,18 +82,18 @@ function linters {
 # Test functions
 # -----------------------------------------------------------------------------
 function test {
-  _dc_ api-tests rails test "${@}"
+  _dc_ app-tests rails test "${@}"
 }
 
 function test:coverage {
-  docker compose exec -e COVERAGE=true api-tests rails test "${@}"
+  docker compose exec -e COVERAGE=true app-tests rails test "${@}"
 }
 
 # -----------------------------------------------------------------------------
 # Shell functions
 # -----------------------------------------------------------------------------
 function shell {
-  # Start a shell session in the api container
+  # Start a shell session in the app container
   dc bash "${@}"
 }
 
@@ -107,6 +107,13 @@ function psql {
 }
 
 # -----------------------------------------------------------------------------
+# git functions
+# -----------------------------------------------------------------------------
+function git:clean:branches {
+  git branch | grep -v '\*\|master\|main\|develop' | xargs -n 1 git branch -D
+}
+
+# -----------------------------------------------------------------------------
 # Help
 # -----------------------------------------------------------------------------
 function help {
@@ -115,7 +122,7 @@ function help {
   compgen -A function | grep -v "^_" | cat -n
 
   printf "\nExtended help:\n  Each task has comments for general usage\n"
-} 
+}
 
 # This idea is heavily inspired by: https://github.com/adriancooney/Taskfile
 TIMEFORMAT=$'\nTask completed in %3lR'

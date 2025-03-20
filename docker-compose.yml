@@ -16,7 +16,7 @@ x-app: &app
   tty: true
 
 services:
-  api:
+  app:
     <<: *app
     command: >
       bash -c "
@@ -41,7 +41,7 @@ services:
     networks:
       - app-network
 
-  api-tests:
+  app-tests:
     <<: *app
     environment:
       RAILS_ENV: test

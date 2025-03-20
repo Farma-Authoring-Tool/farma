@@ -108,7 +108,7 @@ RUN echo "${_USER} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 RUN mkdir -p $APP \
   && mkdir -p $BUNDLE_PATH
 
-RUN chown ${_USER}:${_USER} $BUNDLE_PATH $APP
+RUN chown -R ${_USER}:${_USER} /bundle $APP
 
 ## Change current user
 USER ${_USER}:${_USER}

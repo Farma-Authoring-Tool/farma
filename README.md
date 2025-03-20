@@ -1,5 +1,3 @@
-[![My Skills](https://skills.thijs.gg/icons?i=git,docker,postgres,ruby,rails&theme=light)](https://skills.thijs.gg)
-
 # FARMA
 
 Authoring Tool for Remediation of Errors with Mobile in Learning. (From portuguese Brazil: Ferramenta de Autoria para a Remediação de Erros com Mobilidade na Aprendizagem)
@@ -12,12 +10,14 @@ FARMA is a tool that allows the creation of learning objects for math learning i
 
 - Diego Marczal (https://github.com/dmarczal)
 
-### Contributors
+### Main Contributors
 
 - Isabela Taques Vitek (https://github.com/isabela-tvitek)
+- Douglas Vinicius Caldas Bonin (https://github.com/dviniciusbonin)
+- Gabriel Henrique Ribas (https://github.com/GabrielHenriqueRibas)
 
 ### License
 
-MIT License. Copyright 2023 FARMA.
+MIT License. Copyright 2025 FARMA.
 
 You are not granted rights or licenses to the trademarks of the FARMA, including without limitation the FARMA name or logo.
