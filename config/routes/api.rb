@@ -1,15 +1,9 @@
-devise_for :users,
-           defaults: { format: :json },
-           path: '',
-           path_names: {
-             sign_in: 'login',
-             sign_out: 'logout',
-             registration: 'signup'
-           },
-           controllers: {
-             sessions: 'users/sessions',
-             registrations: 'users/registrations'
-           }
+devise_scope :user do
+  post '/api/signup', to: 'api/users/registrations#create', defaults: { format: 'json' }, as: :api_user_registration
+
+  post '/api/login', to: 'api/users/sessions#create', defaults: { format: 'json' }, as: :api_user_session
+  delete '/api/logout', to: 'api/users/sessions#destroy', defaults: { format: 'json' }, as: :api_destroy_user_session
+end
 
 authenticate :user do
   namespace :api do

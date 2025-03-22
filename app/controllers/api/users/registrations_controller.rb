@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class Users::RegistrationsController < Devise::RegistrationsController
+class Api::Users::RegistrationsController < Devise::RegistrationsController
+  protect_from_forgery with: :null_session
   before_action :configure_permitted_parameters
   respond_to :json
 

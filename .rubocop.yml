@@ -57,3 +57,8 @@ Naming/MethodParameterName:
     - "app/models/logics/lo/progress.rb"
     - "app/resources/los/**.rb"
     - "app/resources/pages/**.rb"
+
+Rails/LexicallyScopedActionFilter:
+  Exclude:
+    - "app/controllers/users/auth/sessions_controller.rb"
+    - "app/controllers/users/auth/registrations_controller.rb"
