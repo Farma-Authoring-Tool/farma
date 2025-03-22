@@ -1,4 +1,4 @@
-class Api::View::Professors::LoController < ApplicationController
+class Api::View::Professors::LoController < Api::BaseController
   before_action :find_lo, :view_page
 
   def show

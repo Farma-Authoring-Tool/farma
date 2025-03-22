@@ -263,8 +263,9 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  # config.navigational_formats = ['*/*', :html, :turbo_stream]
-  config.navigational_formats = []
+  # config.navigational_formats = ['*/*', :html, :json]
+  config.navigational_formats = ['*/*', :html, :turbo_stream]
+  # config.navigational_formats = []
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
@@ -311,17 +312,26 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-  config.warden do |warden|
-    warden.scope_defaults :user, store: false
-  end
+  # config.warden do |warden|
+  #   warden.scope_defaults :user, store: false
+  # end
+  # config.warden do |warden|
+  #   warden.scope_defaults :user, store: false, if: ->(request) { request.format.json? }
+  # end
 
+  # Here, we are just specifying that on every post request to login call, append JWT token to Authorization
+  # header as “Bearer” + token when there’s a successful response sent back and on a delete call to logout
+  # endpoint, the token should be revoked.
+  #
+  # The jwt.expiration_time sets the expiration time for the generated token. In this example, it’s 30 minutes.
   config.jwt do |jwt|
     jwt.secret = Rails.application.credentials.fetch(:secret_key_base)
     jwt.dispatch_requests = [
-      ['POST', %r{^/login$}]
+      ['POST', %r{^/api/login$}],
+      ['POST', %r{^/api/signup$}]
     ]
     jwt.revocation_requests = [
-      ['DELETE', %r{^/logout$}]
+      ['DELETE', %r{^/api/logout$}]
     ]
     jwt.expiration_time = 30.minutes.to_i
   end

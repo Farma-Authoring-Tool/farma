@@ -1,4 +1,4 @@
-class Api::Professors::SolutionStepsController < ApplicationController
+class Api::Professors::SolutionStepsController < Api::BaseController
   include FindResources
 
   before_action :find_solution_step, except: [:create, :index, :reorder]
@@ -58,7 +58,7 @@ class Api::Professors::SolutionStepsController < ApplicationController
   private
 
   def solution_steps_params
-    params.require(:solution_step).permit(:title, :description, :response, :decimal_digits, :public, :tips_display_mode)
+    params.expect(solution_step: [:title, :description, :response, :decimal_digits, :public, :tips_display_mode])
   end
 
   def find_solution_step

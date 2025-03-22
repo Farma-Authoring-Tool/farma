@@ -1,4 +1,4 @@
-class Api::Professors::TipsController < ApplicationController
+class Api::Professors::TipsController < Api::BaseController
   include FindResources
 
   before_action :find_tip, except: [:create, :index, :reorder]
@@ -55,7 +55,7 @@ class Api::Professors::TipsController < ApplicationController
   private
 
   def tips_params
-    params.require(:tip).permit(:title, :description, :number_attempts)
+    params.expect(tip: [:title, :description, :number_attempts])
   end
 
   def find_tip

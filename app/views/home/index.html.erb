@@ -1,0 +1,36 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<h2>Stimulus example</h2>
+
+<div data-controller="counter">
+  <h2 data-counter-target="output">0</h2>
+  <button data-action="click->counter#increment">+</button>
+</div>
+
+<br>
+
+<div data-controller="hello"></div>
+<br>
+
+<h2>Turbo example</h2>
+
+<%= turbo_frame_tag "test_id" do %>
+  <p>Nothing, click the test to see the magic</p>
+
+  <%= link_to 'Test', test_path %>
+<% end %>
+
+<h2>Flash example</h2>
+
+<p><%= flash[:success] %></p>
+
+<h2>Autenticado</h2>
+<% if current_user %>
+  <p>Sim: <%= current_user.email %></p>
+  <%= link_to 'Authenticate route', users_path %>
+  <%= link_to 'Logout', destroy_user_session_path, data: { turbo_method: :delete } %>
+<% else %>
+  <p>Não</p>
+  <%= link_to 'Login', new_user_session_path %>
+<% end %>

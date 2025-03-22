@@ -1,4 +1,4 @@
-class Api::Professors::IntroductionsController < ApplicationController
+class Api::Professors::IntroductionsController < Api::BaseController
   include FindResources
 
   before_action :find_introduction, except: [:create, :index]
@@ -55,7 +55,7 @@ class Api::Professors::IntroductionsController < ApplicationController
   private
 
   def introduction_params
-    params.require(:introduction).permit(:title, :description, :public)
+    params.expect(introduction: [:title, :description, :public])
   end
 
   def find_introduction

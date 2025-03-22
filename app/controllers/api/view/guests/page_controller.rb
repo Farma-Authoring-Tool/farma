@@ -1,4 +1,4 @@
-class Api::View::Guests::PageController < ApplicationController
+class Api::View::Guests::PageController < Api::BaseController
   before_action :set_page, :view_page
 
   def show

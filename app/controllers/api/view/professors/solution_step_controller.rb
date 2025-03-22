@@ -1,4 +1,4 @@
-class Api::View::Professors::SolutionStepController < ApplicationController
+class Api::View::Professors::SolutionStepController < Api::BaseController
   before_action :set_solution_step
 
   def view

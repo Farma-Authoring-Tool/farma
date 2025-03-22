@@ -2,7 +2,7 @@ class SolutionStep < ApplicationRecord
   include Duplicate
 
   enum :tips_display_mode,
-       [:by_number_of_errors, :sequentially, :all_at_once],
+       { by_number_of_errors: 0, sequentially: 1, all_at_once: 2 },
        default: :by_number_of_errors,
        prefix: :tips
 

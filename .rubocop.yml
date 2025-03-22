@@ -1,11 +1,11 @@
-require:
+plugins:
   - rubocop-rails
   - rubocop-minitest
   - rubocop-factory_bot
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 3.2
+  TargetRubyVersion: 3.4
 
   # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
   # to ignore them, so only the ones explicitly set in this file are enabled.
@@ -14,6 +14,9 @@ AllCops:
     - "vendor/**/*"
     - "bin/*"
     - "db/schema.rb"
+    - "db/queue_schema.rb"
+    - "db/cache_schema.rb"
+    - "config/importmap.rb"
     - "config/puma.rb"
     - "config/initializers/backtrace_silencers.rb"
     - "config/initializers/content_security_policy.rb"
@@ -44,6 +47,7 @@ Metrics/BlockLength:
   Exclude:
     - "config/environments/development.rb"
     - "config/routes.rb"
+    - "config/routes/*.rb"
     - "config/environments/devise.rb"
     - "test/controllers/**/*"
 
@@ -53,3 +57,8 @@ Naming/MethodParameterName:
     - "app/models/logics/lo/progress.rb"
     - "app/resources/los/**.rb"
     - "app/resources/pages/**.rb"
+
+Rails/LexicallyScopedActionFilter:
+  Exclude:
+    - "app/controllers/users/auth/sessions_controller.rb"
+    - "app/controllers/users/auth/registrations_controller.rb"

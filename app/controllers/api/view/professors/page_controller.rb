@@ -1,4 +1,4 @@
-class Api::View::Professors::PageController < ApplicationController
+class Api::View::Professors::PageController < Api::BaseController
   before_action :set_page
 
   def show

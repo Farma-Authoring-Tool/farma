@@ -1,4 +1,4 @@
-class Api::Professors::LosController < ApplicationController
+class Api::Professors::LosController < Api::BaseController
   before_action :find_lo, except: [:create, :index]
 
   def index
@@ -45,7 +45,7 @@ class Api::Professors::LosController < ApplicationController
   private
 
   def lo_params
-    params.require(:lo).permit(:title, :description)
+    params.expect(lo: [:title, :description])
   end
 
   def find_lo
