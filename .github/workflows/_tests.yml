@@ -10,7 +10,7 @@ jobs:
   run-tests:
     runs-on: ubuntu-latest
     container:
-      image: ruby:3.3.0
+      image: ruby:3.4.2
     services:
       db:
         image: postgres
