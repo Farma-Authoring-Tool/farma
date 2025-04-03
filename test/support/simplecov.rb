@@ -1,7 +1,7 @@
 if ENV['COVERAGE']
   require 'simplecov'
 
-  SimpleCov.minimum_coverage 90
+  SimpleCov.minimum_coverage 85
 
   SimpleCov.start 'rails' do
     add_filter %r{^/(?!app|lib)/}

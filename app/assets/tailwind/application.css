@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/aspect-ratio";
+@plugin "@tailwindcss/typography";
+
+@layer base {
+    a {
+        @apply text-sm font-medium text-blue-600 hover:underline;
+    }
+}

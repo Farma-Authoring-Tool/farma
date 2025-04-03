@@ -41,6 +41,7 @@ gem 'devise-jwt'
 gem 'rack-cors'
 gem 'rails-i18n', '~> 8.0.0'
 
+gem 'tailwindcss-rails', '4.1.0'
 gem 'whenever'
 
 group :development do
