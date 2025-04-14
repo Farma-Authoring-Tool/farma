@@ -60,6 +60,10 @@ function rails {
   dc rails "${@}"
 }
 
+function tailwind:watch {
+  dc rails tailwindcss:watch "${@}"
+}
+
 function rubocop {
   dc bundle exec rubocop --parallel "${@}"
 }

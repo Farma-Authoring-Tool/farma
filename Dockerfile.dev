@@ -85,6 +85,7 @@ RUN apt-get update -qq && \
   cron         \
   sudo         \
   vim          \
+  watchman     \
   && rm -rf /var/lib/apt/lists/*
 
 ENV _USER rails
