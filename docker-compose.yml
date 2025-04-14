@@ -6,8 +6,6 @@ x-app: &app
     - .:/var/www/farma
     - bundle_path:/bundle
     - /dev/shm:/dev/shm
-  tmpfs:
-    - /tmp
   depends_on:
     - db
   networks:
