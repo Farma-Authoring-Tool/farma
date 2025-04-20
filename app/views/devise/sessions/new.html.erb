@@ -18,13 +18,13 @@
       <%= f.password_field :password, autocomplete: "current-password", placeholder: "Senha", class: "text-sm w-full px-4 py-2 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-none" %>
 
       <% if devise_mapping.rememberable? %>
-        <div class="flex items-center space-x-2 text-sm text-gray-700">
+        <div class="field flex items-center space-x-2 text-sm text-gray-700">
           <%= f.check_box :remember_me, class: "rounded" %>
           <%= f.label :remember_me, "Permanecer conectado?" %>
         </div>
       <% end %>
 
-      <%= f.submit "ENTRAR", class: "w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 rounded-md transition duration-200" %>
+      <%= f.submit "Log in", class: "w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 rounded-md transition duration-200" %>
 
     <% end %>
   
