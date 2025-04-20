@@ -128,6 +128,10 @@ function help {
   printf "\nExtended help:\n  Each task has comments for general usage\n"
 }
 
+function edit:credentials {
+  docker compose run --rm -e EDITOR=vim app rails credentials:edit --environment "${1:-development}"
+}
+
 # This idea is heavily inspired by: https://github.com/adriancooney/Taskfile
 TIMEFORMAT=$'\nTask completed in %3lR'
 time "${@:-help}"
