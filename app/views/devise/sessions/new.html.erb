@@ -1,9 +1,9 @@
 <div class="min-h-screen flex flex-col items-center justify-center bg-black bg-cover bg-center relative">
-  
+
   <%= image_tag 'background.png', alt: 'Background Image', class: "absolute top-0 left-0 w-full h-full object-cover z-0 opacity-25" %>
-  
+
   <%= image_tag 'farma-gray.png', alt: 'Background Image', class: "relative z-10 max-w-md mx-auto h-12 mb-4" %>
-  
+
   <div class="relative z-10 max-w-md mx-auto bg-white rounded-xl shadow-md p-8 w-full max-w-md">
     <h2 class="text-center text-xl font-semibold text-gray-900 mb-2">ENTRAR</h2>
 
@@ -11,10 +11,22 @@
       Acesse a FARMA agora mesmo por meio de seu email e senha de acesso
     </p>
 
+    <%= rc "flash/message" %>
+
+    <%= rc "button", text: "Hello", path: "#" %>
+    <%= rc "button/primary", text: "Hello", path: "#" %>
+
+    <%= form_with(model: resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-4" }) do |f| %>
+      <%= f.tw_text_field :email %>
+      <%= f.tw_password_field :password %>
+
+      <%= f.tw_submit %>
+    <% end %>
+
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-4" }) do |f| %>
 
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "text-sm w-full px-4 py-2 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-none" %>
-   
+
       <%= f.password_field :password, autocomplete: "current-password", placeholder: "Senha", class: "text-sm w-full px-4 py-2 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-none" %>
 
       <% if devise_mapping.rememberable? %>
@@ -27,9 +39,12 @@
       <%= f.submit "Log in", class: "w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 rounded-md transition duration-200" %>
 
     <% end %>
-  
+
     <div class="mt-4">
       <%= render "devise/shared/links" %>
     </div>
-  </div> 
+  </div>
 </div>
+
+
+

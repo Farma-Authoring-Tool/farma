@@ -43,6 +43,7 @@ gem 'rails-i18n', '~> 8.0.0'
 
 gem 'tailwindcss-rails', '4.1.0'
 gem 'whenever'
+gem "view_component"
 
 group :development do
   gem 'brakeman'

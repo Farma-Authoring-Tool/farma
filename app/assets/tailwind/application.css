@@ -4,8 +4,43 @@
 @plugin "@tailwindcss/aspect-ratio";
 @plugin "@tailwindcss/typography";
 
+@theme {
+  --font-cinzel-decorative: 'Cinzel Decorative', 'sans-serif';
+  --font-cinzel: 'Cinzel', 'serif';
+  --font-gowun: 'Gowun Batang', 'serif';
+
+  --color-themys-french-plum: oklch(42.52% 0.1573 350.87);
+  --color-themys-merlot: oklch(40.94% 0.1461 23);
+  --color-themys-cod-gray: oklch(19.36% 0.0032 17.44);
+  --color-themys-dune: oklch(33.63% 0.0066 48.52);
+  --color-themys-straw: oklch(80.25% 0.0759 93.2);
+  --color-themys-tussock: oklch(71.66% 0.1187 88.43);
+  --color-themys-soft-peach: oklch(93.81% 0.0098 17.33);
+
+  --shadow-basic: 0px 4px 4px rgba(0, 0, 0, 0.50);
+  --shadow-input: 5px 5px 4px rgba(59, 54, 52, 1);
+  --shadow-contrast: 3px 2px 2px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 10px rgba(207, 190, 134, 1);
+  --shadow-glow-lg: 0 0 12px rgba(195, 156, 65, 0.65);
+  --shadow-glow-sm: 0 0 4px rgba(195, 156, 65, 1);
+}
+
 @layer base {
     a {
-        @apply text-sm font-medium text-blue-600 hover:underline;
+        @apply text-sm font-medium text-blue-600;
     }
+}
+
+@layer components {
+  .btn {
+    @apply rounded-sm px-4 py-2 font-bold transition duration-300 ease-in-out;
+  }
+
+  .btn-primary {
+    @apply bg-blue-500 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-400;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-500 text-white hover:bg-gray-700 focus:ring-2 focus:ring-gray-400;
+  }
 }
