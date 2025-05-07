@@ -42,6 +42,7 @@ gem 'rack-cors'
 gem 'rails-i18n', '~> 8.0.0'
 
 gem 'tailwindcss-rails', '4.1.0'
+gem 'view_component'
 gem 'whenever'
 
 group :development do
