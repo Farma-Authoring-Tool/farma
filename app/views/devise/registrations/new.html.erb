@@ -1,39 +1,13 @@
-<div class="min-h-screen flex flex-col items-center justify-center bg-black bg-cover bg-center relative">
-  
-  <%= image_tag 'background.png', alt: 'Background Image', class: "absolute top-0 left-0 w-full h-full object-cover z-0 opacity-25" %>
-  
-  <%= image_tag 'farma-gray.png', alt: 'Background Image', class: "relative z-10 max-w-md mx-auto h-12 mb-4" %>
-  
-  <div class="relative z-10 max-w-md mx-auto bg-white rounded-xl shadow-md p-8 w-full max-w-md">
-    <h2 class="text-center text-xl font-semibold text-gray-900 mb-2">REGISTRAR-SE</h2>
+<% provide(:head_title, t('devise.registrations.new.sign_up')) %>
+<% provide(:head_subtitle, t('messages.devise.sign_up')) %>
 
-    <p class="text-center text-sm text-gray-600 mb-6">
-      Faça seu registro na FARMA agora mesmo inserindo os seguintes dados
-    </p>
+<%= rc "flash/message" %>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "space-y-4" }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_with(model: resource, as: resource_name, url: registration_path(resource_name), html: { class: "space-y-4" }, builder: TailwindFormBuilder) do |f| %>
+  <%= f.tw_text_field :name %>
+  <%= f.tw_email_field :email %>
+  <%= f.tw_password_field :password, hint: (t("devise.shared.minimum_password_length.other", count: @minimum_password_length) if @minimum_password_length) %>
+  <%= f.tw_password_field :password_confirmation %>
 
-      <%= f.text_field :name, autofocus: true, autocomplete: "email", placeholder: "Nome", class: "text-sm w-full px-4 py-2 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-none" %>
-
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "text-sm w-full px-4 py-2 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-none" %>
-
-      <div>
-        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Senha", class: "text-sm w-full px-4 py-2 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-none" %>
-        
-        <% if @minimum_password_length %>
-          <em class="text-xs">(minimo de <%= @minimum_password_length %> caracteres)</em>
-        <% end %><br />  
-      </div>
-      
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirme sua senha", class: "text-sm w-full px-4 py-2 border border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-none" %>
-
-      <%= f.submit "Sign up", class: "w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 rounded-md transition duration-200" %>
-
-    <% end %>
-  
-    <div class="mt-4">
-      <%= render "devise/shared/links" %>
-    </div>
-  </div> 
-</div>
+  <%= rc "button/primary", text: "Cadastrar", type: "submit" %>
+<% end %>

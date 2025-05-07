@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <%= render 'layouts/devise/sections/head' %>
+  <body>       
+    <div class="min-h-screen flex flex-col items-center justify-center bg-black bg-cover bg-center relative">
+      <%= render 'layouts/devise/sections/background' %>
+      <%= render 'layouts/devise/sections/logo' %>
+
+      <main class="relative z-10 max-w-md mx-auto bg-white bg-fixed rounded-xl shadow-md p-8 w-full max-w-md">
+        <h1 class="text-center text-xl font-semibold text-gray-900 mb-2">
+          <%= yield :head_title %>
+        </h1>
+
+        <h1 class="text-center text-sm text-gray-600 mb-6">
+          <%= yield :head_subtitle %>
+        </h1>
+        
+        <%= yield %>
+
+        <div class="mt-4">
+          <%= render "devise/shared/links" %>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -85,6 +85,7 @@ pt-BR:
         new_password: Nova senha
       new:
         forgot_your_password: Esqueceu sua senha?
+        message: Não se preocupe, vamos criar uma nova. 
         send_me_reset_password_instructions: Enviar instruções para redefinição da senha
       no_token: Você não pode acessar esta página sem estar logado. Se você veio de um email de redefinição de senha, por favor certifique-se de ter digitado a URL corretamente.
       send_instructions: Dentro de minutos, você receberá um e-mail com as instruções de redefinição da sua senha.

@@ -1,16 +1,10 @@
-<h2>Forgot your password?</h2>
+<% provide(:head_title, t('devise.passwords.edit.change_my_password')) %>
+<% provide(:head_subtitle, t('messages.devise.password.edit')) %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= rc "flash/message" %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "space-y-4" }, builder: TailwindFormBuilder) do |f| %>
+  <%= f.tw_email_field :email, label: false, autofocus: true, autocomplete: "email" %>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
+  <%= rc "button/primary", text: "Envie-me o link de redefinição", type: "submit" %>
 <% end %>
-
-<%= render "devise/shared/links" %>
