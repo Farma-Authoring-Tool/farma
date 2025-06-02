@@ -1,0 +1,11 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-32 max-w-4xl w-full justify-center items-center">
+  <%= link_to student_path, class: "no-underline bg-green-700 rounded-2xl shadow-2xl p-4 flex flex-col items-center text-white transition-transform duration-300 hover:ring-4 hover:ring-green-600 hover:scale-105" do %>
+    <%= render 'users/home/sections/icon/student' %>
+    <p class="font-bold">Aluno</p>
+  <% end %>
+
+  <%= link_to educator_path, class: "no-underline bg-green-700 rounded-2xl shadow-2xl p-4 flex flex-col items-center text-white transition-transform duration-300 hover:ring-4 hover:ring-green-600 hover:scale-105" do %>
+    <%= render 'users/home/sections/icon/teacher' %>
+    <p class="font-bold">Professor</p>
+  <% end %>  
+</div>

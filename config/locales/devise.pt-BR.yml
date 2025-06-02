@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     attributes:
       user:
+        select_user: Selecione seu tipo de Usuário
         confirmation_sent_at: Confirmação enviada em
         confirmation_token: Token de confirmação
         confirmed_at: Confirmado em

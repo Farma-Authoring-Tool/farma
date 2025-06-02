@@ -1,6 +1,7 @@
 class Flash::Message::Component < ViewComponent::Base
   def initialize(id: nil)
-    @id = id || "flash_messages"
+    super
+    @id = id || 'flash_messages'
   end
 
   def messages
@@ -13,11 +14,10 @@ class Flash::Message::Component < ViewComponent::Base
 
   private
 
-    def class_type(flash_type)
-      { notice: "bg-blue-50 text-blue-800",
-        alert: "bg-red-50 text-red-800",
-        success: "bg-green-50 text-green-800",
-        warning: "bg-yellow-50 text-yellow-800"
-      }[flash_type.to_sym] || "alert-#{flash_type}"
-    end
+  def class_type(flash_type)
+    { notice: 'bg-blue-50 text-blue-800',
+      alert: 'bg-red-50 text-red-800',
+      success: 'bg-green-50 text-green-800',
+      warning: 'bg-yellow-50 text-yellow-800' }[flash_type.to_sym] || "alert-#{flash_type}"
+  end
 end

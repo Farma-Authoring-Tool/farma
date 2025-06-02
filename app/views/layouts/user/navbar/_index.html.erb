@@ -1,0 +1,10 @@
+<nav class="bg-zinc-800 text-white px-4 py-2 flex items-center justify-between shadow">
+    <%= render 'layouts/user/navbar/sections/menu' %>
+
+    <%= image_tag 'farma-gray.png', alt: 'Background Image', class: "relative z-10 max-w-md mx-auto h-12" %>
+
+    <div class="text-right text-sm leading-tight">
+      <p>Seja bem Vindo</p>
+      <p class="text-gray-400"><%= current_user.name %></p>
+    </div>
+</nav>

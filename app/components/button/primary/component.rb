@@ -1,5 +1,6 @@
 class Button::Primary::Component < ViewComponent::Base
-  def initialize(path: nil, text:, type: "link", classes: "")
+  def initialize(text:, path: nil, type: 'link', classes: '')
+    super
     @path = path
     @text = text
     @type = type
