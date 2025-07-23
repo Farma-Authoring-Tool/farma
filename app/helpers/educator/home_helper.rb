@@ -1,2 +1,0 @@
-module Educator::HomeHelper
-end

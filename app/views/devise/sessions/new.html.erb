@@ -1,5 +1,5 @@
 <% provide(:head_title, t('devise.sessions.new.sign_in')) %>
-<% provide(:head_subtitle, t('messages.devise.sign_in')) %>
+<% provide(:head_subtitle, t('devise.sessions.new.sign_in_description')) %>
 
 <%= rc "flash/message" %>
 
@@ -7,7 +7,7 @@
   <%= f.tw_text_field :email%>
   <%= f.tw_password_field :password%>
 
-  <%= rc "button/primary", text: "Entrar", type: "submit" %>
+  <div class="actions">
+    <%= f.submit "Entrar", class:"w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 rounded-md transition duration-200" %>
+  </div> 
 <% end %>
-
-

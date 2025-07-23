@@ -1,13 +1,18 @@
 <% provide(:head_title, t('devise.registrations.new.sign_up')) %>
-<% provide(:head_subtitle, t('messages.devise.sign_up')) %>
+<% provide(:head_subtitle, t('devise.registrations.new.sign_up_description')) %>
 
 <%= rc "flash/message" %>
 
 <%= form_with(model: resource, as: resource_name, url: registration_path(resource_name), html: { class: "space-y-4" }, builder: TailwindFormBuilder) do |f| %>
   <%= f.tw_text_field :name %>
-  <%= f.tw_email_field :email %>
-  <%= f.tw_password_field :password, hint: (t("devise.shared.minimum_password_length.other", count: @minimum_password_length) if @minimum_password_length) %>
-  <%= f.tw_password_field :password_confirmation %>
 
-  <%= rc "button/primary", text: "Cadastrar", type: "submit" %>
+  <%= f.tw_email_field :email %>
+
+  <%= f.tw_password_field :password, hint: (t("devise.shared.minimum_password_length.other", count: @minimum_password_length) if @minimum_password_length) %>
+  
+  <%= f.tw_password_field :password_confirmation %>
+  
+  <div class="actions">
+    <%= f.submit "Cadastrar", class:"w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 rounded-md transition duration-200" %>
+  </div>  
 <% end %>

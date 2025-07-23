@@ -1,10 +1,10 @@
 <% provide(:head_title, t('devise.passwords.edit.change_my_password')) %>
-<% provide(:head_subtitle, t('messages.devise.password.edit')) %>
+<% provide(:head_subtitle, t('devise.passwords.edit.new_password_description')) %>
 
 <%= rc "flash/message" %>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "space-y-4" }, builder: TailwindFormBuilder) do |f| %>
   <%= f.tw_email_field :email, label: false, autofocus: true, autocomplete: "email" %>
 
-  <%= rc "button/primary", text: "Envie-me o link de redefinição", type: "submit" %>
+  <%= rc "button/submit", text: "Envie-me o link de redefinição", type: "submit" %>
 <% end %>

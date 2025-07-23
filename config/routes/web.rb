@@ -8,6 +8,6 @@ devise_for :users, controllers: {
 }
 authenticate :user do
   get '/users', to: 'users/home#index'
-  get '/student',  to: 'student/home#index'
-  get '/educator', to: 'educator/home#index'
+  get '/students',  to: 'students/home#index'
+  get '/educators', to: 'educators/home#index'
 end

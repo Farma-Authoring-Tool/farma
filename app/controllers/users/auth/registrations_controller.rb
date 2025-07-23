@@ -8,6 +8,10 @@ class Users::Auth::RegistrationsController < Devise::RegistrationsController
     new_user_session_path
   end
 
+  def after_sign_up_path_for(_resource)
+    users_path
+  end
+
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end

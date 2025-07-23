@@ -41,7 +41,6 @@ gem 'devise-jwt'
 gem 'rack-cors'
 gem 'rails-i18n', '~> 8.0.0'
 
-gem 'tailwindcss-rails', '4.1.0'
 gem 'view_component'
 gem 'whenever'
 
@@ -67,7 +66,11 @@ end
 
 group :test do
   gem 'simplecov', require: false
-
+  gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'selenium-webdriver', '4.22.0'
   gem 'shoulda-context', '~> 2.0'
   gem 'shoulda-matchers', '~> 6.4.0'
 end
+
+gem 'tailwindcss-rails', '~> 4.1'

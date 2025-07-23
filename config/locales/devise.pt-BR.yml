@@ -2,7 +2,6 @@ pt-BR:
   activerecord:
     attributes:
       user:
-        select_user: Selecione seu tipo de Usuário
         confirmation_sent_at: Confirmação enviada em
         confirmation_token: Token de confirmação
         confirmed_at: Confirmado em
@@ -84,6 +83,7 @@ pt-BR:
         change_your_password: Alterar sua senha
         confirm_new_password: Confirme sua nova senha
         new_password: Nova senha
+        new_password_description: Insira uma nova senha para continuar
       new:
         forgot_your_password: Esqueceu sua senha?
         message: Não se preocupe, vamos criar uma nova. 
@@ -106,6 +106,7 @@ pt-BR:
         we_need_your_current_password_to_confirm_your_changes: precisamos da sua senha atual para confirmar suas mudanças
       new:
         sign_up: Inscrever-se
+        sign_up_description: "Inscreva-se na FARMA agora mesmo inserindo os seguintes dados"
       signed_up: Bem vindo! Você realizou seu registro com sucesso.
       signed_up_but_inactive: Você se inscreveu com sucesso, porém nós não podemos autenticá-lo porque sua conta ainda não foi ativada.
       signed_up_but_locked: Você se inscreveu com sucesso. Porém nós não podemos autenticá-lo porque sua conta está bloqueada.
@@ -117,6 +118,7 @@ pt-BR:
       already_signed_out: Logout efetuado com sucesso.
       new:
         sign_in: Login
+        sign_in_description: "Acessa a FARMA agora mesmo por meio de seu email e senha de acesso"
       signed_in: Login efetuado com sucesso.
       signed_out: Logout efetuado com sucesso.
       no_active: Não existe sessão ativa

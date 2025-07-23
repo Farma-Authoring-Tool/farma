@@ -1,10 +1,5 @@
 pt-BR:
   messages:
-    devise:
-      sign_in: "Acessa a FARMA agora mesmo por meio de seu email e senha de acesso"
-      sign_up: "Inscreva-se na FARMA agora mesmo inserindo os seguintes dados"
-      password:
-        edit: Insira uma nova senha para continuar
     actions:
       update:
         m: "%{entity} atualizado com sucesso!"
