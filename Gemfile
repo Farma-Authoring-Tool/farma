@@ -65,12 +65,12 @@ group :development, :test do
 end
 
 group :test do
-  gem 'simplecov', require: false
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'selenium-webdriver', '4.22.0'
   gem 'shoulda-context', '~> 2.0'
   gem 'shoulda-matchers', '~> 6.4.0'
+  gem 'simplecov', require: false
 end
 
 gem 'tailwindcss-rails', '~> 4.1'
