@@ -35,18 +35,18 @@ gem 'thruster', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'devise'
 gem 'devise-jwt'
 gem 'rack-cors'
 gem 'rails-i18n', '~> 8.0.0'
-
+gem 'tailwindcss-rails', '~> 4.1'
 gem 'view_component'
 gem 'whenever'
 
 group :development do
   gem 'brakeman'
   gem 'rubocop', require: false
+  gem 'rubocop-capybara', require: false
   gem 'rubocop-factory_bot', require: false
   gem 'rubocop-minitest', require: false
   gem 'rubocop-rails', require: false
@@ -72,5 +72,3 @@ group :test do
   gem 'shoulda-matchers', '~> 6.4.0'
   gem 'simplecov', require: false
 end
-
-gem 'tailwindcss-rails', '~> 4.1'
