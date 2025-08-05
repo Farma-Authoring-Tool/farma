@@ -49,11 +49,12 @@ pt-BR:
       success: Autorizado com sucesso de uma conta de %{kind}.
     passwords:
       edit:
-        change_my_password: Alterar minha senha
+        title: Alterar minha senha
+        subtitle: Insira uma nova senha para continuar
+        submit: Enviar instruções de redefinição de senha
         change_your_password: Alterar sua senha
         confirm_new_password: Confirme sua nova senha
         new_password: Nova senha
-        new_password_description: Insira uma nova senha para continuar
       new:
         forgot_your_password: Esqueceu sua senha?
         message: Não se preocupe, vamos criar uma nova.
