@@ -65,6 +65,13 @@ pt-BR:
       updated_not_active: Sua senha foi alterada com sucesso.
     registrations:
       destroyed: Adeus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.
+      signed_up: Bem vindo! Você realizou seu registro com sucesso.
+      signed_up_but_inactive: Você se inscreveu com sucesso, porém nós não podemos autenticá-lo porque sua conta ainda não foi ativada.
+      signed_up_but_locked: Você se inscreveu com sucesso. Porém nós não podemos autenticá-lo porque sua conta está bloqueada.
+      signed_up_but_unconfirmed: Uma mensagem com um link de confirmação foi enviada para o seu e-mail. Por favor, acesse o link para ativar sua conta.
+      update_needs_confirmation: Sua conta foi atualizada com sucesso, mas nós precisamos verificar o novo endereço de email. Por favor, verifique seu e-mail e clique no link de confirmação para finalizar confirmando o seu novo e-mail.
+      updated: A sua conta foi atualizada com sucesso.
+      updated_but_not_signed_in: Sua conta foi atualizada com sucesso, uma vez que sua senha foi alterada será necessário realizar o login novamente.
       edit:
         are_you_sure: Você tem certeza?
         cancel_my_account: Cancelar minha conta
@@ -78,21 +85,15 @@ pt-BR:
         title: Inscrever-se
         subtitle: "Inscreva-se na FARMA agora mesmo inserindo os seguintes dados"
         submit: Inscrever-se
-      signed_up: Bem vindo! Você realizou seu registro com sucesso.
-      signed_up_but_inactive: Você se inscreveu com sucesso, porém nós não podemos autenticá-lo porque sua conta ainda não foi ativada.
-      signed_up_but_locked: Você se inscreveu com sucesso. Porém nós não podemos autenticá-lo porque sua conta está bloqueada.
-      signed_up_but_unconfirmed: Uma mensagem com um link de confirmação foi enviada para o seu e-mail. Por favor, acesse o link para ativar sua conta.
-      update_needs_confirmation: Sua conta foi atualizada com sucesso, mas nós precisamos verificar o novo endereço de email. Por favor, verifique seu e-mail e clique no link de confirmação para finalizar confirmando o seu novo e-mail.
-      updated: A sua conta foi atualizada com sucesso.
-      updated_but_not_signed_in: Sua conta foi atualizada com sucesso, uma vez que sua senha foi alterada será necessário realizar o login novamente.
     sessions:
       already_signed_out: Logout efetuado com sucesso.
-      new:
-        sign_in: Login
-        sign_in_description: "Acessa a FARMA agora mesmo por meio de seu email e senha de acesso"
       signed_in: Login efetuado com sucesso.
       signed_out: Logout efetuado com sucesso.
       no_active: Não existe sessão ativa
+      new:
+        title: Entrar
+        subtitle: Acessa a FARMA agora mesmo por meio de seu email e senha de acesso.
+        submit: Entrar
     shared:
       links:
         back: Voltar

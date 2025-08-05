@@ -1,13 +1,11 @@
-<% provide(:head_title, t('devise.sessions.new.sign_in')) %>
-<% provide(:head_subtitle, t('devise.sessions.new.sign_in_description')) %>
+<% provide(:head_title, t(".title")) %>
+<% provide(:head_subtitle, t(".subtitle")) %>
 
-<%= rc "flash/message" %>
+<%= form_with(model: resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= f.input :email, type: :email %>
+  <%= f.input :password, type: :password %>
 
-<%= form_with(model: resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-4" }) do |f| %>
-  <%= f.tw_text_field :email%>
-  <%= f.tw_password_field :password%>
-
-  <div class="actions">
-    <%= f.submit "Entrar", class:"w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 rounded-md transition duration-200" %>
-  </div> 
+  <div class="flex items-center">
+    <%= f.submit t(".submit"), class: "w-full" %>
+  </div>
 <% end %>

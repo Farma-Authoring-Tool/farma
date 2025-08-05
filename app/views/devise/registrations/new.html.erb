@@ -1,8 +1,6 @@
 <% provide(:head_title, t(".title")) %>
 <% provide(:head_subtitle, t(".subtitle")) %>
 
-<%= render Flash::MessageComponent.new %>
-
 <%= form_with(model: resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
   <%= f.input :name %>
