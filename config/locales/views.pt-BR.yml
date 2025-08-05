@@ -1,4 +1,9 @@
 pt-BR:
+  app:
+    name: "FARMA: Ferramenta de Autoria para a Remediação de erros com Mobilidade na Aprendizagem."
+    short_name: FARMA
+    title: FARMA
+    description: Construa Objetos de Aprendizagem para o ensino de matemática
   home:
     title: "Ferramenta de Autoria para a Remediação de Erros com Mobilidade na Aprendizagem"
     subtitle: Crie e aplique os mais diversos tipos de objetos de aprendizagem para o ensino de Matemática. Se você é professor, monitore o desempenho e as dificuldades dos seus alunos. Se você é aprendiz, acompanhe sua performance, identifique suas dificuldades e receba feedbacks sobre sua interação.

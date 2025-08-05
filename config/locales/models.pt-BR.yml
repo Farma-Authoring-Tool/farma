@@ -1,0 +1,57 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+      lo:
+        one: Objeto de Aprendizagem
+        other: Objetos de Aprendizagem
+      introduction:
+        one: Introdução
+        other: Introduções
+      exercise:
+        one: Exercício
+        other: Exercícios
+      solution_step:
+        one: Passo da Solução
+        other: Passos da Solução
+      tip:
+        one: Dica
+        other: Dicas
+      page:
+        one: Página
+        other: Páginas
+    attributes:
+      attribute_commons: &commons
+        name: Nome
+        email: E-mail
+        created_at: Criado em
+        updated_at: Atualizado em
+      admin:
+        title: Título
+        description: Descrição
+        <<: *commons
+      user:
+        confirmation_sent_at: Confirmação enviada em
+        confirmation_token: Token de confirmação
+        confirmed_at: Confirmado em
+        created_at: Criado em
+        current_password: Senha atual
+        current_sign_in_at: Atualmente logado em
+        current_sign_in_ip: IP do acesso atual
+        encrypted_password: Senha criptografada
+        failed_attempts: Tentativas sem sucesso
+        last_sign_in_at: Último acesso em
+        last_sign_in_ip: Último IP de acesso
+        locked_at: Bloqueado em
+        password: Senha
+        password_confirmation: Confirme sua senha
+        remember_created_at: Lembrar criado em
+        remember_me: Lembre-se de mim
+        reset_password_sent_at: Resetar senha enviado em
+        reset_password_token: Resetar token de senha
+        sign_in_count: Contagem de acessos
+        unconfirmed_email: E-mail não confirmado
+        unlock_token: Token de desbloqueio
+        <<: *commons
