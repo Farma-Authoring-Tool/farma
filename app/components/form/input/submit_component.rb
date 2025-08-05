@@ -8,7 +8,7 @@ class Form::Input::SubmitComponent < ViewComponent::Base
   end
 
   def submit
-    classes = 'text-white py-2 px-4 rounded-md bg-green-700 hover:bg-green-900 cursor-pointer'
+    classes = 'btn-primary py-2 px-4 rounded-md cursor-pointer'
     @options[:class] = "#{classes} #{@options[:class]}"
     @options[:value] = @value if @value.present?
 
@@ -17,8 +17,8 @@ class Form::Input::SubmitComponent < ViewComponent::Base
 
   private
 
-  # this is necessary to avoid infinite recursion in submit method
-  def call_parent_method(instance, method, *)
-    instance.class.superclass.instance_method(method).bind(instance).call(*)
-  end
+    # this is necessary to avoid infinite recursion in submit method
+    def call_parent_method(instance, method, *)
+      instance.class.superclass.instance_method(method).bind(instance).call(*)
+    end
 end

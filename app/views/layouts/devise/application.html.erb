@@ -2,19 +2,28 @@
 <html>
 <%= render "layouts/partial/head" %>
 <body>
-<div class="min-h-screen flex flex-col items-center justify-center bg-black bg-cover bg-center relative">
-  <%= image_tag 'bg/authentication.png', alt: 'background_image', class: "absolute top-0 left-0 w-full h-full object-cover z-0 opacity-25" %>
 
-  <%= image_tag 'logo/farma-gray.png', alt: 'Logo FARMA', class: "relative z-10 max-w-md mx-auto h-12 mb-4 mt-10" %>
+<div class="min-h-screen flex flex-col items-center justify-center bg-black bg-cover bg-center relative">
+
+  <%= image_tag 'bg/authentication.png',
+                alt: 'background_image',
+                class: "absolute top-0 left-0 w-full h-full object-cover z-0 opacity-25" %>
+
+  <%= link_to root_path do %>
+    <%= image_tag 'logo/farma-gray.png',
+                  alt: 'Logo FARMA',
+                  class: "relative z-10 max-w-md mx-auto h-12 mb-4 mt-10" %>
+  <% end %>
 
   <main class="relative z-10 max-w-md mx-auto bg-white bg-fixed rounded-xl shadow-md p-8 w-full max-w-md mb-10">
+
     <h1 class="text-center text-xl font-semibold text-gray-900 mb-2">
       <%= yield :head_title %>
     </h1>
 
-    <h1 class="text-center text-sm text-gray-600 mb-6">
+    <h2 class="text-center text-sm text-gray-600 mb-6">
       <%= yield :head_subtitle %>
-    </h1>
+    </h2>
 
     <%= yield %>
 
