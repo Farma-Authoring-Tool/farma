@@ -86,7 +86,7 @@ pt-BR:
         new_password_description: Insira uma nova senha para continuar
       new:
         forgot_your_password: Esqueceu sua senha?
-        message: Não se preocupe, vamos criar uma nova. 
+        message: Não se preocupe, vamos criar uma nova.
         send_me_reset_password_instructions: Enviar instruções para redefinição da senha
       no_token: Você não pode acessar esta página sem estar logado. Se você veio de um email de redefinição de senha, por favor certifique-se de ter digitado a URL corretamente.
       send_instructions: Dentro de minutos, você receberá um e-mail com as instruções de redefinição da sua senha.
@@ -107,6 +107,7 @@ pt-BR:
       new:
         sign_up: Inscrever-se
         sign_up_description: "Inscreva-se na FARMA agora mesmo inserindo os seguintes dados"
+        submit: Inscrever-se
       signed_up: Bem vindo! Você realizou seu registro com sucesso.
       signed_up_but_inactive: Você se inscreveu com sucesso, porém nós não podemos autenticá-lo porque sua conta ainda não foi ativada.
       signed_up_but_locked: Você se inscreveu com sucesso. Porém nós não podemos autenticá-lo porque sua conta está bloqueada.

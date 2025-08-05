@@ -39,7 +39,7 @@ gem 'devise'
 gem 'devise-jwt'
 gem 'rack-cors'
 gem 'rails-i18n', '~> 8.0.0'
-gem 'tailwindcss-rails', '~> 4.1'
+gem 'tailwindcss-rails', '~> 4.3'
 gem 'view_component'
 gem 'whenever'
 

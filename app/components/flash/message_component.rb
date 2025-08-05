@@ -1,4 +1,4 @@
-class Flash::Message::Component < ViewComponent::Base
+class Flash::MessageComponent < ViewComponent::Base
   def initialize(id: nil)
     super
     @id = id || 'flash_messages'

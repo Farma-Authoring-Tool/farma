@@ -3,8 +3,12 @@
 
 <%= rc "flash/message" %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "space-y-4" }, builder: TailwindFormBuilder) do |f| %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name),
+             html: { method: :post, class: "space-y-4" }, builder: TailwindFormBuilder) do |f| %>
+
   <%= f.tw_email_field :email, label: false, autofocus: true, autocomplete: "email" %>
+
+
 
   <%= rc "button/submit", text: "Envie-me o link de redefinição", type: "submit" %>
 <% end %>
