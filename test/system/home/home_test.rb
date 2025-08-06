@@ -6,6 +6,6 @@ class HomeTest < ApplicationSystemTestCase
   test 'visiting the home page' do
     visit root_path
 
-    assert_selector 'h1', text: t('home.title')
+    assert_selector 'h1', text: t('home.sections.hero.title')
   end
 end
