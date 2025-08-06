@@ -17,6 +17,8 @@
     <h1 class="text-3xl font-bold text-gray-600"><%= yield(:head_title) %></h1>
   </div>
 
+  <%= render 'layouts/breadcrumbs/breadcrumbs' %>
+
   <div class="mx-auto mt-4 rounded-lg border border-gray-200 bg-white p-6">
 
     <%= render Flash::MessageComponent.new %>

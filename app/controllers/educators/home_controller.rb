@@ -1,7 +1,3 @@
-class Educators::HomeController < ApplicationController
-  before_action :authenticate_user!
-
-  layout 'educators/application'
-
+class Educators::HomeController < Educators::BaseController
   def dashboard; end
 end
