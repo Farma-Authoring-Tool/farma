@@ -1,0 +1,25 @@
+<section class="h-screen flex items-center justify-center bg-zinc-900 relative">
+
+  <%= image_tag 'logo/farma-gray.png', alt: 'Logo FARMA', class: "absolute top-6 left-10 h-8 z-50" %>
+
+  <div class="w-full md:w-1/2 flex flex-col justify-center items-start px-10 py-12 gap-7">
+
+    <h1 class="text-2xl md:text-3xl font-bold text-gray-50">
+      <%= t('.title') %>
+    </h1>
+
+    <p class="mt-4 text-gray-50 text-sm text-justify">
+      <%= t('.subtitle') %>
+    </p>
+
+    <div class="flex gap-6">
+      <%= link_to "Entrar", new_user_session_path, class: 'btn btn-primary' %>
+      <%= link_to "Cadastrar", new_user_registration_path, class: 'btn btn-outline-primary' %>
+    </div>
+  </div>
+
+  <div class="hidden md:block md:w-1/2 h-full">
+    <%= image_tag "bg/home.png", alt: "Estudantes mexendo em seus computadores", class: "w-screen h-screen object-cover object-center" %>
+  </div>
+
+</section>

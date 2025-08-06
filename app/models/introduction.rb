@@ -34,7 +34,7 @@ class Introduction < ApplicationRecord
 
   private
 
-  def set_position
-    self.position = Time.now.to_i
-  end
+    def set_position
+      self.position = Time.now.to_i
+    end
 end

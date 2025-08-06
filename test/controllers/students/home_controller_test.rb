@@ -6,8 +6,8 @@ class Students::HomeControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
   end
 
-  test 'should get index' do
-    get students_url
+  test 'should get /students' do
+    get students_root_url
 
     assert_response :success
   end

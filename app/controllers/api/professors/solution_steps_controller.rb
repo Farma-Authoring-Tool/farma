@@ -57,13 +57,13 @@ class Api::Professors::SolutionStepsController < Api::BaseController
 
   private
 
-  def solution_steps_params
-    params.expect(solution_step: [:title, :description, :response, :decimal_digits, :public, :tips_display_mode])
-  end
+    def solution_steps_params
+      params.expect(solution_step: [:title, :description, :response, :decimal_digits, :public, :tips_display_mode])
+    end
 
-  def find_solution_step
-    @solution_step = @exercise.solution_steps.find(params[:id])
-  rescue ActiveRecord::RecordNotFound => e
-    render json: { message: resource_not_found_message(model: e.model) }, status: :not_found
-  end
+    def find_solution_step
+      @solution_step = @exercise.solution_steps.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { message: resource_not_found_message(model: e.model) }, status: :not_found
+    end
 end

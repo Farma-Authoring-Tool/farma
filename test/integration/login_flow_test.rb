@@ -9,18 +9,18 @@ class Users::LoginFlowTest < ActionDispatch::IntegrationTest
     get new_user_session_path
 
     assert_response :success
-    assert_select 'h1', text: I18n.t('devise.sessions.new.sign_in')
+    assert_select 'h1', text: I18n.t('devise.sessions.new.title')
   end
 
   test 'should login user with valid credentials' do
     post user_session_path, params: { user: { email: @user.email, password: '123456' } }
 
-    assert_redirected_to users_path
+    assert_redirected_to users_choose_profile_path
 
     follow_redirect!
 
     assert_response :success
-    assert_select 'p', 'Aluno'
+    assert_select 'p', 'Acesse o painel de estudante'
   end
 
   test 'should not login user with invalid credentials' do

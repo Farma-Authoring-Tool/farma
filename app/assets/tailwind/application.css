@@ -1,3 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/aspect-ratio";
+@plugin "@tailwindcss/typography";
+
+@layer base {
+  a {
+    @apply text-sm font-medium text-blue-600;
+  }
+}
+
+@layer components {
+  /*------------------------------------------------------------------------------------*/
+  /* Defaults Buttons */
+  .btn {
+    @apply font-bold py-2 px-4 rounded transition duration-300 ease-in-out !no-underline;
+  }
+
+  .btn-primary {
+    @apply bg-green-700 text-white hover:bg-green-900 focus:ring-2 focus:ring-green-700;
+  }
+
+  .btn-outline-primary {
+    @apply bg-transparent text-green-400 border border-green-700 hover:bg-green-700 hover:text-white focus:ring-2 focus:ring-green-700;
+  }
+
+  /*------------------------------------------------------------------------------------*/
+  /* sidebar nav */
+  aside nav ul li a {
+    @apply text-gray-700 flex items-center p-2 rounded-lg hover:bg-blue-100;
+  }
+}

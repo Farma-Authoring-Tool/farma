@@ -1,34 +1,4 @@
 pt-BR:
-  activerecord:
-    attributes:
-      user:
-        confirmation_sent_at: Confirmação enviada em
-        confirmation_token: Token de confirmação
-        confirmed_at: Confirmado em
-        created_at: Criado em
-        current_password: Senha atual
-        current_sign_in_at: Atualmente logado em
-        current_sign_in_ip: IP do acesso atual
-        email: E-mail
-        encrypted_password: Senha criptografada
-        failed_attempts: Tentativas sem sucesso
-        last_sign_in_at: Último acesso em
-        last_sign_in_ip: Último IP de acesso
-        locked_at: Bloqueado em
-        password: Senha
-        password_confirmation: Confirme sua senha
-        remember_created_at: Lembrar criado em
-        remember_me: Lembre-se de mim
-        reset_password_sent_at: Resetar senha enviado em
-        reset_password_token: Resetar token de senha
-        sign_in_count: Contagem de acessos
-        unconfirmed_email: E-mail não confirmado
-        unlock_token: Token de desbloqueio
-        updated_at: Atualizado em
-    models:
-      user:
-        one: Usuário
-        other: Usuários
   devise:
     confirmations:
       confirmed: A sua conta foi confirmada com sucesso.
@@ -79,14 +49,15 @@ pt-BR:
       success: Autorizado com sucesso de uma conta de %{kind}.
     passwords:
       edit:
-        change_my_password: Alterar minha senha
+        title: Alterar minha senha
+        subtitle: Insira uma nova senha para continuar
+        submit: Alterar senha
         change_your_password: Alterar sua senha
         confirm_new_password: Confirme sua nova senha
         new_password: Nova senha
-        new_password_description: Insira uma nova senha para continuar
       new:
         forgot_your_password: Esqueceu sua senha?
-        message: Não se preocupe, vamos criar uma nova. 
+        message: Não se preocupe, vamos criar uma nova.
         send_me_reset_password_instructions: Enviar instruções para redefinição da senha
       no_token: Você não pode acessar esta página sem estar logado. Se você veio de um email de redefinição de senha, por favor certifique-se de ter digitado a URL corretamente.
       send_instructions: Dentro de minutos, você receberá um e-mail com as instruções de redefinição da sua senha.
@@ -95,6 +66,13 @@ pt-BR:
       updated_not_active: Sua senha foi alterada com sucesso.
     registrations:
       destroyed: Adeus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.
+      signed_up: Bem vindo! Você realizou seu registro com sucesso.
+      signed_up_but_inactive: Você se inscreveu com sucesso, porém nós não podemos autenticá-lo porque sua conta ainda não foi ativada.
+      signed_up_but_locked: Você se inscreveu com sucesso. Porém nós não podemos autenticá-lo porque sua conta está bloqueada.
+      signed_up_but_unconfirmed: Uma mensagem com um link de confirmação foi enviada para o seu e-mail. Por favor, acesse o link para ativar sua conta.
+      update_needs_confirmation: Sua conta foi atualizada com sucesso, mas nós precisamos verificar o novo endereço de email. Por favor, verifique seu e-mail e clique no link de confirmação para finalizar confirmando o seu novo e-mail.
+      updated: A sua conta foi atualizada com sucesso.
+      updated_but_not_signed_in: Sua conta foi atualizada com sucesso, uma vez que sua senha foi alterada será necessário realizar o login novamente.
       edit:
         are_you_sure: Você tem certeza?
         cancel_my_account: Cancelar minha conta
@@ -105,23 +83,18 @@ pt-BR:
         update: Atualizar
         we_need_your_current_password_to_confirm_your_changes: precisamos da sua senha atual para confirmar suas mudanças
       new:
-        sign_up: Inscrever-se
-        sign_up_description: "Inscreva-se na FARMA agora mesmo inserindo os seguintes dados"
-      signed_up: Bem vindo! Você realizou seu registro com sucesso.
-      signed_up_but_inactive: Você se inscreveu com sucesso, porém nós não podemos autenticá-lo porque sua conta ainda não foi ativada.
-      signed_up_but_locked: Você se inscreveu com sucesso. Porém nós não podemos autenticá-lo porque sua conta está bloqueada.
-      signed_up_but_unconfirmed: Uma mensagem com um link de confirmação foi enviada para o seu e-mail. Por favor, acesse o link para ativar sua conta.
-      update_needs_confirmation: Sua conta foi atualizada com sucesso, mas nós precisamos verificar o novo endereço de email. Por favor, verifique seu e-mail e clique no link de confirmação para finalizar confirmando o seu novo e-mail.
-      updated: A sua conta foi atualizada com sucesso.
-      updated_but_not_signed_in: Sua conta foi atualizada com sucesso, uma vez que sua senha foi alterada será necessário realizar o login novamente.
+        title: Inscrever-se
+        subtitle: "Inscreva-se na FARMA agora mesmo inserindo os seguintes dados"
+        submit: Inscrever-se
     sessions:
       already_signed_out: Logout efetuado com sucesso.
-      new:
-        sign_in: Login
-        sign_in_description: "Acessa a FARMA agora mesmo por meio de seu email e senha de acesso"
       signed_in: Login efetuado com sucesso.
       signed_out: Logout efetuado com sucesso.
       no_active: Não existe sessão ativa
+      new:
+        title: Entrar
+        subtitle: Acessa a FARMA agora mesmo por meio de seu email e senha de acesso.
+        submit: Entrar
     shared:
       links:
         back: Voltar
