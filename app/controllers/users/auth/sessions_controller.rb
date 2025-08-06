@@ -4,7 +4,7 @@ class Users::Auth::SessionsController < Devise::SessionsController
   layout 'devise/application'
 
   def after_sign_in_path_for(resource)
-    stored_location_for(resource) || users_path
+    stored_location_for(resource) || users_choose_profile_path
   end
 
   def after_sign_out_path_for(_resource)

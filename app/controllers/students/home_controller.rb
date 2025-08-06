@@ -1,6 +1,7 @@
 class Students::HomeController < ApplicationController
   before_action :authenticate_user!
 
-  layout 'user/application'
-  def index; end
+  layout 'students/application'
+
+  def dashboard; end
 end
