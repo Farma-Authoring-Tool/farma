@@ -54,13 +54,13 @@ class Api::Professors::TipsController < Api::BaseController
 
   private
 
-  def tips_params
-    params.expect(tip: [:title, :description, :number_attempts])
-  end
+    def tips_params
+      params.expect(tip: [:title, :description, :number_attempts])
+    end
 
-  def find_tip
-    @tip = @solution_step.tips.find(params[:id])
-  rescue ActiveRecord::RecordNotFound => e
-    render json: { message: resource_not_found_message(model: e.model) }, status: :not_found
-  end
+    def find_tip
+      @tip = @solution_step.tips.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { message: resource_not_found_message(model: e.model) }, status: :not_found
+    end
 end

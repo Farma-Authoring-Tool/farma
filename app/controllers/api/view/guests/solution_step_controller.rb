@@ -14,11 +14,11 @@ class Api::View::Guests::SolutionStepController < Api::BaseController
 
   private
 
-  def set_solution_step
-    lo = Lo.find(params[:id])
-    exercise = lo.exercises.find(params[:exercise_id])
-    @solution_step = exercise.solution_steps.find(params[:solution_step_id])
-  rescue ActiveRecord::RecordNotFound => e
-    render json: { message: resource_not_found_message(model: e.model) }, status: :not_found
-  end
+    def set_solution_step
+      lo = Lo.find(params[:id])
+      exercise = lo.exercises.find(params[:exercise_id])
+      @solution_step = exercise.solution_steps.find(params[:solution_step_id])
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { message: resource_not_found_message(model: e.model) }, status: :not_found
+    end
 end

@@ -54,13 +54,13 @@ class Api::Professors::IntroductionsController < Api::BaseController
 
   private
 
-  def introduction_params
-    params.expect(introduction: [:title, :description, :public])
-  end
+    def introduction_params
+      params.expect(introduction: [:title, :description, :public])
+    end
 
-  def find_introduction
-    @introduction = @lo.introductions.find(params[:id])
-  rescue ActiveRecord::RecordNotFound => e
-    render json: { message: resource_not_found_message(model: e.model) }, status: :not_found
-  end
+    def find_introduction
+      @introduction = @lo.introductions.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { message: resource_not_found_message(model: e.model) }, status: :not_found
+    end
 end

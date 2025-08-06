@@ -11,13 +11,13 @@ class ExercisePageResource < PageResource
 
   private
 
-  def solution_step_data(solution_step, user, team)
-    {
-      position: solution_step.position,
-      title: solution_step.title,
-      description: solution_step.description,
-      status: solution_step.status(user, team),
-      attempts: solution_step.answers.where(user: user, team: team).count
-    }
-  end
+    def solution_step_data(solution_step, user, team)
+      {
+        position: solution_step.position,
+        title: solution_step.title,
+        description: solution_step.description,
+        status: solution_step.status(user, team),
+        attempts: solution_step.answers.where(user: user, team: team).count
+      }
+    end
 end

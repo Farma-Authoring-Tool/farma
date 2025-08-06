@@ -43,8 +43,11 @@ Style/HashTransformValues:
   Exclude:
     - "test/support/pretty_diff.rb"
 
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
 Metrics/BlockLength:
-  AllowedMethods: ["context"]
+  AllowedMethods: [ "context" ]
   Exclude:
     - "config/environments/development.rb"
     - "config/routes.rb"

@@ -55,13 +55,13 @@ class Api::Professors::ExercisesController < Api::BaseController
 
   private
 
-  def exercise_params
-    params.expect(exercise: [:title, :description, :public])
-  end
+    def exercise_params
+      params.expect(exercise: [:title, :description, :public])
+    end
 
-  def find_exercise
-    @exercise = @lo.exercises.find(params[:id])
-  rescue ActiveRecord::RecordNotFound => e
-    render json: { message: resource_not_found_message(model: e.model) }, status: :not_found
-  end
+    def find_exercise
+      @exercise = @lo.exercises.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { message: resource_not_found_message(model: e.model) }, status: :not_found
+    end
 end

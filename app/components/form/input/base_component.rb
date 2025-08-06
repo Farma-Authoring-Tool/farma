@@ -35,23 +35,23 @@ class Form::Input::BaseComponent < ViewComponent::Base
 
   private
 
-  def input_type
-    "#{@type}_field"
-  end
+    def input_type
+      "#{@type}_field"
+    end
 
-  # Errors
-  # --------------------------------------------------------------
-  def error_input_class
-    'border border-red-500' if errors?
-  end
+    # Errors
+    # --------------------------------------------------------------
+    def error_input_class
+      'border border-red-500' if errors?
+    end
 
-  def error_message
-    return unless errors?
+    def error_message
+      return unless errors?
 
-    content_tag(:p, @object.errors[@attribute].join('<br>'), class: 'text-red-600 text-sm mt-1')
-  end
+      content_tag(:p, @object.errors[@attribute].join('<br>'), class: 'text-red-600 text-sm mt-1')
+    end
 
-  def errors?
-    @object && @object.errors[@attribute].any?
-  end
+    def errors?
+      @object && @object.errors[@attribute].any?
+    end
 end

@@ -18,8 +18,8 @@ class Form::Input::SubmitComponent < ViewComponent::Base
 
   private
 
-  # this is necessary to avoid infinite recursion in submit method
-  def call_parent_method(instance, method, *)
-    instance.class.superclass.instance_method(method).bind(instance).call(*)
-  end
+    # this is necessary to avoid infinite recursion in submit method
+    def call_parent_method(instance, method, *)
+      instance.class.superclass.instance_method(method).bind(instance).call(*)
+    end
 end
