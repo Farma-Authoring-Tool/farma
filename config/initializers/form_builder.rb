@@ -1,5 +1,5 @@
 module DefaultNovalidateForFormWith
-  def form_with(**options, &block)
+  def form_with(**options, &)
     options[:html] ||= {}
     options[:html][:novalidate] = true unless options[:html].key?(:novalidate)
     super

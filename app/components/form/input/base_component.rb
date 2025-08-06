@@ -2,6 +2,7 @@
 
 class Form::Input::BaseComponent < ViewComponent::Base
   def initialize(form:, attribute:, type:, **options)
+    super
     @object = form.object
     @form = form
     @attribute = attribute
@@ -15,7 +16,8 @@ class Form::Input::BaseComponent < ViewComponent::Base
   end
 
   def input
-    classes = 'mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500'
+    classes = 'mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm'
+    classes += ' focus:border-blue-500 focus:outline-none focus:ring-blue-500'
     classes += " #{error_input_class}"
 
     @form.send(input_type, @attribute, class: classes, id: id, **@options) + error_message
@@ -40,16 +42,16 @@ class Form::Input::BaseComponent < ViewComponent::Base
   # Errors
   # --------------------------------------------------------------
   def error_input_class
-    'border border-red-500' if has_errors?
+    'border border-red-500' if errors?
   end
 
   def error_message
-    return unless has_errors?
+    return unless errors?
 
     content_tag(:p, @object.errors[@attribute].join('<br>'), class: 'text-red-600 text-sm mt-1')
   end
 
-  def has_errors?
+  def errors?
     @object && @object.errors[@attribute].any?
   end
 end

@@ -51,7 +51,7 @@ pt-BR:
       edit:
         title: Alterar minha senha
         subtitle: Insira uma nova senha para continuar
-        submit: Enviar instruções de redefinição de senha
+        submit: Alterar senha
         change_your_password: Alterar sua senha
         confirm_new_password: Confirme sua nova senha
         new_password: Nova senha

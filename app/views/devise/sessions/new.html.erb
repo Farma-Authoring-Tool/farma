@@ -2,6 +2,7 @@
 <% provide(:head_subtitle, t(".subtitle")) %>
 
 <%= form_with(model: resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
   <%= f.input :email, type: :email %>
   <%= f.input :password, type: :password %>
 

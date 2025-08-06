@@ -14,12 +14,12 @@ class Flash::MessageComponent < ViewComponent::Base
 
   private
 
-    def class_type(flash_type)
-      {
-        success: 'bg-green-50 text-green-800',
-        notice: "bg-blue-50 text-blue-800",
-        warning: 'bg-yellow-50 text-yellow-800',
-        alert: 'bg-red-50 text-red-800'
-      }[flash_type.to_sym] || flash_type
-    end
+  def class_type(flash_type)
+    {
+      success: 'bg-green-50 text-green-800',
+      notice: 'bg-blue-50 text-blue-800',
+      warning: 'bg-yellow-50 text-yellow-800',
+      alert: 'bg-red-50 text-red-800'
+    }[flash_type.to_sym] || flash_type
+  end
 end

@@ -15,4 +15,14 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
       **
     )
   end
+
+  def full_error(attribute)
+    return unless object && object.errors[attribute].any?
+
+    @template.content_tag(
+      :p,
+      object.errors.full_messages_for(attribute).join(', '),
+      class: 'text-sm text-red-600 pl-0 p-2'
+    )
+  end
 end
