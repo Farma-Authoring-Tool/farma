@@ -1,25 +1,35 @@
-<section class="h-screen flex items-center justify-center bg-zinc-900 relative">
+<section class="relative h-screen w-full bg-black overflow-hidden">
+  
+  <div class="absolute">
+    <%= image_tag "bg/home.png", alt: "Estudantes mexendo em seus computadores", class: "brightness-20 blur-xs w-screen h-screen object-cover object-center" %>
+  </div>
 
-  <%= image_tag 'logo/farma-gray.png', alt: 'Logo FARMA', class: "absolute top-6 left-10 h-8 z-50" %>
+  <header class="relative z-20 flex items-center justify-between px-24 py-6 bg-black/30">
+    <div>
+      <%= image_tag 'logo/farma-gray.png', alt: 'Logo FARMA', class: "absolute items-center top-3 left-8 h-6 md:top-4 md:left-24 md:h-8 md:z-50" %>
+    </div>
 
-  <div class="w-full md:w-1/2 flex flex-col justify-center items-start px-10 py-12 gap-7">
+    <nav class="flex items-center space-x-6 text-sm hidden md:block">
+      <%= link_to "Professor", "#", class: "text-white" %>
+      <%= link_to "Aluno", "#", class: "text-white" %>
+      <%= link_to "Objetos", "#", class: "text-white" %>
+      <%= link_to "Entrar em contato", "#", class: "text-green-500 font-semibold" %>
+    </nav>
+  </header>
 
-    <h1 class="text-2xl md:text-3xl font-bold text-gray-50">
-      <%= t('.title') %>
+  <div class="relative z-20 flex flex-col justify-center h-full max-w-5xl px-8 md:px-16 lg:px-24 text-white">
+    
+    <h1 class="text-md text-center md:text-left md:text-4xl font-bold leading-tight">
+        <%= t('.title') %>
     </h1>
 
-    <p class="mt-4 text-gray-50 text-sm text-justify">
+    <p class="mt-6 text-xs text-justify md:text-base max-w-3xl leading-relaxed text-gray-200">
       <%= t('.subtitle') %>
     </p>
 
-    <div class="flex gap-6">
-      <%= link_to "Entrar", new_user_session_path, class: 'btn btn-primary' %>
-      <%= link_to "Cadastrar", new_user_registration_path, class: 'btn btn-outline-primary' %>
+    <div class="mt-8 flex gap-4 justify-center md:justify-start">
+      <%= link_to "Acessar", new_user_session_path, class: "bg-green-600 hover:bg-green-700 text-white font-semibold px-2 py-1 text-xs md:text-base md:px-6 md:py-2 rounded" %>
+      <%= link_to "Cadastrar-se", new_user_registration_path, class: "border border-white hover:bg-white hover:text-black font-semibold px-2 py-1 text-xs md:text-base md:px-6 md:py-2 rounded transition text-white" %>
     </div>
   </div>
-
-  <div class="hidden md:block md:w-1/2 h-full">
-    <%= image_tag "bg/home.png", alt: "Estudantes mexendo em seus computadores", class: "w-screen h-screen object-cover object-center" %>
-  </div>
-
 </section>
