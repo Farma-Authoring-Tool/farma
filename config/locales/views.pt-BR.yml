@@ -9,6 +9,10 @@ pt-BR:
     sign_out: Sair
     choose_profile: Escolher perfil
   home:
+    header:
+      logo_alt: Logo do FARMA
+      open_menu: Abrir menu
+      nav_label: Menu de navegação
     navigation:
       about: Sobre
       team: Equipe
@@ -22,7 +26,6 @@ pt-BR:
         title: "FARMA: Ferramenta de Autoria para a Remediação de Erros com Mobilidade na Aprendizagem"
         subtitle: Crie e aplique os mais diversos tipos de objetos de aprendizagem para o ensino de Matemática. Se você é professor, monitore o desempenho e as dificuldades dos seus alunos. Se você é aprendiz, acompanhe sua performance, identifique suas dificuldades e receba feedbacks sobre sua interação.
         background_alt: Estudantes mexendo em seus computadores
-        logo_alt: Logo do FARMA
   educators:
     home:
       breadcrumbs: Home

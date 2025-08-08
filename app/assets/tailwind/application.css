@@ -26,6 +26,12 @@
   }
 
   /*------------------------------------------------------------------------------------*/
+  /* home header */
+  header#home-header nav ul li a {
+    @apply text-white text-sm hover:text-green-200 list-none;
+  }
+
+  /*------------------------------------------------------------------------------------*/
   /* sidebar nav */
   aside nav ul li a {
     @apply text-gray-700 flex items-center p-2 rounded-lg hover:bg-blue-100;

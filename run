@@ -90,7 +90,7 @@ function test {
 }
 
 function test:system {
-  _dc_ app-tests rails test:system "${@}"
+  _dc_ app-tests rails test:system
 }
 
 function test:coverage {

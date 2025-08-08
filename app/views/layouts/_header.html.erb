@@ -1,0 +1,43 @@
+<header id="home-header"
+        data-controller="dropdown" data-action="click@window->dropdown#close"
+        class="fixed top-0 left-0 z-30 w-full bg-black/50 backdrop-blur-md shadow-md">
+
+  <div class="mx-auto flex items-center justify-between px-4 md:px-8 py-4">
+    <%= link_to root_path, class: "flex items-center" do %>
+      <%= image_tag 'logo/farma-gray.png',
+                    alt: t('home.header.logo_alt'),
+                    class: "h-8 md:h-10 w-auto" %>
+      <span class="sr-only"><%= t('home.header.logo_alt') %></span>
+    <% end %>
+
+    <!-- Mobile nav button (hamburger) -->
+    <button type="button"
+            data-action="click->dropdown#toggle"
+            class="inline-flex items-center md:hidden text-white focus:outline-none"
+            aria-controls="main-nav"
+            aria-expanded="false"
+            aria-label="<%= t('home.header.open_menu') %>">
+
+      <!-- Hamburger icon SVG -->
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+
+    <nav id="main-nav"
+         class="absolute top-14 right-8 hidden md:static md:flex md:items-center md:space-x-4"
+         data-dropdown-target="menu"
+         aria-label="<%= t('home.header.nav_label') %>">
+
+      <ul class="md:flex md:items-center md:space-x-6">
+        <li><%= link_to t('home.navigation.about'), "#" %></li>
+        <li><%= link_to t('home.navigation.team'), "#" %></li>
+        <li><%= link_to t('home.navigation.researches'), "#" %></li>
+        <li><%= link_to t('home.navigation.awards'), "#" %></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
