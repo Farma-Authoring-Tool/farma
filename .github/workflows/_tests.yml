@@ -51,8 +51,9 @@ jobs:
           RAILS_ENV: test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY_TEST }}
           DATABASE_URL: postgres://postgres:@db
-          COVERAGE: false # Enable when we finish the tests for authentication
+          # COVERAGE: true # Enable when we finish the tests for authentication
         run: |
           bundle exec rails tailwindcss:build
           bundle exec rails db:prepare
           bundle exec rails test
+          bundle exec rails test:system
