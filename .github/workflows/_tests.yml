@@ -6,11 +6,17 @@ on:
       RAILS_MASTER_KEY_TEST:
         required: true
 
+env:
+  RAILS_ENV: test
+  RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY_TEST }}
+  DATABASE_URL: postgres://postgres:@db
+
 jobs:
   run-tests:
     runs-on: ubuntu-latest
     container:
       image: ruby:3.4.2
+      options: --network-alias testHost
     services:
       db:
         image: postgres
@@ -26,7 +32,7 @@ jobs:
           --health-retries 5
       chrome-server:
         image: selenium/standalone-chrome:latest
-        ports: ["4444:4444"]
+        ports: [ "4444:4444" ]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -49,17 +55,23 @@ jobs:
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
 
+      - name: Compile assets
+        env:
+          SECRET_KEY_BASE_DUMMY: 1
+        run: |
+          bundle exec rails tailwindcss:build
+          bundle exec rails assets:precompile
+
+      - name: Prepare database
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:migrate
+
       - name: Run tests
         env:
-          RAILS_ENV: test
-          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY_TEST }}
-          DATABASE_URL: postgres://postgres:@db
           SELENIUM_HOST: chrome-server
           SELENIUM_PORT: 4444
           TEST_APP_HOST: testHost
           # COVERAGE: true # Enable when we finish the tests for authentication
         run: |
-          bundle exec rails tailwindcss:build
-          bundle exec rails db:prepare
-          bundle exec rails test
-          bundle exec rails test:system
+          bundle exec rails test:all
