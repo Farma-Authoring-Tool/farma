@@ -2,7 +2,6 @@
 
 class Form::Input::BaseComponent < ViewComponent::Base
   def initialize(form:, attribute:, type:, **options)
-    super
     @object = form.object
     @form = form
     @attribute = attribute

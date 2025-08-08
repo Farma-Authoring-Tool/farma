@@ -1,26 +1,29 @@
 <section class="relative h-screen w-full bg-black overflow-hidden">
-  
+
   <div class="absolute">
-    <%= image_tag "bg/home.png", alt: "Estudantes mexendo em seus computadores", class: "brightness-20 blur-xs w-screen h-screen object-cover object-center" %>
+    <%= image_tag "bg/home.png",
+                  alt: "Estudantes mexendo em seus computadores",
+                  class: "brightness-20 blur-xs w-screen h-screen object-cover object-center" %>
   </div>
 
   <header class="relative z-20 flex items-center justify-between px-24 py-6 bg-black/30">
     <div>
-      <%= image_tag 'logo/farma-gray.png', alt: 'Logo FARMA', class: "absolute items-center top-3 left-8 h-6 md:top-4 md:left-24 md:h-8 md:z-50" %>
+      <%= image_tag 'logo/farma-gray.png', alt: 'Logo FARMA',
+                    class: "absolute items-center top-3 left-8 h-6 md:top-4 md:left-24 md:h-8 md:z-50" %>
     </div>
 
     <nav class="flex items-center space-x-6 text-sm hidden md:block">
-      <%= link_to "Professor", "#", class: "text-white" %>
-      <%= link_to "Aluno", "#", class: "text-white" %>
-      <%= link_to "Objetos", "#", class: "text-white" %>
-      <%= link_to "Entrar em contato", "#", class: "text-green-500 font-semibold" %>
+      <%= link_to "Sobre", "#", class: "text-white" %>
+      <%= link_to "Equipe", "#", class: "text-white" %>
+      <%= link_to "Pesquisas", "#", class: "text-white" %>
+      <%= link_to "Prêmios", "#", class: "text-green-500 font-semibold" %>
     </nav>
   </header>
 
   <div class="relative z-20 flex flex-col justify-center h-full max-w-5xl px-8 md:px-16 lg:px-24 text-white">
-    
+
     <h1 class="text-md text-center md:text-left md:text-4xl font-bold leading-tight">
-        <%= t('.title') %>
+      <%= t('.title') %>
     </h1>
 
     <p class="mt-6 text-xs text-justify md:text-base max-w-3xl leading-relaxed text-gray-200">

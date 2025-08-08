@@ -2,7 +2,6 @@
 
 class Form::Input::SubmitComponent < ViewComponent::Base
   def initialize(form:, value: nil, **options)
-    super
     @form = form
     @value = value
     @options = options

@@ -1,5 +1,4 @@
 class Users::Auth::RegistrationsController < Devise::RegistrationsController
-  prepend_before_action :require_no_authentication, only: [:new, :create]
   before_action :configure_sign_up_params, only: [:create]
 
   layout 'devise/application'
@@ -15,4 +14,12 @@ class Users::Auth::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
+
+  private
+
+    def require_no_authentication
+      return unless user_signed_in?
+
+      redirect_to users_choose_profile_path, alert: I18n.t('devise.failure.already_authenticated')
+    end
 end

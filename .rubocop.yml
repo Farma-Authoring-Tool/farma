@@ -66,3 +66,9 @@ Rails/LexicallyScopedActionFilter:
   Exclude:
     - "app/controllers/users/auth/sessions_controller.rb"
     - "app/controllers/users/auth/registrations_controller.rb"
+
+Lint/MissingSuper:
+  Exclude:
+    - "app/components/form/input/base_component.rb"
+    - "app/components/form/input/submit_component.rb"
+    - "app/components/flash/message_component.rb"
