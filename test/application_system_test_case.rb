@@ -7,8 +7,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   driven_by :chrome
 
-  def setup
-    super
+  setup do
     Capybara.disable_animation = true
     Capybara.server_host = '0.0.0.0'
     Capybara.app_host = app_host

@@ -89,6 +89,10 @@ function test {
   _dc_ app-tests rails test "${@}"
 }
 
+function test:system {
+  _dc_ app-tests rails test:system "${@}"
+}
+
 function test:coverage {
   docker compose exec -e COVERAGE=true app-tests rails test "${@}"
 }

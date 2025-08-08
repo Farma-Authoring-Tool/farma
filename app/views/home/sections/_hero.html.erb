@@ -1,22 +1,22 @@
-<section class="relative h-screen w-full bg-black overflow-hidden">
+<section id="hero" class="relative h-screen w-full bg-black overflow-hidden">
 
   <div class="absolute">
     <%= image_tag "bg/home.png",
-                  alt: "Estudantes mexendo em seus computadores",
+                  alt: t('.background_alt'),
                   class: "brightness-20 blur-xs w-screen h-screen object-cover object-center" %>
   </div>
 
   <header class="relative z-20 flex items-center justify-between px-24 py-6 bg-black/30">
     <div>
-      <%= image_tag 'logo/farma-gray.png', alt: 'Logo FARMA',
+      <%= image_tag 'logo/farma-gray.png', alt: t('.logo_alt'),
                     class: "absolute items-center top-3 left-8 h-6 md:top-4 md:left-24 md:h-8 md:z-50" %>
     </div>
 
-    <nav class="flex items-center space-x-6 text-sm hidden md:block">
-      <%= link_to "Sobre", "#", class: "text-white" %>
-      <%= link_to "Equipe", "#", class: "text-white" %>
-      <%= link_to "Pesquisas", "#", class: "text-white" %>
-      <%= link_to "Prêmios", "#", class: "text-green-500 font-semibold" %>
+    <nav class="flex items-center space-x-6 text-sm hidden md:block text-white">
+      <%= link_to t('home.navigation.about'), "#" %>
+      <%= link_to t('home.navigation.team'), "#" %>
+      <%= link_to t('home.navigation.researches') %>
+      <%= link_to t('home.navigation.awards'), "#" %>
     </nav>
   </header>
 

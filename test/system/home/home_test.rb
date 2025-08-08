@@ -3,38 +3,38 @@
 require 'application_system_test_case'
 
 class HomeTest < ApplicationSystemTestCase
-  test 'shows background and logo images' do
+  setup do
     visit root_url
-
-    assert_selector "img[alt='Estudantes mexendo em seus computadores']"
-    assert_selector "img[alt='Logo FARMA']"
   end
 
-  test 'shows navigation links with white text' do
-    visit root_url
+  should 'show background and logo images' do
+    within 'section#hero' do
+      assert_selector "img[alt='#{I18n.t('home.sections.hero.background_alt')}']"
+      assert_selector "img[alt='#{I18n.t('home.sections.hero.logo_alt')}']"
 
-    assert_selector 'nav a.text-white', text: 'Professor'
-    assert_selector 'nav a.text-white', text: 'Aluno'
-    assert_selector 'nav a.text-white', text: 'Objetos'
+      assert_selector "img[src*='bg/home']"
+      assert_selector "img[src*='logo/farma-gray']"
+    end
   end
 
-  test 'hows navigation link with green text' do
-    visit root_url
-
-    assert_selector 'nav a.text-green-500', text: 'Entrar em contato'
+  should 'show navigation links in the correct order' do
+    within 'section#hero nav' do
+      assert_selector 'a:nth-child(1)', text: t('home.navigation.about')
+      assert_selector 'a:nth-child(2)', text: t('home.navigation.team')
+      assert_selector 'a:nth-child(3)', text: t('home.navigation.researches')
+      assert_selector 'a:nth-child(4)', text: t('home.navigation.awards')
+    end
   end
 
-  test 'shows hero section content' do
-    visit root_url
-
-    assert_selector 'h1', text: t('home.sections.hero.title')
-    assert_selector 'p', text: t('home.sections.hero.subtitle')
+  should 'show hero section title and short description' do
+    within 'section#hero' do
+      assert_selector 'h1', text: t('home.sections.hero.title')
+      assert_selector 'p', text: t('home.sections.hero.subtitle')
+    end
   end
 
-  test 'shows auth links' do
-    visit root_url
-
-    assert_selector "a[href='#{new_user_session_path}']", text: 'Acessar'
-    assert_selector "a[href='#{new_user_registration_path}']", text: 'Cadastrar-se'
+  should 'show authentication links' do
+    assert_selector "a[href='#{new_user_session_path}']", text: t('home.links.sign_in')
+    assert_selector "a[href='#{new_user_registration_path}']", text: t('home.links.sign_up')
   end
 end
