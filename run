@@ -93,6 +93,10 @@ function test:system {
   _dc_ app-tests rails test:system
 }
 
+function test:browser {
+  docker compose exec -e LAUNCH_BROWSER=true app-tests rails test "${@}"
+}
+
 function test:coverage {
   docker compose exec -e COVERAGE=true app-tests rails test "${@}"
 }
