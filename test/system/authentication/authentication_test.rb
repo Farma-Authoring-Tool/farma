@@ -6,6 +6,4 @@ class AuthenticationTest < ApplicationSystemTestCase
   setup do
     visit new_session_path
   end
-
-  
 end

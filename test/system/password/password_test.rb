@@ -6,6 +6,4 @@ class PasswordTest < ApplicationSystemTestCase
   setup do
     visit new_user_password_path
   end
-
-  
 end
