@@ -1,3 +1,5 @@
 class Users::ProfileController < ApplicationController
-  def choose; end
+  def choose
+    render 'users/profile/choose', layout: "users/application"
+  end
 end
