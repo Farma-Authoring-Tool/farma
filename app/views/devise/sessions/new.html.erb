@@ -6,6 +6,8 @@
   <%= f.input :email, type: :email %>
   <%= f.input :password, type: :password %>
 
+  <%= link_to t('.forgot_password'), new_user_password_path, class: "flex text-green-500 justify-end mb-3" %>
+
   <div class="flex items-center">
     <%= f.submit t(".submit"), class: "w-full" %>
   </div>
