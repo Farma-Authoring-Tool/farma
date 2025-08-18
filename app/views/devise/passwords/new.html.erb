@@ -3,7 +3,7 @@
 
 <%= form_with(model: resource, as: resource_name, url: password_path(resource_name)) do |f| %>
 
-  <%= f.input :email, type: :email, label: false, autofocus: true %>
+  <%= f.input :email, type: :email %>
 
   <%= link_to "Lembrou sua senha?", new_user_session_path, class: "flex text-green-500 justify-end mb-3" %>
 
