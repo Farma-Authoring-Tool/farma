@@ -31,7 +31,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
       chrome-server:
-        image: selenium/standalone-chrome:latest
+        image: selenium/standalone-chrome:134.0.6998.35-20250303
         ports: [ "4444:4444" ]
     steps:
       - uses: actions/checkout@v4
