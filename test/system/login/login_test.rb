@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class LoginTest < ApplicationSystemTestCase
   setup do
-    @user = FactoryBot.create(:user)
+    @user = create(:user)
 
     visit new_user_session_path
   end
@@ -38,7 +38,7 @@ class LoginTest < ApplicationSystemTestCase
   end
 
   should 'have a forgot password link' do
-    click_link I18n.t('devise.passwords.new.forgot_your_password')
+    click_link I18n.t('devise.sessions.new.forgot_password')
 
     assert_current_path new_user_password_path
   end

@@ -15,7 +15,7 @@ class Form::Input::BaseComponent < ViewComponent::Base
   end
 
   def input
-    classes = 'mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm'
+    classes = 'text-xs md:text-base mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm'
     classes += ' focus:border-blue-500 focus:outline-none focus:ring-blue-500'
     classes += " #{error_input_class}"
 
@@ -23,7 +23,7 @@ class Form::Input::BaseComponent < ViewComponent::Base
   end
 
   def label
-    content_tag :label, class: 'block text-sm font-medium text-gray-700', for: id do
+    content_tag :label, class: 'block text-xs md:text-sm font-medium text-gray-700', for: id do
       @object.class.human_attribute_name(@attribute)
     end
   end
@@ -47,7 +47,7 @@ class Form::Input::BaseComponent < ViewComponent::Base
     def error_message
       return unless errors?
 
-      content_tag(:p, @object.errors[@attribute].join('<br>'), class: 'text-red-600 text-sm mt-1')
+      content_tag(:p, @object.errors[@attribute].join('<br>'), class: 'text-red-600 text-xs md:text-sm mt-1')
     end
 
     def errors?

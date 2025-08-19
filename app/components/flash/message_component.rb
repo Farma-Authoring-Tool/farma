@@ -8,7 +8,7 @@ class Flash::MessageComponent < ViewComponent::Base
   end
 
   def alert_css_classes(flash_type)
-    "relative mb-4 flex w-full rounded-lg border-l-4 p-4 text-sm #{class_type(flash_type)}"
+    "relative mb-4 flex w-full rounded-lg border-l-4 p-4 text-xs md:text-sm #{class_type(flash_type)}"
   end
 
   private

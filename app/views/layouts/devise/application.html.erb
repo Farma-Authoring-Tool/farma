@@ -15,13 +15,13 @@
                   class: "relative z-10 max-w-md mx-auto h-12 mb-4 mt-10" %>
   <% end %>
 
-  <main class="relative z-10 max-w-md mx-auto bg-white bg-fixed rounded-xl shadow-md p-8 w-full max-w-md mb-10">
+  <main class="relative z-10 max-w-md mx-auto bg-white bg-fixed rounded-xl shadow-md p-4 md:p-8 w-72 md:w-full max-w-md mb-10">
 
-    <h1 class="text-center text-xl font-semibold text-gray-900 mb-2">
+    <h1 class="text-center text-sm md:text-xl font-semibold text-gray-900 mb-2">
       <%= yield :head_title %>
     </h1>
 
-    <h2 class="text-center text-sm text-gray-600 mb-6">
+    <h2 class="text-center text-xs md:text-sm text-gray-600 mb-6">
       <%= yield :head_subtitle %>
     </h2>
 

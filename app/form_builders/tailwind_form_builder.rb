@@ -22,7 +22,7 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
     @template.content_tag(
       :p,
       object.errors.full_messages_for(attribute).join(', '),
-      class: 'text-sm text-red-600 pl-0 p-2'
+      class: 'text-xs md:text-sm text-red-600 pl-0 p-2'
     )
   end
 end

@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class PasswordNewTest < ApplicationSystemTestCase
   setup do
-    @user = FactoryBot.create(:user)
+    @user = create(:user)
 
     visit new_user_password_path
   end
@@ -19,11 +19,11 @@ class PasswordNewTest < ApplicationSystemTestCase
     assert_text I18n.t('devise.passwords.send_instructions')
   end
 
-  # should 'blank email' do
-  # within 'form' do
-  # click_button I18n.t('devise.passwords.new.send_me_reset_password_instructions')
-  # end
+  should 'blank email' do
+    within 'form' do
+      click_button I18n.t('devise.passwords.new.send_me_reset_password_instructions')
+    end
 
-  # assert_text 'não pode ficar em branco'
-  # end
+    assert_selector 'div.user_email p', text: I18n.t('errors.messages.blank')
+  end
 end

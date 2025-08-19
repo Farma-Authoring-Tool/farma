@@ -8,7 +8,7 @@ class Users::Auth::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(_resource)
-    users_path
+    users_choose_profile_path
   end
 
   def configure_sign_up_params

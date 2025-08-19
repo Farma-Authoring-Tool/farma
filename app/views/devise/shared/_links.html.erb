@@ -1,9 +1,9 @@
 <%- if controller_name != 'sessions' && controller_name != 'passwords'%>
-  <span class="text-sm text-gray-500"> <%= t('.already_have_account')%> </span>
-  <%= link_to t('.sign_in'), new_session_path(resource_name), class: "text-green-500 hover:underline" %><br />
+  <span class="text-xs md:text-sm text-gray-500"> <%= t('.already_have_account')%> </span>
+  <%= link_to t('.sign_in'), new_session_path(resource_name), class: "text-xs md:text-sm text-green-500 hover:underline" %><br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' && controller_name != 'passwords'%>
-  <span class="text-sm text-gray-500"> <%= t('.dont_have_account')%> </span>
-  <%= link_to t('.sign_up'), new_user_registration_path, class: "text-green-500 hover:underline" %><br/>
+  <span class="text-xs md:text-sm text-gray-500"> <%= t('.dont_have_account')%> </span>
+  <%= link_to t('.sign_up'), new_user_registration_path, class: "text-xs md:text-sm text-green-500 hover:underline" %><br/>
 <% end %>

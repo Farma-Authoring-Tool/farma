@@ -28,16 +28,19 @@ pt-BR:
         title: "FARMA: Ferramenta de Autoria para a Remediação de Erros com Mobilidade na Aprendizagem"
         subtitle: Crie e aplique os mais diversos tipos de objetos de aprendizagem para o ensino de Matemática. Se você é professor, monitore o desempenho e as dificuldades dos seus alunos. Se você é aprendiz, acompanhe sua performance, identifique suas dificuldades e receba feedbacks sobre sua interação.
         background_alt: Estudantes mexendo em seus computadores
-  devise:
-    sessions:
-      new:
-        forgot_password: "Esqueceu sua senha?"
     shared:
       links:
         already_have_account: "Já possui uma conta?"
         sign_in: "Faça seu login"
         dont_have_account: "Ainda não possui uma conta?"
         sign_up: "Registre-se"
+  users:
+    profile:
+      choose:
+        profile_educator: Sou educador
+        profile_student: Sou estudante
+        acess_profile: "Acesse o painel de %{profile}"
+        select_profile: "Selecione seu perfil"
   educators:
     home:
       breadcrumbs: Home

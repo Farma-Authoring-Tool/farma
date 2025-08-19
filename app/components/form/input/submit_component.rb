@@ -8,7 +8,7 @@ class Form::Input::SubmitComponent < ViewComponent::Base
   end
 
   def submit
-    classes = 'btn-primary py-2 px-4 rounded-md cursor-pointer'
+    classes = 'btn-primary text-xs md:text-sm py-2 px-4 rounded-md cursor-pointer'
     @options[:class] = "#{classes} #{@options[:class]}"
     @options[:value] = @value if @value.present?
 
