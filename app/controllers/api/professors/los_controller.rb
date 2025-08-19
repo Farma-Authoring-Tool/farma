@@ -1,5 +1,5 @@
 class Api::Professors::LosController < Api::BaseController
-  before_action :find_lo, except: [:create, :index]
+  before_action :find_lo, except: [ :create, :index ]
 
   def index
     render json: Lo.all
@@ -15,7 +15,7 @@ class Api::Professors::LosController < Api::BaseController
     if lo.save
       render json: { message: success_create_message, lo: lo }, status: :created
     else
-      render json: { message: error_message, lo: lo, errors: lo.errors }, status: :unprocessable_entity
+      render json: { message: error_message, lo: lo, errors: lo.errors }, status: :unprocessable_content
     end
   end
 
@@ -23,7 +23,7 @@ class Api::Professors::LosController < Api::BaseController
     if @lo.update(lo_params)
       render json: { message: success_update_message, lo: @lo }, status: :accepted
     else
-      render json: { message: error_message, lo: @lo, errors: @lo.errors }, status: :unprocessable_entity
+      render json: { message: error_message, lo: @lo, errors: @lo.errors }, status: :unprocessable_content
     end
   end
 
@@ -45,7 +45,7 @@ class Api::Professors::LosController < Api::BaseController
   private
 
     def lo_params
-      params.expect(lo: [:title, :description])
+      params.expect(lo: [ :title, :description ])
     end
 
     def find_lo

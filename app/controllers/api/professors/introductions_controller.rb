@@ -1,7 +1,7 @@
 class Api::Professors::IntroductionsController < Api::BaseController
   include FindResources
 
-  before_action :find_introduction, except: [:create, :index]
+  before_action :find_introduction, except: [ :create, :index ]
 
   def index
     render json: @lo.introductions
@@ -21,7 +21,7 @@ class Api::Professors::IntroductionsController < Api::BaseController
         message: error_message,
         introduction: introduction,
         errors: introduction.errors
-      }, status: :unprocessable_entity
+      }, status: :unprocessable_content
     end
   end
 
@@ -33,7 +33,7 @@ class Api::Professors::IntroductionsController < Api::BaseController
         message: error_message,
         introduction: @introduction,
         errors: @introduction.errors
-      }, status: :unprocessable_entity
+      }, status: :unprocessable_content
     end
   end
 
@@ -41,7 +41,7 @@ class Api::Professors::IntroductionsController < Api::BaseController
     @introduction.destroy
     render json: { message: feminine_success_destroy_message }, status: :accepted
   rescue StandardError
-    render json: { message: feminine_unsuccess_destroy_message }, status: :unprocessable_entity
+    render json: { message: feminine_unsuccess_destroy_message }, status: :unprocessable_content
   end
 
   def duplicate
@@ -55,7 +55,7 @@ class Api::Professors::IntroductionsController < Api::BaseController
   private
 
     def introduction_params
-      params.expect(introduction: [:title, :description, :public])
+      params.expect(introduction: [ :title, :description, :public ])
     end
 
     def find_introduction

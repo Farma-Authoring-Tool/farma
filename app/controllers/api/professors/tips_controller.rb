@@ -1,7 +1,7 @@
 class Api::Professors::TipsController < Api::BaseController
   include FindResources
 
-  before_action :find_tip, except: [:create, :index, :reorder]
+  before_action :find_tip, except: [ :create, :index, :reorder ]
 
   def index
     render json: @solution_step.tips
@@ -21,7 +21,7 @@ class Api::Professors::TipsController < Api::BaseController
         message: error_message,
         tip: tip,
         errors: tip.errors
-      }, status: :unprocessable_entity
+      }, status: :unprocessable_content
     end
   end
 
@@ -33,7 +33,7 @@ class Api::Professors::TipsController < Api::BaseController
         message: error_message,
         tip: @tip,
         errors: @tip.errors
-      }, status: :unprocessable_entity
+      }, status: :unprocessable_content
     end
   end
 
@@ -55,7 +55,7 @@ class Api::Professors::TipsController < Api::BaseController
   private
 
     def tips_params
-      params.expect(tip: [:title, :description, :number_attempts])
+      params.expect(tip: [ :title, :description, :number_attempts ])
     end
 
     def find_tip

@@ -1,7 +1,7 @@
 class Api::Professors::SolutionStepsController < Api::BaseController
   include FindResources
 
-  before_action :find_solution_step, except: [:create, :index, :reorder]
+  before_action :find_solution_step, except: [ :create, :index, :reorder ]
 
   def index
     render json: @exercise.solution_steps
@@ -21,7 +21,7 @@ class Api::Professors::SolutionStepsController < Api::BaseController
         message: error_message,
         solution_step: solution_step,
         errors: solution_step.errors
-      }, status: :unprocessable_entity
+      }, status: :unprocessable_content
     end
   end
 
@@ -33,7 +33,7 @@ class Api::Professors::SolutionStepsController < Api::BaseController
         message: error_message,
         solution_step: @solution_step,
         errors: @solution_step.errors
-      }, status: :unprocessable_entity
+      }, status: :unprocessable_content
     end
   end
 
@@ -41,7 +41,7 @@ class Api::Professors::SolutionStepsController < Api::BaseController
     @solution_step.destroy
     render json: { message: success_destroy_message }, status: :accepted
   rescue StandardError
-    render json: { message: unsuccess_destroy_message }, status: :unprocessable_entity
+    render json: { message: unsuccess_destroy_message }, status: :unprocessable_content
   end
 
   def duplicate
@@ -58,7 +58,7 @@ class Api::Professors::SolutionStepsController < Api::BaseController
   private
 
     def solution_steps_params
-      params.expect(solution_step: [:title, :description, :response, :decimal_digits, :public, :tips_display_mode])
+      params.expect(solution_step: [ :title, :description, :response, :decimal_digits, :public, :tips_display_mode ])
     end
 
     def find_solution_step
