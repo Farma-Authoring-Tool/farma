@@ -1,5 +1,5 @@
 class Api::Professors::LosController < Api::BaseController
-  before_action :find_lo, except: [ :create, :index ]
+  before_action :find_lo, except: [:create, :index]
 
   def index
     render json: Lo.all
@@ -45,7 +45,7 @@ class Api::Professors::LosController < Api::BaseController
   private
 
     def lo_params
-      params.expect(lo: [ :title, :description ])
+      params.expect(lo: [:title, :description])
     end
 
     def find_lo

@@ -1,7 +1,7 @@
 class Api::Professors::SolutionStepsController < Api::BaseController
   include FindResources
 
-  before_action :find_solution_step, except: [ :create, :index, :reorder ]
+  before_action :find_solution_step, except: [:create, :index, :reorder]
 
   def index
     render json: @exercise.solution_steps
@@ -58,7 +58,7 @@ class Api::Professors::SolutionStepsController < Api::BaseController
   private
 
     def solution_steps_params
-      params.expect(solution_step: [ :title, :description, :response, :decimal_digits, :public, :tips_display_mode ])
+      params.expect(solution_step: [:title, :description, :response, :decimal_digits, :public, :tips_display_mode])
     end
 
     def find_solution_step

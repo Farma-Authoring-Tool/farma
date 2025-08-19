@@ -1,7 +1,7 @@
 class Api::Professors::IntroductionsController < Api::BaseController
   include FindResources
 
-  before_action :find_introduction, except: [ :create, :index ]
+  before_action :find_introduction, except: [:create, :index]
 
   def index
     render json: @lo.introductions
@@ -55,7 +55,7 @@ class Api::Professors::IntroductionsController < Api::BaseController
   private
 
     def introduction_params
-      params.expect(introduction: [ :title, :description, :public ])
+      params.expect(introduction: [:title, :description, :public])
     end
 
     def find_introduction

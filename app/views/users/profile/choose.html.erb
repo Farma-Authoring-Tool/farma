@@ -1,12 +1,12 @@
 <section>
   <h1 class="text-white text-base md:text-2xl font-base text-center mb-8">
-    <%= t('.select_profile') %>
+    <%= t('.select') %>
   </h1>
 
   <div class="flex flex-col md:flex-row gap-8 justify-center">
-    <%= render Profile::ChooseBtnComponent.new(path: students_root_path, title: t('.profile_student'),
-                                               profile: t('.access_profile', profile: "estudante")) %>
-    <%= render Profile::ChooseBtnComponent.new(path: educators_root_path, title: t('.profile_educator'),
-                                               profile: t('.access_profile', profile: "educador")) %>
+    <%= render Profile::ChooseBtnComponent.new(path: students_root_path, title: t('.student.title'),
+                                               desc: t('.student.desc')) %>
+    <%= render Profile::ChooseBtnComponent.new(path: educators_root_path, title: t('.educator.title'),
+                                               desc: t('.educator.desc')) %>
   </div>
 </section>

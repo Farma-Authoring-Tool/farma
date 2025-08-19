@@ -1,7 +1,7 @@
 class Api::Professors::ExercisesController < Api::BaseController
   include FindResources
 
-  before_action :find_exercise, except: [ :create, :index ]
+  before_action :find_exercise, except: [:create, :index]
 
   def index
     render json: @lo.exercises
@@ -57,7 +57,7 @@ class Api::Professors::ExercisesController < Api::BaseController
   private
 
     def exercise_params
-      params.expect(exercise: [ :title, :description, :public ])
+      params.expect(exercise: [:title, :description, :public])
     end
 
     def find_exercise
