@@ -4,9 +4,9 @@
   </h1>
 
   <div class="flex flex-col md:flex-row gap-8 justify-center">
-
-    <%= profile_card(path: students_root_path, title: t('.profile_student'), profile: t('.acess_profile', profile:"estudante")) %>
-    <%= profile_card(path: educators_root_path, title: t('.profile_educator'), profile: t('.acess_profile', profile:"educador")) %>
-
+    <%= render Profile::ChooseBtnComponent.new(path: students_root_path, title: t('.profile_student'),
+                                               profile: t('.access_profile', profile: "estudante")) %>
+    <%= render Profile::ChooseBtnComponent.new(path: educators_root_path, title: t('.profile_educator'),
+                                               profile: t('.access_profile', profile: "educador")) %>
   </div>
 </section>

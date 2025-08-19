@@ -39,7 +39,7 @@ pt-BR:
       choose:
         profile_educator: Sou educador
         profile_student: Sou estudante
-        acess_profile: "Acesse o painel de %{profile}"
+        access_profile: "Acesse o painel de %{profile}"
         select_profile: "Selecione seu perfil"
   educators:
     home:

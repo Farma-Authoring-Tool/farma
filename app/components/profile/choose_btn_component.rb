@@ -1,10 +1,11 @@
-class Profile::ProfileComponent < ViewComponent::Base
+class Profile::ChooseBtnComponent < ViewComponent::Base
   # rubocop:disable Lint/MissingSuper
   def initialize(path:, title:, profile:)
     @path = path
     @title = title
     @profile = profile
   end
+
   # rubocop:enable Lint/MissingSuper
 
   def title
