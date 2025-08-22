@@ -1,16 +1,14 @@
-<h2>Forgot your password?</h2>
+<% provide(:head_title, t(".forgot_your_password")) %>
+<% provide(:head_subtitle, t(".message")) %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_with(model: resource, as: resource_name, url: password_path(resource_name)) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <%= f.input :email, type: :email %>
+
+  <%= link_to "Lembrou sua senha?", new_user_session_path, class: "flex text-xs md:text-sm text-green-500 justify-end mb-3" %>
+
+  <div class="flex items-center">
+    <%= f.submit t(".send_me_reset_password_instructions"), class: "w-full" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

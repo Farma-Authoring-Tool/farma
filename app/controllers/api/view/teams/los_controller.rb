@@ -21,8 +21,8 @@ class Api::View::Teams::LosController < Api::BaseController
 
   private
 
-  def view_page
-    page = @lo.pages.first
-    page.visualizations.find_or_create_by(user: current_user, team: @team)
-  end
+    def view_page
+      page = @lo.pages.first
+      page.visualizations.find_or_create_by(user: current_user, team: @team)
+    end
 end

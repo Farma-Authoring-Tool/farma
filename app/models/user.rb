@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   has_many :created_teams, class_name: 'Team', dependent: :destroy
 
+  validates :name, presence: true, length: { maximum: 50 }
+
   def self.new_guest
     new do |u|
       u.guest = true

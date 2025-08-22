@@ -89,6 +89,14 @@ function test {
   _dc_ app-tests rails test "${@}"
 }
 
+function test:system {
+  _dc_ app-tests rails test:system
+}
+
+function test:browser {
+  docker compose exec -e LAUNCH_BROWSER=true app-tests rails test "${@}"
+}
+
 function test:coverage {
   docker compose exec -e COVERAGE=true app-tests rails test "${@}"
 }
@@ -126,6 +134,10 @@ function help {
   compgen -A function | grep -v "^_" | cat -n
 
   printf "\nExtended help:\n  Each task has comments for general usage\n"
+}
+
+function edit:credentials {
+  docker compose run --rm -e EDITOR=vim app rails credentials:edit --environment "${1:-development}"
 }
 
 # This idea is heavily inspired by: https://github.com/adriancooney/Taskfile

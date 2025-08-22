@@ -1,5 +1,6 @@
 class Api::Professors::ExercisesController < Api::BaseController
   include FindResources
+
   before_action :find_exercise, except: [:create, :index]
 
   def index
@@ -20,7 +21,7 @@ class Api::Professors::ExercisesController < Api::BaseController
         message: error_message,
         exercise: exercise,
         errors: exercise.errors
-      }, status: :unprocessable_entity
+      }, status: :unprocessable_content
     end
   end
 
@@ -32,7 +33,7 @@ class Api::Professors::ExercisesController < Api::BaseController
         message: error_message,
         exercise: @exercise,
         errors: @exercise.errors
-      }, status: :unprocessable_entity
+      }, status: :unprocessable_content
     end
   end
 
@@ -55,13 +56,13 @@ class Api::Professors::ExercisesController < Api::BaseController
 
   private
 
-  def exercise_params
-    params.expect(exercise: [:title, :description, :public])
-  end
+    def exercise_params
+      params.expect(exercise: [:title, :description, :public])
+    end
 
-  def find_exercise
-    @exercise = @lo.exercises.find(params[:id])
-  rescue ActiveRecord::RecordNotFound => e
-    render json: { message: resource_not_found_message(model: e.model) }, status: :not_found
-  end
+    def find_exercise
+      @exercise = @lo.exercises.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { message: resource_not_found_message(model: e.model) }, status: :not_found
+    end
 end

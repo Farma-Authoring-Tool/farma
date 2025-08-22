@@ -1,7 +1,19 @@
 root to: 'home#index'
-get '/test', to: 'home#test', as: 'test'
 
-devise_for :users, controllers: { sessions: 'users/auth/sessions', registrations: 'users/auth/registrations' }
+devise_for :users, controllers: {
+  sessions: 'users/auth/sessions',
+  registrations: 'users/auth/registrations',
+  passwords: 'users/auth/passwords'
+}
+
 authenticate :user do
-  get '/users', to: 'users/home#index'
+  get '/profile/choose', to: 'users/profile#choose', as: :users_choose_profile
+
+  namespace :educators do
+    root to: 'home#dashboard'
+  end
+
+  namespace :students do
+    root to: 'home#dashboard'
+  end
 end

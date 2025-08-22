@@ -19,7 +19,7 @@ services:
     command: >
       bash -c "
         rm -f tmp/pids/server.pid && sudo cron &&
-        bundle exec rails s -p 3000 -b '0.0.0.0'
+        bin/dev
         " # Removing server.pid is technically a cleanup script
     ports:
       - 3000:3000
@@ -44,9 +44,25 @@ services:
     environment:
       RAILS_ENV: test
       DATABASE_URL: postgres://postgres@db
-    shm_size: "2gb" #set shared memory
+      SELENIUM_HOST: chrome-server
+      SELENIUM_PORT: 4444
+      TEST_APP_HOST: app-tests
+      DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: true
+    shm_size: '2gb' #set shared memory
     depends_on:
       - db
+      - chrome-server
+
+  chrome-server:
+    image: selenium/standalone-chrome:latest
+    volumes:
+      - ./test/samples:/var/www/farma/test/samples
+      - /dev/shm:/dev/shm
+    ports:
+      - 4444:4444
+      - 5900:5900
+    networks:
+      - app-network
 
 volumes:
   pgdata:

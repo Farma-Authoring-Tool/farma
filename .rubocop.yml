@@ -2,6 +2,7 @@ plugins:
   - rubocop-rails
   - rubocop-minitest
   - rubocop-factory_bot
+  - rubocop-capybara
 
 AllCops:
   NewCops: enable
@@ -42,8 +43,11 @@ Style/HashTransformValues:
   Exclude:
     - "test/support/pretty_diff.rb"
 
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
 Metrics/BlockLength:
-  AllowedMethods: ["context"]
+  AllowedMethods: [ "context" ]
   Exclude:
     - "config/environments/development.rb"
     - "config/routes.rb"
@@ -62,3 +66,9 @@ Rails/LexicallyScopedActionFilter:
   Exclude:
     - "app/controllers/users/auth/sessions_controller.rb"
     - "app/controllers/users/auth/registrations_controller.rb"
+
+Lint/MissingSuper:
+  Exclude:
+    - "app/components/form/input/base_component.rb"
+    - "app/components/form/input/submit_component.rb"
+    - "app/components/flash/message_component.rb"

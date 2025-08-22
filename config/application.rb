@@ -35,6 +35,9 @@ module Farma
     config.autoload_paths += Rails.root.glob('app/resources/**')
     config.active_support.to_time_preserves_timezone = :zone
 
+    config.autoload_paths << Rails.root.join('app/form_builders')
+    config.eager_load_paths << Rails.root.join('app/form_builders') # For production/eager load
+
     # When both `If-Modified-Since` and `If-None-Match` are provided by the client
     # only consider `If-None-Match` as specified by RFC 7232 Section 6.
     # If set to `false` both conditions need to be satisfied.
