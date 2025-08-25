@@ -30,7 +30,7 @@ class Users::LoginFlowTest < ActionDispatch::IntegrationTest
 
     post user_session_path, params: { user: { email: @user.email, password: 'wrong_password' } }
 
-    assert_response :unprocessable_entity
+    assert_response :unprocessable_content
 
     assert_select 'div.bg-red-50.text-red-800', I18n.t('devise.failure.invalid', authentication_keys: 'E-mail')
   end
@@ -42,7 +42,7 @@ class Users::LoginFlowTest < ActionDispatch::IntegrationTest
 
     post user_session_path, params: { user: { email: '', password: '' } }
 
-    assert_response :unprocessable_entity
+    assert_response :unprocessable_content
 
     assert_select 'div.bg-red-50.text-red-800', text: I18n.t('devise.failure.invalid', authentication_keys: 'E-mail')
   end

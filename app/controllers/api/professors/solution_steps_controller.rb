@@ -21,7 +21,7 @@ class Api::Professors::SolutionStepsController < Api::BaseController
         message: error_message,
         solution_step: solution_step,
         errors: solution_step.errors
-      }, status: :unprocessable_entity
+      }, status: :unprocessable_content
     end
   end
 
@@ -33,7 +33,7 @@ class Api::Professors::SolutionStepsController < Api::BaseController
         message: error_message,
         solution_step: @solution_step,
         errors: @solution_step.errors
-      }, status: :unprocessable_entity
+      }, status: :unprocessable_content
     end
   end
 
@@ -41,7 +41,7 @@ class Api::Professors::SolutionStepsController < Api::BaseController
     @solution_step.destroy
     render json: { message: success_destroy_message }, status: :accepted
   rescue StandardError
-    render json: { message: unsuccess_destroy_message }, status: :unprocessable_entity
+    render json: { message: unsuccess_destroy_message }, status: :unprocessable_content
   end
 
   def duplicate

@@ -30,17 +30,22 @@ pt-BR:
         background_alt: Estudantes mexendo em seus computadores
     shared:
       links:
-        already_have_account: "Já possui uma conta?"
-        sign_in: "Faça seu login"
-        dont_have_account: "Ainda não possui uma conta?"
-        sign_up: "Registre-se"
+        already_have_account: Já possui uma conta?
+        sign_in: Faça seu login
+        dont_have_account: Ainda não possui uma conta?
+        sign_up: Registre-se
   users:
     profile:
+      educator: Educador
+      student: Estudante
       choose:
-        profile_educator: Sou educador
-        profile_student: Sou estudante
-        acess_profile: "Acesse o painel de %{profile}"
-        select_profile: "Selecione seu perfil"
+        educator:
+          title: Sou educador
+          desc: Acesse o painel de educador
+        student:
+          title: Sou estudante
+          desc: Acesse o painel de estudante
+        select: Selecione seu perfil
   educators:
     home:
       breadcrumbs: Home

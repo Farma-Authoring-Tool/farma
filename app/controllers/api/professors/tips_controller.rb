@@ -21,7 +21,7 @@ class Api::Professors::TipsController < Api::BaseController
         message: error_message,
         tip: tip,
         errors: tip.errors
-      }, status: :unprocessable_entity
+      }, status: :unprocessable_content
     end
   end
 
@@ -33,7 +33,7 @@ class Api::Professors::TipsController < Api::BaseController
         message: error_message,
         tip: @tip,
         errors: @tip.errors
-      }, status: :unprocessable_entity
+      }, status: :unprocessable_content
     end
   end
 

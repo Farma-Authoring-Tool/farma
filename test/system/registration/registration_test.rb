@@ -8,7 +8,7 @@ class RegistrationTest < ApplicationSystemTestCase
     visit new_user_registration_path
   end
 
-  should 'user can register' do
+  should 'successfully register with valid data' do
     within 'form' do
       fill_in :user_name, with: @user.name
       fill_in :user_email, with: @user.email
@@ -20,7 +20,7 @@ class RegistrationTest < ApplicationSystemTestCase
     assert_current_path users_choose_profile_path
   end
 
-  should 'email already registered' do
+  should 'fail to register with already taken email' do
     existing_user = create(:user, email: @user.email)
 
     visit new_user_registration_path
@@ -37,7 +37,7 @@ class RegistrationTest < ApplicationSystemTestCase
     assert_text I18n.t('errors.messages.taken')
   end
 
-  should 'sending blank form' do
+  should 'show errors when submitting blank form' do
     click_button I18n.t('devise.registrations.new.submit')
 
     assert_selector 'div.user_name p', text: I18n.t('errors.messages.blank')

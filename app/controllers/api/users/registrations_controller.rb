@@ -6,6 +6,7 @@ class Api::Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
   # protected
+
   private
 
     def respond_with(current_user, _opts = {})
@@ -15,7 +16,7 @@ class Api::Users::RegistrationsController < Devise::RegistrationsController
       else
         render json: {
           message: I18n.t('messages.actions.errors'), user: current_user.as_json, errors: current_user.errors
-        }, status: :unprocessable_entity
+        }, status: :unprocessable_content
       end
     end
 

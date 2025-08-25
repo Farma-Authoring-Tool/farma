@@ -21,7 +21,7 @@ class Api::Professors::ExercisesController < Api::BaseController
         message: error_message,
         exercise: exercise,
         errors: exercise.errors
-      }, status: :unprocessable_entity
+      }, status: :unprocessable_content
     end
   end
 
@@ -33,7 +33,7 @@ class Api::Professors::ExercisesController < Api::BaseController
         message: error_message,
         exercise: @exercise,
         errors: @exercise.errors
-      }, status: :unprocessable_entity
+      }, status: :unprocessable_content
     end
   end
 

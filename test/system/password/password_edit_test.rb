@@ -9,7 +9,7 @@ class PasswordEditTest < ApplicationSystemTestCase
     visit edit_user_password_path(reset_password_token: @user.send(:set_reset_password_token))
   end
 
-  should 'user can change password' do
+  should 'successfully change password with valid input' do
     within 'form' do
       fill_in :user_password, with: 'newpassword'
       fill_in :user_password_confirmation, with: 'newpassword'
@@ -19,7 +19,7 @@ class PasswordEditTest < ApplicationSystemTestCase
     assert_current_path users_choose_profile_path
   end
 
-  should 'blank email' do
+  should 'show error when submitting blank password fields' do
     within 'form' do
       click_button I18n.t('devise.passwords.edit.submit')
     end
