@@ -7,7 +7,7 @@ class Form::Input::CheckboxComponent < ViewComponent::Base
     @options = options
   end
 
-  def checkbox
+  def call
     content_tag :div, class: 'flex items-center space-x-2 mb-5' do
       checkbox_field + label
     end
