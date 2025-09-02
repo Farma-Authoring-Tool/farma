@@ -35,7 +35,7 @@ class Form::Input::BaseComponent < ViewComponent::Base
   private
 
     def input_type
-      "#{@type}_field"
+      { 'text_area' => 'text_area', 'checkbox' => 'check_box' }[@type.to_s] || "#{@type}_field"
     end
 
     # Errors

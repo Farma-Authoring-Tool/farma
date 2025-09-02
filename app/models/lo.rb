@@ -1,6 +1,7 @@
 class Lo < ApplicationRecord
   include Duplicate
 
+  has_one_attached :picture
   has_many :introductions, dependent: :destroy
   has_many :exercises, dependent: :destroy
   belongs_to :user

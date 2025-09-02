@@ -4,17 +4,17 @@
   <%= render "layouts/shared/head" %>
 </head>
 
-<body class="bg-gray-100 bg-opacity-50">s
+<body class="bg-green-50">
 
 <div data-controller="sidebar">
   <%= render 'layouts/educators/header' %>
   <%= render 'layouts/educators/sidebar' %>
 </div>
 
-<main class="h-screen px-4 py-24 lg:ml-64">
+<main class="h-screen px-4 py-24 lg:ml-42">
 
   <div class="mb-4 border-b border-gray-200 pb-2">
-    <h1 class="text-3xl font-bold text-gray-600"><%= yield(:head_title) %></h1>
+    <h1 class="text-3xl font-bold text-gray-500"><%= yield(:head_title) %></h1>
   </div>
 
   <%= render 'layouts/breadcrumbs/breadcrumbs' %>
@@ -28,8 +28,9 @@
     </h2>
 
     <%= yield %>
-  </div>
 
+    
+  </div>
 </main>
 </body>
 </html>

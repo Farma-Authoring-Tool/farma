@@ -50,4 +50,19 @@ pt-BR:
     home:
       breadcrumbs: Home
       dashboard:
-        title: Dashboard
+        title: Dashboard 
+    los:
+      create:
+        success: "Objeto de Aprendizagem criado com sucesso!"
+      update:
+        success: "Objeto de Aprendizagem atualizado com sucesso!"
+      destroy:
+        success: "Objeto de Aprendizagem removido com sucesso!"
+      new:
+        title: Crie seu Objeto de Aprendizagem
+        title_nav: Criação OA
+        submit: Criar Objeto de Aprendizagem
+        form:
+          name: Nome
+          description: Descrição
+          

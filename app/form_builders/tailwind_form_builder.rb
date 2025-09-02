@@ -25,4 +25,20 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
       class: 'text-xs md:text-sm text-red-600 pl-0 p-2'
     )
   end
+
+  def file_input(attribute, **)
+    @template.render Form::Input::FileComponent.new(
+      form: self,
+      attribute: attribute,
+      **
+    )
+  end
+
+  def checkbox(attribute, **)
+    @template.render Form::Input::CheckboxComponent.new(
+      form: self,
+      attribute: attribute,
+      **
+    )
+  end
 end
