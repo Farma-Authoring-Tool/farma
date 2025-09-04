@@ -1,0 +1,36 @@
+<% if @los.any? %>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <% @los.each do |lo| %>
+      <div class="block">
+        <%= link_to educators_lo_path(lo) do %>
+          <% if lo.picture.attached? %>
+            <%= image_tag url_for(lo.picture), class: "brightness-20 w-full h-24 object-cover object-top rounded-t-md" %>
+          <% else %>
+            <%= image_tag 'bg/default_lo.png', class: "brightness-20 w-full h-24 object-cover object-top rounded-t-md" %>
+          <% end %>
+        <% end %>
+        <div class="p-4 bg-white shadow-md rounded-b-md border border-gray-200">
+          <h1 class="text-md md:text-lg font-semibold"><%= lo.title %></h1>
+          <div class="flex justify-between items-center">
+            <p class="text-gray-600 mt-2 text-xs md:text-sm"><%= truncate(lo.description, length: 80) %></p>
+            
+            <div class="flex space-x-2 items-center">
+              <%= button_to educators_lo_path(lo), method: :delete do %>
+                <%= icon(:trash, class:"text-red-700 cursor-pointer") %>
+              <% end %>
+              <%= link_to edit_educators_lo_path(lo) do %>
+                <%= icon(:edit, class:"text-green-700 cursor-pointer") %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+  <% else %>
+    <div class="flex flex-col items-center justify-center space-y-4 p-6 bg-white border border-gray-200 rounded-lg shadow-md">
+      <%= image_tag 'oa/not_found.png', class: "w-24 h-full" %>
+      <p class="text-gray-500"><%= t(".oa_not_found")%></p>
+    </div>
+<% end %>

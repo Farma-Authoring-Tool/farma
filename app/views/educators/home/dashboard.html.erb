@@ -1,25 +1,7 @@
 <% provide :title, t('.title') %>
 <% provide :head_title, t('.title') %>
 
-<!-- TESTE 
-<% if @los.any? %>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    <% @los.each do |lo| %>
-      <div class="p-4 bg-white shadow-md rounded-lg border border-gray-200">
-
-        <h3 class="text-lg font-semibold"><%= lo.title %></h3>
-        <p class="text-gray-600 mt-2"><%= truncate(lo.description, length: 120) %></p>
-
-        <div class="mt-4 flex justify-end">
-          <%= link_to "Ver", [:educators, lo], class: "px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-<% else %>
-  <p class="text-gray-500">Você ainda não criou nenhum Objeto de Aprendizagem.</p>
-<% end %>
--->
+<%= render 'educators/home/partials/show_oa' %>
 
 <div class="fixed bottom-8 right-8">
   <%= link_to new_educators_lo_path do %>

@@ -51,6 +51,9 @@ pt-BR:
       breadcrumbs: Home
       dashboard:
         title: Dashboard 
+      partials:
+        show_oa:
+          oa_not_found: Nenhum Objeto de Aprendizagem encontrado
     los:
       create:
         success: "Objeto de Aprendizagem criado com sucesso!"
@@ -59,10 +62,16 @@ pt-BR:
       destroy:
         success: "Objeto de Aprendizagem removido com sucesso!"
       new:
+        breadcrumbs: Novo Objeto de Aprendizagem
         title: Crie seu Objeto de Aprendizagem
         title_nav: Criação OA
         submit: Criar Objeto de Aprendizagem
         form:
           name: Nome
           description: Descrição
-          
+      edit:
+        submit: Atualizar Objeto de Aprendizagem
+  breadcrumbs:
+    new_lo: "Novo Objeto de Aprendizagem"
+    edit_lo: "Editar Objeto de Aprendizagem" 
+    show_lo: "Detalhes do Objeto de Aprendizagem"       
