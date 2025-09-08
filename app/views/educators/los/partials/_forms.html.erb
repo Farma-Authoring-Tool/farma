@@ -1,0 +1,14 @@
+<%= form_with(model: [:educators, @lo], local: true, data: { turbo: false }) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description, type: :text_area %>
+    <%= f.file_input :picture %>
+    <div class="flex gap-6">
+        <%= f.checkbox :accessible, label: t('.accessible') %>
+        <%= f.checkbox :duplicable, label: t('.duplicable') %>
+    </div>
+    
+
+    <div class="flex items-center">
+        <%= f.submit submit_label, class: "w-full" %>
+    </div>
+<% end %>

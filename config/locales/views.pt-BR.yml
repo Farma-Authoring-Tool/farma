@@ -51,10 +51,14 @@ pt-BR:
       breadcrumbs: Home
       dashboard:
         title: Dashboard 
-      partials:
-        show_oa:
-          oa_not_found: Nenhum Objeto de Aprendizagem encontrado
+        welcome: Bem-vindo à
+        span: FARMA
     los:
+      partials:
+        forms:
+          accessible: Disponível para alunos
+          duplicable: Permitir cópia
+      breadcrumbs: Objeto de Aprendizagem
       create:
         success: "Objeto de Aprendizagem criado com sucesso!"
       update:
@@ -70,8 +74,15 @@ pt-BR:
           name: Nome
           description: Descrição
       edit:
+        title: Edição do seu Objeto de Aprendizagem
+        title_nav: Edição OA
         submit: Atualizar Objeto de Aprendizagem
+      empty:
+        oa_not_found: Nenhum Objeto de Aprendizagem encontrado
+      index:
+        title: Meus Objetos de Aprendizagem
+        title_nav: Meus OAs
   breadcrumbs:
-    new_lo: "Novo Objeto de Aprendizagem"
-    edit_lo: "Editar Objeto de Aprendizagem" 
-    show_lo: "Detalhes do Objeto de Aprendizagem"       
+    new: "Novo Objeto de Aprendizagem"
+    edit: "Editar Objeto de Aprendizagem" 
+    show: "Detalhes do Objeto de Aprendizagem"       
