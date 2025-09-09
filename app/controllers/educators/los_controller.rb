@@ -46,10 +46,6 @@ class Educators::LosController < Educators::BaseController
 
   private
 
-    def default_breadcrumbs
-      add_breadcrumb I18n.t('educators.los.breadcrumbs'), educators_los_path
-    end
-
     def lo_params
       params.fetch(:lo, {}).permit(:title, :description, :picture)
     end
