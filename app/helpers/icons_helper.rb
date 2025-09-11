@@ -1,4 +1,3 @@
-# rubocop:disable Layout/LineLength
 module IconsHelper
   ICONS = {
     oa: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-easel2-fill" viewBox="0 0 16 16"><path d="M8.447.276a.5.5 0 0 0-.894 0L7.19 1H2.5A1.5 1.5 0 0 0 1 2.5V10h14V2.5A1.5 1.5 0 0 0 13.5 1H8.809z"/><path fill-rule="evenodd" d="M.5 11a.5.5 0 0 0 0 1h2.86l-.845 3.379a.5.5 0 0 0 .97.242L3.89 14h8.22l.405 1.621a.5.5 0 0 0 .97-.242L12.64 12h2.86a.5.5 0 0 0 0-1zm3.64 2 .25-1h7.22l.25 1z"/></svg>',
@@ -10,12 +9,9 @@ module IconsHelper
     buttonCreate: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16"> <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"/> </svg>'
   }.freeze
 
-  # rubocop:disable Rails/OutputSafety
   def icon(name, options = {})
     classes = options[:class] || 'w-4 h-4'
-
-    ICONS[name]&.sub('<svg', "<svg class='#{classes}'")&.html_safe || ''
+    icon = ICONS[name]&.sub('<svg', "<svg class='#{classes}'") || ''
+    sanitize_svg(icon)
   end
-  # rubocop:enable Rails/OutputSafety
 end
-# rubocop:enable Layout/LineLength

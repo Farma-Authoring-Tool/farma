@@ -46,6 +46,10 @@ Style/HashTransformValues:
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods
 
+Layout/LineLength:
+  Exclude:
+    - "app/helpers/icons_helper.rb"
+
 Metrics/BlockLength:
   AllowedMethods: [ "context" ]
   Exclude:
