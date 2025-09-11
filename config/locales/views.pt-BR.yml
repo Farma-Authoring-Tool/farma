@@ -56,10 +56,6 @@ pt-BR:
         los:
           recents: 'Objetos de aprendizagem vistos recentemente'
     los:
-      partials:
-        forms:
-          accessible: Disponível para alunos
-          duplicable: Permitir cópia
       breadcrumbs: Objeto de Aprendizagem
       create:
         success: "Objeto de Aprendizagem criado com sucesso!"

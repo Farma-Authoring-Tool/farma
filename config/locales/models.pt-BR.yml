@@ -31,6 +31,9 @@ pt-BR:
       lo:
         title: Título
         description: Descrição
+        accessible: Disponível para alunos
+        duplicable: Permitir cópia
+        picture: Imagem
         <<: *commons
       user:
         confirmation_sent_at: Confirmação enviada em

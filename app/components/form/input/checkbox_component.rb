@@ -1,13 +1,10 @@
-class Form::Input::CheckboxComponent < ViewComponent::Base
+class Form::Input::CheckboxComponent < Form::Input::BaseComponent
   def initialize(form:, attribute:, label: nil, **options)
-    super()
-    @form = form
-    @attribute = attribute
-    @label = label || @attribute.to_s.humanize
-    @options = options
+    options[:label] = false
+    super(form: form, attribute: attribute, type: :checkbox, label: label, **options)
   end
 
-  def call
+  def input
     content_tag :div, class: 'flex items-center space-x-2 mb-5' do
       checkbox_field + label
     end
@@ -20,14 +17,6 @@ class Form::Input::CheckboxComponent < ViewComponent::Base
         @attribute,
         class: 'h-4 w-4 rounded border-gray-300 text-green-600 focus:outline-none focus:ring-0',
         **@options
-      )
-    end
-
-    def label
-      @form.label(
-        @attribute,
-        @label,
-        class: 'text-xs md:text-sm font-medium text-gray-700 cursor-pointer'
       )
     end
 end

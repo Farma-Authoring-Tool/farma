@@ -1,13 +1,10 @@
-class Form::Input::FileComponent < ViewComponent::Base
-  def initialize(form:, attribute:, **options)
-    super()
-    @form = form
-    @attribute = attribute
-    @options = options
+class Form::Input::FileComponent < Form::Input::BaseComponent
+  def initialize(form:, attribute:, label: nil, **)
+    super(form: form, attribute: attribute, type: :file, label: label, **)
   end
 
-  def call
-    content_tag :div, class: 'flex flex-col' do
+  def input
+    content_tag :div, class: 'flex flex-col mt-1' do
       file_field_tag
     end
   end

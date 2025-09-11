@@ -19,7 +19,7 @@ class Form::Input::BaseComponent < ViewComponent::Base
     classes += 'py-2 px-3 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500'
     classes += " #{error_input_class}"
 
-    @form.send(input_type, @attribute, class: classes, id: id, **@options) + error_message
+    @form.send(input_type, @attribute, class: classes, id: id, **@options)
   end
 
   def label
@@ -47,7 +47,9 @@ class Form::Input::BaseComponent < ViewComponent::Base
     def error_message
       return unless errors?
 
-      content_tag(:p, @object.errors[@attribute].join('<br>'), class: 'text-red-600 text-xs md:text-sm mt-1')
+      content_tag(:p,
+                  helpers.sanitize_text(@object.errors[@attribute].join('<br>')),
+                  class: 'text-red-600 text-xs md:text-sm mt-1')
     end
 
     def errors?
