@@ -56,7 +56,11 @@ pt-BR:
         los:
           recents: 'Objetos de aprendizagem vistos recentemente'
     los:
-      breadcrumbs: Objeto de Aprendizagem
+      breadcrumbs:
+        index: Meus objetos de Aprendizagem
+        new: Novo Objeto de Aprendizagem
+        show: "Objeto de Aprendizagem #%{id}"
+        edit: "Editar Objeto de Aprendizagem #%{id}"
       create:
         success: "Objeto de Aprendizagem criado com sucesso!"
       update:
@@ -64,7 +68,6 @@ pt-BR:
       destroy:
         success: "Objeto de Aprendizagem removido com sucesso!"
       new:
-        breadcrumbs: Novo Objeto de Aprendizagem
         title: Crie seu Objeto de Aprendizagem
         title_nav: Criação OA
         submit: Criar Objeto de Aprendizagem
@@ -80,7 +83,3 @@ pt-BR:
       index:
         title: Meus Objetos de Aprendizagem
         title_nav: Meus OAs
-  breadcrumbs:
-    new: "Novo Objeto de Aprendizagem"
-    edit: "Editar Objeto de Aprendizagem"
-    show: "Detalhes do Objeto de Aprendizagem"

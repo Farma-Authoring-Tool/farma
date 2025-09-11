@@ -52,12 +52,15 @@ class Educators::LosController < Educators::BaseController
 
     def set_breadcrumbs
       case action_name.to_sym
-      when :new
-        add_breadcrumb I18n.t('breadcrumbs.new'), new_educators_lo_path
+      when :new, :create
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.new')
       when :show
-        add_breadcrumb I18n.t('breadcrumbs.show'), educators_lo_path(@lo)
-      when :edit
-        add_breadcrumb I18n.t('breadcrumbs.edit'), edit_educators_lo_path(@lo)
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id)
+      when :edit, :update
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.edit', id: @lo.id)
       end
     end
 end

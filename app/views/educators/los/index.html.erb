@@ -2,11 +2,11 @@
 <% provide :head_title, t('.title') %>
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    <%= render partial: "educators/los/lo", collection: @los, as: :lo %>  
+  <%= render partial: "educators/los/lo", collection: @los, as: :lo %>
 </div>
 
 <div class="flex justify-center itens-center">
-    <%= render "educators/los/empty" unless @los.any? %> 
+  <%= render "educators/los/empty" unless @los.any? %>
 </div>
 
 <div class="fixed bottom-8 right-8">
