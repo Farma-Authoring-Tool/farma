@@ -47,7 +47,7 @@ class Educators::LosController < Educators::BaseController
   private
 
     def lo_params
-      params.fetch(:lo, {}).permit(:title, :description, :picture)
+      params.fetch(:lo, {}).permit(:title, :description, :picture, :accessible, :duplicable)
     end
 
     def set_breadcrumbs

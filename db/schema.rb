@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_02_123726) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_16_162455) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -111,6 +111,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_02_123726) do
     t.integer "introductions_count"
     t.integer "exercises_count"
     t.bigint "user_id"
+    t.boolean "accessible", default: false, null: false
+    t.boolean "duplicable", default: false, null: false
     t.index ["title"], name: "index_los_on_title", unique: true
     t.index ["user_id"], name: "index_los_on_user_id"
   end
