@@ -4,6 +4,7 @@ require 'support/helpers/capybara_custom_assertions'
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   include CapybaraCustomAssertions
+  include TestAssetHelpers
 
   driven_by :chrome
 

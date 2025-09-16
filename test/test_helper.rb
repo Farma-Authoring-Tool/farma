@@ -1,3 +1,4 @@
+require 'support/asset_helpers'
 require 'support/simplecov'
 require 'support/bullet'
 
