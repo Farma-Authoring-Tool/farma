@@ -5,12 +5,11 @@ require 'application_system_test_case'
 class RecentLosTest < ApplicationSystemTestCase
   setup do
     @user = create(:user)
-    sign_in @user
 
-    @lo = FactoryBot.create(:lo, user: @user)
-
+    @lo = create(:lo, user: @user)
     attach_picture(@lo, 'image_base_test.jpg')
 
+    sign_in @user
     visit educators_root_path
   end
 
@@ -30,7 +29,7 @@ class RecentLosTest < ApplicationSystemTestCase
     assert_current_path educators_lo_path(@lo)
   end
 
-  should 'edit OA by clicking edit icon' do
+  should 'navigate to OA edit' do
     find("a[href='#{edit_educators_lo_path(@lo)}']").click
 
     assert_current_path edit_educators_lo_path(@lo)
