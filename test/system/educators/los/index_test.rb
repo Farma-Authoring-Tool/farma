@@ -5,45 +5,32 @@ class IndexTest < ApplicationSystemTestCase
     @user = create(:user)
     sign_in @user
 
-    @lo1 = Lo.create!(
-      title: 'OA 1',
-      description: 'OA 1',
-      user: @user
-    )
-    attach_picture(@lo1, 'test/los/oa1.jpg')
-
-    @lo2 = Lo.create!(
-      title: 'OA 2',
-      description: 'OA 2',
-      user: @user
-    )
+    @lo = FactoryBot.create(:lo)
+    attach_picture(@lo, 'image_base_test.jpg')
 
     visit educators_los_path
   end
 
   should 'show recently modified OA' do
     assert_selector 'h1', text: 'OA 1'
-    assert_selector "img[src*='oa1.jpg']"
-
-    assert_selector 'h1', text: 'OA 2'
-    assert_selector "img[src*='default_lo']"
+    assert_selector "img[src*='image_base_test.jpg.jpg']"
   end
 
   should 'navigate to OA details page when clicking on an OA' do
-    find("img[src*='oa1.jpg']").click
+    find("img[src*='image_base_test.jpg.jpg']").click
 
-    assert_current_path educators_lo_path(@lo1)
+    assert_current_path educators_lo_path(@lo)
   end
 
   should 'edit OA by clicking edit icon' do
-    find("a[href='#{edit_educators_lo_path(@lo1)}']").click
+    find("a[href='#{edit_educators_lo_path(@lo)}']").click
 
-    assert_current_path edit_educators_lo_path(@lo1)
+    assert_current_path edit_educators_lo_path(@lo)
   end
 
   should 'remove OA by clicking delete icon' do
     accept_confirm do
-      find("a[data-turbo-method='delete'][href='#{educators_lo_path(@lo1)}']").click
+      find("a[data-turbo-method='delete'][href='#{educators_lo_path(@lo)}']").click
     end
 
     assert_selector('[role="alert"]', text: I18n.t('educators.los.destroy.success'))

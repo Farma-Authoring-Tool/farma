@@ -5,7 +5,8 @@ class UpdateTest < ApplicationSystemTestCase
     @user = create(:user)
     sign_in(@user)
 
-    @lo = create(:lo, title: 'OA antigo', description: 'Descrição antiga', user: @user)
+    @lo = FactoryBot.create(:lo)
+
     visit edit_educators_lo_path(@lo)
   end
 

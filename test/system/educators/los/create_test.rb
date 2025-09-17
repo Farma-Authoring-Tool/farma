@@ -4,6 +4,7 @@ class CreateTest < ApplicationSystemTestCase
   setup do
     @user = create(:user)
     sign_in(@user)
+
     visit new_educators_lo_path
   end
 
@@ -11,7 +12,7 @@ class CreateTest < ApplicationSystemTestCase
     fill_in I18n.t('activerecord.attributes.lo.title'), with: 'Novo OA'
     fill_in I18n.t('activerecord.attributes.lo.description'), with: 'Descrição do OA'
     attach_file 'lo_picture',
-                Rails.root.join('test/fixtures/files/default_lo.png'),
+                Rails.root.join('default_lo.png'),
                 visible: :all
     check I18n.t('activerecord.attributes.lo.accessible')
     check I18n.t('activerecord.attributes.lo.accessible')

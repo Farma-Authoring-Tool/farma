@@ -8,13 +8,9 @@ class Educators::LosControllerTest < ActionDispatch::IntegrationTest
     @user = create(:user)
     sign_in @user
 
-    @lo = Lo.create!(
-      title: 'OA 1',
-      description: 'OA 1',
-      user: @user
-    )
+    @lo = FactoryBot.create(:lo, user: @user)
 
-    attach_picture(@lo, 'test/los/oa1.jpg')
+    attach_picture(@lo, 'test/fixtures/files/image_base_test.jpg')
   end
 
   test 'should get /educators/los' do
@@ -24,7 +20,7 @@ class Educators::LosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show educators/los' do
-    get educators_lo_url(@lo)
+    get educators_lo_path(@lo)
 
     assert_response :success
   end
@@ -40,7 +36,7 @@ class Educators::LosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update /los/edit' do
-    patch educators_lo_url(@lo), params: { lo: { title: 'Atualizado' } }
+    patch educators_lo_path(@lo), params: { lo: { title: 'Atualizado' } }
 
     assert_redirected_to educators_root_path
 

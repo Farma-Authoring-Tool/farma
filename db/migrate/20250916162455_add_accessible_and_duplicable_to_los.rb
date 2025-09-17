@@ -1,6 +1,8 @@
 class AddAccessibleAndDuplicableToLos < ActiveRecord::Migration[8.0]
   def change
-    add_column :los, :accessible, :boolean, default: false, null: false
-    add_column :los, :duplicable, :boolean, default: false, null: false
+    change_table :los, bulk: true do |t|
+      t.boolean :accessible, default: false, null: false
+      t.boolean :duplicable, default: false, null: false
+    end
   end
 end
