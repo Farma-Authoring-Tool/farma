@@ -20,7 +20,7 @@ class RecentLosTest < ApplicationSystemTestCase
   end
 
   should 'show recently modified OA' do
-    assert_selector 'h1', text: 'OA 1'
+    assert_selector 'h1', text: @lo.title
     assert_selector "img[src*='image_base_test.jpg']"
   end
 

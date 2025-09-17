@@ -12,7 +12,7 @@ class CreateTest < ApplicationSystemTestCase
     fill_in I18n.t('activerecord.attributes.lo.title'), with: 'Novo OA'
     fill_in I18n.t('activerecord.attributes.lo.description'), with: 'Descrição do OA'
     attach_file 'lo_picture',
-                Rails.root.join('default_lo.png'),
+                Rails.root.join('test/fixtures/files/default_lo.png'),
                 visible: :all
     check I18n.t('activerecord.attributes.lo.accessible')
     check I18n.t('activerecord.attributes.lo.accessible')

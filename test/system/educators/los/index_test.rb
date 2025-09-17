@@ -5,19 +5,19 @@ class IndexTest < ApplicationSystemTestCase
     @user = create(:user)
     sign_in @user
 
-    @lo = FactoryBot.create(:lo)
+    @lo = FactoryBot.create(:lo, user: @user)
     attach_picture(@lo, 'image_base_test.jpg')
 
     visit educators_los_path
   end
 
   should 'show recently modified OA' do
-    assert_selector 'h1', text: 'OA 1'
-    assert_selector "img[src*='image_base_test.jpg.jpg']"
+    assert_selector 'h1', text: @lo.title
+    assert_selector "img[src*='image_base_test.jpg']"
   end
 
   should 'navigate to OA details page when clicking on an OA' do
-    find("img[src*='image_base_test.jpg.jpg']").click
+    find("img[src*='image_base_test.jpg']").click
 
     assert_current_path educators_lo_path(@lo)
   end

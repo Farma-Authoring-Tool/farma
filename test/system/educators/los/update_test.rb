@@ -5,7 +5,7 @@ class UpdateTest < ApplicationSystemTestCase
     @user = create(:user)
     sign_in(@user)
 
-    @lo = FactoryBot.create(:lo)
+    @lo = FactoryBot.create(:lo, user: @user)
 
     visit edit_educators_lo_path(@lo)
   end
