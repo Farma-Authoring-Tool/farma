@@ -10,7 +10,7 @@ class Educators::LosControllerTest < ActionDispatch::IntegrationTest
 
     @lo = FactoryBot.create(:lo, user: @user)
 
-    attach_picture(@lo, 'test/fixtures/files/image_base_test.jpg')
+    attach_picture(@lo, 'image_base_test.jpg')
   end
 
   test 'should get /educators/los' do

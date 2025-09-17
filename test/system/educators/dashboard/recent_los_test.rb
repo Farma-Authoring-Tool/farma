@@ -3,7 +3,6 @@
 require 'application_system_test_case'
 
 class RecentLosTest < ApplicationSystemTestCase
-  
   setup do
     @user = create(:user)
     sign_in @user
