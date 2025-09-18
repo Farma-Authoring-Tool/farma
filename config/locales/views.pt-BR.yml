@@ -51,3 +51,35 @@ pt-BR:
       breadcrumbs: Home
       dashboard:
         title: Dashboard
+        welcome: Bem-vindo à
+        span: FARMA
+        los:
+          recents: 'Objetos de aprendizagem vistos recentemente'
+    los:
+      breadcrumbs:
+        index: Meus objetos de Aprendizagem
+        new: Novo Objeto de Aprendizagem
+        show: "Objeto de Aprendizagem #%{id}"
+        edit: "Editar Objeto de Aprendizagem #%{id}"
+      create:
+        success: "Objeto de Aprendizagem criado com sucesso!"
+      update:
+        success: "Objeto de Aprendizagem atualizado com sucesso!"
+      destroy:
+        success: "Objeto de Aprendizagem removido com sucesso!"
+      new:
+        title: Crie seu Objeto de Aprendizagem
+        title_nav: Criação OA
+        submit: Criar Objeto de Aprendizagem
+        form:
+          name: Nome
+          description: Descrição
+      edit:
+        title: Edição do seu Objeto de Aprendizagem
+        title_nav: Edição OA
+        submit: Atualizar Objeto de Aprendizagem
+      empty:
+        oa_not_found: Nenhum Objeto de Aprendizagem encontrado
+      index:
+        title: Meus Objetos de Aprendizagem
+        title_nav: Meus OAs

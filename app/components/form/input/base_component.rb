@@ -15,11 +15,11 @@ class Form::Input::BaseComponent < ViewComponent::Base
   end
 
   def input
-    classes = 'text-xs md:text-base mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm'
-    classes += ' focus:border-blue-500 focus:outline-none focus:ring-blue-500'
+    classes = 'text-xs text-gray-800 md:text-base mt-1 block w-full rounded-md border border-gray-300'
+    classes += 'py-2 px-3 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500'
     classes += " #{error_input_class}"
 
-    @form.send(input_type, @attribute, class: classes, id: id, **@options) + error_message
+    @form.send(input_type, @attribute, class: classes, id: id, **@options)
   end
 
   def label
@@ -35,7 +35,7 @@ class Form::Input::BaseComponent < ViewComponent::Base
   private
 
     def input_type
-      "#{@type}_field"
+      { 'text_area' => 'text_area', 'checkbox' => 'check_box' }[@type.to_s] || "#{@type}_field"
     end
 
     # Errors
@@ -47,7 +47,9 @@ class Form::Input::BaseComponent < ViewComponent::Base
     def error_message
       return unless errors?
 
-      content_tag(:p, @object.errors[@attribute].join('<br>'), class: 'text-red-600 text-xs md:text-sm mt-1')
+      content_tag(:p,
+                  helpers.sanitize_text(@object.errors[@attribute].join('<br>')),
+                  class: 'text-red-600 text-xs md:text-sm mt-1')
     end
 
     def errors?

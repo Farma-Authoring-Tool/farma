@@ -28,9 +28,12 @@ pt-BR:
         email: E-mail
         created_at: Criado em
         updated_at: Atualizado em
-      admin:
+      lo:
         title: Título
         description: Descrição
+        accessible: Disponível para alunos
+        duplicable: Permitir cópia
+        picture: Imagem
         <<: *commons
       user:
         confirmation_sent_at: Confirmação enviada em

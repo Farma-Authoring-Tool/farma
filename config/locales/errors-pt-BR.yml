@@ -1,0 +1,7 @@
+pt-BR:
+  errors:
+    messages:
+      attached:
+        blank: deve ser enviado
+        max_size: é muito grande (o tamanho máximo é %{maximum} MB)
+        content_type: "não é um tipo de arquivo permitido (permitidos: %{allowed_types})"

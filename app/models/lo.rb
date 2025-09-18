@@ -1,6 +1,10 @@
 class Lo < ApplicationRecord
   include Duplicate
 
+  ACCEPTED_PICTURE_TYPES = %w[image/png image/jpg image/jpeg].freeze
+  ACCEPTED_PICTURE_TYPES_TEXT = ACCEPTED_PICTURE_TYPES.join(', ')
+
+  has_one_attached :picture
   has_many :introductions, dependent: :destroy
   has_many :exercises, dependent: :destroy
   belongs_to :user
@@ -10,6 +14,7 @@ class Lo < ApplicationRecord
 
   validates :title, presence: true, uniqueness: true
   validates :description, presence: true
+  validates :picture, content_type: ACCEPTED_PICTURE_TYPES, size: { maximum: 5.megabytes }, if: :picture_attached?
 
   def duplicate
     LoDuplicator.new(self).perform
@@ -21,5 +26,15 @@ class Lo < ApplicationRecord
 
   def progress
     @progress ||= Logics::Lo::Progress.new(self)
+  end
+
+  delegate :attached?, to: :picture, prefix: true
+
+  def picture_url
+    if picture.attached?
+      Rails.application.routes.url_helpers.rails_blob_path(picture, only_path: true)
+    else
+      ActionController::Base.helpers.asset_path('bg/default_lo.png')
+    end
   end
 end
