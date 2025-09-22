@@ -1,9 +1,49 @@
-<h1 class="text-xl font-bold"><%= @lo.title %></h1>
+<% provide :title, t('.title_nav') %>
+<% provide :head_title, t('.title') %>
+
+<h1 class="text-2xl font-bold text-gray-900"><%= @lo.title %></h1>
 <p class="mt-2 text-gray-600"><%= @lo.description %></p>
 
 <% if @lo.picture.attached? %>
-    <%= image_tag url_for(@lo.picture), class: "mt-4 w-full h-64 object-cover object-top rounded-md" %>
+  <%= image_tag url_for(@lo.picture), class: "mt-4 w-full h-64 object-cover object-top rounded-md" %>
 <% end %>
 
+<%= render partial: "educators/introductions/introduction", collection: @lo.introductions.order(created_at: :asc), as: :introduction %>
 
+<div class="flex justify-between gap-4 bottom-8 right-8 mt-8">
+  <%= link_to new_educators_lo_introduction_path(@lo),
+              class: "group relative inline-flex h-12 items-center justify-center rounded-full bg-gray-800 py-1 pl-4 pr-12 font-medium text-neutral-50 text-sm" do %>
+    
+    <span class="z-10 pr-1">Introdução</span>
+    <div class="absolute right-1 inline-flex h-9 w-9 items-center justify-end rounded-full bg-gray-400 transition-[width] group-hover:w-[calc(100%-8px)]">
+      <div class="mr-2 flex items-center justify-center">
+        <%= icon(:buttonCreate, class: 'w-4 h-4 text-white') %>
+      </div>
+    </div>
+    
+  <% end %>
 
+  <%= link_to new_educators_lo_introduction_path(@lo),
+              class: "group relative inline-flex h-12 items-center justify-center rounded-full bg-gray-800 py-1 pl-4 pr-12 font-medium text-neutral-50 text-sm" do %>
+    
+    <span class="z-10 pr-1">Exercicios</span>
+    <div class="absolute right-1 inline-flex h-9 w-9 items-center justify-end rounded-full bg-gray-400 transition-[width] group-hover:w-[calc(100%-8px)]">
+      <div class="mr-2 flex items-center justify-center">
+        <%= icon(:buttonCreate, class: 'w-4 h-4 text-white') %>
+      </div>
+    </div>
+    
+  <% end %>
+
+  <%= link_to new_educators_lo_introduction_path(@lo),
+              class: "group relative inline-flex h-12 items-center justify-center rounded-full bg-gray-800 py-1 pl-4 pr-12 font-medium text-neutral-50 text-sm" do %>
+    
+    <span class="z-10 pr-1">Dicas</span>
+    <div class="absolute right-1 inline-flex h-9 w-9 items-center justify-end rounded-full bg-gray-400 transition-[width] group-hover:w-[calc(100%-8px)]">
+      <div class="mr-2 flex items-center justify-center">
+        <%= icon(:buttonCreate, class: 'w-4 h-4 text-white') %>
+      </div>
+    </div>
+    
+  <% end %>
+</div>

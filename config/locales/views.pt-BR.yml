@@ -83,3 +83,29 @@ pt-BR:
       index:
         title: Meus Objetos de Aprendizagem
         title_nav: Meus OAs
+      show:
+        title: Meu Objeto de Aprendizagem
+        title_nav: Meu OA
+    introductions:
+      breadcrumbs:
+        new: "Nova Introdução para OA #%{id}"
+        edit: "Editar Introdução para OA #%{id}"
+      create:
+        success: "Introdução criada com sucesso!"
+      update:
+        success: "Introdução atualizada com sucesso!"
+      destroy:
+        success: "Introdução removida com sucesso!"
+      new:
+        title: Crie a introdução do seu Objeto de Aprendizagem
+        title_nav: Criação Introdução
+        submit: Criar Introdução para OA
+        form:
+          picture: Imagem de capa
+          public: Tornar introdução pública
+          accessible: Permitir acesso a todos os estudantes --- IGNORE ---
+          duplicable: Permitir que outros educadores dupliquem esta introdução --- IGNORE ---
+      edit:
+        title: Edite a introdução do seu Objeto de Aprendizagem
+        title_nav: Edição Introdução
+        submit: Atualizar Introdução
