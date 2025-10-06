@@ -35,6 +35,14 @@ pt-BR:
         duplicable: Permitir cópia
         picture: Imagem
         <<: *commons
+      introduction:
+        title: Título
+        description: Descrição
+        draft: Publicar
+      exercise:
+        title: Título
+        description: Descrição
+        draft: Publicar
       user:
         confirmation_sent_at: Confirmação enviada em
         confirmation_token: Token de confirmação

@@ -83,3 +83,42 @@ pt-BR:
       index:
         title: Meus Objetos de Aprendizagem
         title_nav: Meus OAs
+      show:
+        title: Meu Objeto de Aprendizagem
+        title_nav: Meu OA
+    introductions:
+      breadcrumbs:
+        new: "Nova Introdução para OA #%{id}"
+        edit: "Editar Introdução para OA #%{id}"
+      create:
+        success: "Introdução criada com sucesso!"
+      update:
+        success: "Introdução atualizada com sucesso!"
+      destroy:
+        success: "Introdução removida com sucesso!"
+      new:
+        title: Crie a introdução do seu Objeto de Aprendizagem
+        title_nav: Criação Introdução
+        submit: Criar Introdução para OA
+      edit:
+        title: Edite a introdução do seu Objeto de Aprendizagem
+        title_nav: Edição Introdução
+        submit: Atualizar Introdução
+    exercises:
+      breadcrumbs:
+        new: "Novo Exercício para OA #%{id}"
+        edit: "Editar Exercício para OA #%{id}"
+      create:
+        success: "Exercício criado com sucesso!"
+      update:
+        success: "Exercício atualizado com sucesso!"
+      destroy:
+        success: "Exercício removido com sucesso!"
+      new:
+        title: Crie um exercício para o seu Objeto de Aprendizagem
+        title_nav: Criação Exercício
+        submit: Criar Exercício para OA
+      edit:
+        title: Edite um exercício para o seu Objeto de Aprendizagem
+        title_nav: Edição Exercício
+        submit: Atualizar Exercício

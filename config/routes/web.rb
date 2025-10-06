@@ -11,7 +11,12 @@ authenticate :user do
 
   namespace :educators do
     root to: 'home#dashboard'
-    resources :los
+    resources :los do
+      resources :introductions
+      resources :exercises do
+        resources :solution_steps
+      end
+    end
   end
 
   namespace :students do

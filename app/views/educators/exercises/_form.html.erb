@@ -1,0 +1,12 @@
+<%= form_with(model: [:educators, @lo, @exercise], local: true) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description, type: :text_area %>
+
+  <div class="flex gap-6">
+    <%= f.checkbox :draft %>
+  </div>    
+
+  <div class="flex items-center">
+    <%= f.submit class: "w-full" %>
+  </div>
+<% end %>
