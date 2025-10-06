@@ -100,12 +100,25 @@ pt-BR:
         title: Crie a introdução do seu Objeto de Aprendizagem
         title_nav: Criação Introdução
         submit: Criar Introdução para OA
-        form:
-          picture: Imagem de capa
-          public: Tornar introdução pública
-          accessible: Permitir acesso a todos os estudantes --- IGNORE ---
-          duplicable: Permitir que outros educadores dupliquem esta introdução --- IGNORE ---
       edit:
         title: Edite a introdução do seu Objeto de Aprendizagem
         title_nav: Edição Introdução
         submit: Atualizar Introdução
+    exercises:
+      breadcrumbs:
+        new: "Novo Exercício para OA #%{id}"
+        edit: "Editar Exercício para OA #%{id}"
+      create:
+        success: "Exercício criado com sucesso!"
+      update:
+        success: "Exercício atualizado com sucesso!"
+      destroy:
+        success: "Exercício removido com sucesso!"
+      new:
+        title: Crie um exercício para o seu Objeto de Aprendizagem
+        title_nav: Criação Exercício
+        submit: Criar Exercício para OA
+      edit:
+        title: Edite um exercício para o seu Objeto de Aprendizagem
+        title_nav: Edição Exercício
+        submit: Atualizar Exercício

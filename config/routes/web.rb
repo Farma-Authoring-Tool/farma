@@ -13,6 +13,9 @@ authenticate :user do
     root to: 'home#dashboard'
     resources :los do
       resources :introductions
+      resources :exercises do
+        resources :solution_steps
+      end
     end
   end
 

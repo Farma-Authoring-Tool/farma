@@ -1,0 +1,10 @@
+<% provide :title, t('.title_nav') %>
+<% provide :head_title, t('.title') %>
+
+<h2 class="text-lg font-semibold mb-4">Passos da Solução</h2>
+
+<%= render partial: "educators/solution_steps/solution_step", collection: @solution_steps, as: :solution_step %>
+
+<%= render(Button::FabComponent.new(actions: [
+  { url: new_educators_lo_exercise_solution_step_path(@lo, @exercise), icon: icon(:introduction, class:"text-green-500") }
+])) %>
