@@ -1,9 +1,18 @@
-<h1 class="text-xl font-bold"><%= @lo.title %></h1>
+<% provide :title, t('.title_nav') %>
+<% provide :head_title, t('.title') %>
+
+<h1 class="text-2xl font-bold text-gray-700"><%= @lo.title %></h1>
 <p class="mt-2 text-gray-600"><%= @lo.description %></p>
 
 <% if @lo.picture.attached? %>
-    <%= image_tag url_for(@lo.picture), class: "mt-4 w-full h-64 object-cover object-top rounded-md" %>
+  <%= image_tag url_for(@lo.picture), class: "mt-4 w-full h-64 object-cover object-top rounded-md" %>
 <% end %>
 
+<%= render partial: "educators/introductions/introduction", collection: @lo.introductions.order(created_at: :asc), as: :introduction %>
 
+<%= render partial: "educators/exercises/exercise", collection: @lo.exercises.order(created_at: :asc), as: :exercise %>
 
+<%= render(Button::FabComponent.new(actions: [
+  { url: new_educators_lo_introduction_path(@lo), icon: icon(:introduction, class:"text-blue-500") },
+  { url: new_educators_lo_exercise_path(@lo), icon: icon(:exercise, class:"text-red-500") }
+])) %>

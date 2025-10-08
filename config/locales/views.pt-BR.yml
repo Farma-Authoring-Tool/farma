@@ -88,8 +88,8 @@ pt-BR:
         title_nav: Meu OA
     introductions:
       breadcrumbs:
-        new: "Nova Introdução para OA #%{id}"
-        edit: "Editar Introdução para OA #%{id}"
+        new: "Nova Introdução"
+        edit: "Editar Introdução #%{id}"
       create:
         success: "Introdução criada com sucesso!"
       update:
@@ -106,8 +106,9 @@ pt-BR:
         submit: Atualizar Introdução
     exercises:
       breadcrumbs:
-        new: "Novo Exercício para OA #%{id}"
-        edit: "Editar Exercício para OA #%{id}"
+        new: "Novo Exercício"
+        edit: "Editar Exercício #%{id}"
+        show: "Exercício #%{id}"
       create:
         success: "Exercício criado com sucesso!"
       update:
@@ -122,3 +123,29 @@ pt-BR:
         title: Edite um exercício para o seu Objeto de Aprendizagem
         title_nav: Edição Exercício
         submit: Atualizar Exercício
+      exercise:
+        view: Visualizar Exercício
+    solution_steps:
+      breadcrumbs:
+        new: "Novo Passo da Solução"
+        edit: "Editar Passo da Solução #%{id}"
+        index: "Passos da Solução do Exercício #%{id}"
+      create:
+        success: "Passo da Solução criado com sucesso!"
+      update:
+        success: "Passo da Solução atualizado com sucesso!"
+      destroy:  
+        success: "Passo da Solução removido com sucesso!"
+      new:
+        title: Crie um passo da solução para o seu exercício
+        title_nav: Criação Passo da Solução
+        submit: Criar Passo da Solução para Exercício
+      edit: 
+        title: Edite um passo da solução para o seu exercício
+        title_nav: Edição Passo da Solução
+        submit: Atualizar Passo da Solução
+      index:
+        title: Passos da Solução do Exercício
+        title_nav: Passos da Solução 
+      empty:
+        solution_step_not_found: Nenhum Exercicio encontrado

@@ -14,11 +14,13 @@ class Educators::ExercisesController < Educators::BaseController
 
     if @exercise.save
       redirect_to educators_lo_path(@lo), success: t('.success')
+    end
   end
 
   def update
     if @exercise.update(exercise_params)
       redirect_to educators_lo_path(@lo), success: t('.success')
+    end
   end
 
   def destroy
@@ -40,14 +42,18 @@ class Educators::ExercisesController < Educators::BaseController
       params.fetch(:exercise, {}).permit(:title, :description, :public)
     end
     
+    def add_lo_breadcrumbs(locale_key, **i18n_opts)
+      add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
+      add_breadcrumb I18n.t("educators.los.breadcrumbs.show", id: @lo.id), educators_lo_path(@lo)
+      add_breadcrumb I18n.t("educators.exercises.breadcrumbs.#{locale_key}", **i18n_opts)
+    end
+
     def set_breadcrumbs
       case action_name.to_sym
       when :new, :create
-        add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
-        add_breadcrumb I18n.t('educators.exercises.breadcrumbs.new', id: @lo.id)
+        add_lo_breadcrumbs(:new)
       when :edit, :update
-        add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
-        add_breadcrumb I18n.t('educators.exercises.breadcrumbs.edit', id: @lo.id)
+        add_lo_breadcrumbs(:edit, id: @exercise.id)
       end
     end
 end

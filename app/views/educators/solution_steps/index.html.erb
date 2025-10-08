@@ -1,10 +1,15 @@
 <% provide :title, t('.title_nav') %>
 <% provide :head_title, t('.title') %>
 
-<h2 class="text-lg font-semibold mb-4">Passos da Solução</h2>
+<h1 class="text-2xl font-bold text-gray-700"><%= @lo.title %></h1>
+<p class="mt-2 text-gray-600"><%= @lo.description %></p>
+
+<div class="flex justify-center itens-center">
+  <%= render "educators/solution_steps/empty" unless @solution_steps.any? %>
+</div>
 
 <%= render partial: "educators/solution_steps/solution_step", collection: @solution_steps, as: :solution_step %>
 
 <%= render(Button::FabComponent.new(actions: [
-  { url: new_educators_lo_exercise_solution_step_path(@lo, @exercise), icon: icon(:introduction, class:"text-green-500") }
+  { url: new_educators_lo_exercise_solution_step_path(@lo, @exercise), icon: icon(:solution_step, class:"text-green-500") }
 ])) %>

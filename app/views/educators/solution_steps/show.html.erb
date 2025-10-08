@@ -1,6 +1,0 @@
-<% provide :title, t('.title_nav') %>
-<% provide :head_title, t('.title') %>
-
-<%= render(Button::FabComponent.new(actions: [
-  { url: new_educators_lo_exercise_solution_step_path(@lo, @exercise, @solution_step), icon: icon(:introduction, class:"text-green-500") }
-])) %>

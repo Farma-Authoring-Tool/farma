@@ -43,6 +43,12 @@ pt-BR:
         title: Título
         description: Descrição
         draft: Publicar
+      solution_step:
+        title: Título
+        description: Descrição
+        response: Resposta
+        decimal_digits: Casas decimais para considerar a questão
+        draft: Publicar
       user:
         confirmation_sent_at: Confirmação enviada em
         confirmation_token: Token de confirmação

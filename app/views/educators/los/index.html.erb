@@ -9,8 +9,6 @@
   <%= render "educators/los/empty" unless @los.any? %>
 </div>
 
-<div class="fixed bottom-8 right-8">
-  <%= link_to new_educators_lo_path do %>
-    <%= icon(:buttonCreate, class: 'w-9 h-9 text-green-600') %>
-  <% end %>
-</div>
+<%= render(Button::FabComponent.new(actions: [
+  { url: new_educators_lo_path, icon: icon(:oa, class:"text-gray-600") }
+])) %>
