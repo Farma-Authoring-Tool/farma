@@ -49,6 +49,10 @@ pt-BR:
         response: Resposta
         decimal_digits: Casas decimais para considerar a questão
         draft: Publicar
+      tip:
+        title: Título
+        description: Descrição
+        number_attempts: Numero de tentativas para ativar a dica
       user:
         confirmation_sent_at: Confirmação enviada em
         confirmation_token: Token de confirmação

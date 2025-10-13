@@ -71,9 +71,6 @@ pt-BR:
         title: Crie seu Objeto de Aprendizagem
         title_nav: Criação OA
         submit: Criar Objeto de Aprendizagem
-        form:
-          name: Nome
-          description: Descrição
       edit:
         title: Edição do seu Objeto de Aprendizagem
         title_nav: Edição OA
@@ -149,3 +146,23 @@ pt-BR:
         title_nav: Passos da Solução 
       empty:
         solution_step_not_found: Nenhum Exercicio encontrado
+    tips:
+      breadcrumbs:
+        new: "Nova Dica"
+        edit: "Editar Dica #%{id}"
+      create:
+        success: "Dica criada com sucesso!"
+      update:
+        success: "Dica atualizada com sucesso!"
+      destroy:  
+        success: "Dica removida com sucesso!"
+      new:
+        title: Crie uma dica para o seu exercício
+        title_nav: Criação Dica
+        submit: Criar Dica para Exercício
+      edit: 
+        title: Edite uma dica para o seu exercício
+        title_nav: Edição de Dica
+        submit: Atualizar Dica
+      tip:
+        number_attempts: Tentativas necessarias

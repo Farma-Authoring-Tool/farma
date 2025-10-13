@@ -1,0 +1,18 @@
+<hr class="border-gray-300 mt-3">
+
+<div class="flex flex-col text-gray-500 gap-2">
+    <h1 class="font-bold"><%= tip.title %></h1>
+    <h1 class="text-sm"><%= tip.description %></h1>
+    <h1 class="text-sm"><%=t(".number_attempts")%> <%= tip.number_attempts %></h1>
+
+    <div class="flex space-x-2">
+        <%= link_to edit_educators_lo_exercise_solution_step_tip_path(@lo, @exercise, solution_step, tip) do %>
+            <%= icon(:edit, class: "text-gray-500 hover:text-green-700 cursor-pointer") %>
+        <% end %>
+
+
+        <%= link_to educators_lo_exercise_solution_step_tip_path(@lo, @exercise, solution_step, tip), data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" } do %>
+            <%= icon(:trash, class: "text-gray-500 hover:text-red-700 cursor-pointer") %>
+        <% end %>
+    </div>
+</div>
