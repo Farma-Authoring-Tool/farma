@@ -12,6 +12,8 @@ class Educators::TipsController < Educators::BaseController
     @tip = @solution_step.tips.new
   end
 
+  def edit; end
+
   def create
     @tip = @solution_step.tips.new(tip_params)
 
@@ -21,8 +23,6 @@ class Educators::TipsController < Educators::BaseController
       render :new, status: :unprocessable_entity
     end
   end
-
-  def edit; end
 
   def update
     if @tip.update(tip_params)
@@ -37,7 +37,8 @@ class Educators::TipsController < Educators::BaseController
     redirect_to educators_lo_exercise_solution_steps_path(@lo), success: t('.success')
   end
 
-  private 
+  private
+
     def tip_params
       params.fetch(:tip, {}).permit(:title, :description, :number_attempts)
     end
@@ -61,8 +62,8 @@ class Educators::TipsController < Educators::BaseController
     def add_base_breadcrumbs
       add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
       add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id), educators_lo_path(@lo)
-      add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.index' , id: @exercise.id),
-                educators_lo_exercise_solution_steps_path(@lo, @exercise)
+      add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.index', id: @exercise.id),
+                     educators_lo_exercise_solution_steps_path(@lo, @exercise)
     end
 
     def add_action_breadcrumbs(locale_key = nil, **i18n_opts)
@@ -74,6 +75,7 @@ class Educators::TipsController < Educators::BaseController
 
       case action_name.to_sym
       when :index
+        # noop — handled elsewhere
       when :new, :create
         add_action_breadcrumbs(:new)
       when :edit, :update

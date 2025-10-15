@@ -1,5 +1,4 @@
 class Educators::ExercisesController < Educators::BaseController
-
   before_action :set_lo
   before_action :set_exercise, only: [:edit, :update, :destroy]
 
@@ -14,12 +13,16 @@ class Educators::ExercisesController < Educators::BaseController
 
     if @exercise.save
       redirect_to educators_lo_path(@lo), success: t('.success')
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
     if @exercise.update(exercise_params)
       redirect_to educators_lo_path(@lo), success: t('.success')
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -41,10 +44,10 @@ class Educators::ExercisesController < Educators::BaseController
     def exercise_params
       params.fetch(:exercise, {}).permit(:title, :description, :public)
     end
-    
+
     def add_lo_breadcrumbs(locale_key, **i18n_opts)
       add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
-      add_breadcrumb I18n.t("educators.los.breadcrumbs.show", id: @lo.id), educators_lo_path(@lo)
+      add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id), educators_lo_path(@lo)
       add_breadcrumb I18n.t("educators.exercises.breadcrumbs.#{locale_key}", **i18n_opts)
     end
 

@@ -11,6 +11,8 @@ class Educators::SolutionStepsController < Educators::BaseController
     @solution_step = @exercise.solution_steps.new
   end
 
+  def edit; end
+
   def create
     @solution_step = @exercise.solution_steps.new(solution_step_params)
 
@@ -20,8 +22,6 @@ class Educators::SolutionStepsController < Educators::BaseController
       render :new, status: :unprocessable_entity
     end
   end
-
-  def edit; end
 
   def update
     if @solution_step.update(solution_step_params)
@@ -57,8 +57,8 @@ class Educators::SolutionStepsController < Educators::BaseController
     def add_base_breadcrumbs
       add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
       add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id), educators_lo_path(@lo)
-      add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.index' , id: @exercise.id),
-                educators_lo_exercise_solution_steps_path(@lo, @exercise)
+      add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.index', id: @exercise.id),
+                     educators_lo_exercise_solution_steps_path(@lo, @exercise)
     end
 
     def add_action_breadcrumbs(locale_key = nil, **i18n_opts)
@@ -70,6 +70,7 @@ class Educators::SolutionStepsController < Educators::BaseController
 
       case action_name.to_sym
       when :index
+        # noop — handled elsewhere
       when :new, :create
         add_action_breadcrumbs(:new)
       when :edit, :update

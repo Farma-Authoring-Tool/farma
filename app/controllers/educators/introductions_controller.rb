@@ -1,5 +1,4 @@
 class Educators::IntroductionsController < Educators::BaseController
-
   before_action :set_lo
   before_action :set_introduction, only: [:edit, :update, :destroy]
 
@@ -14,12 +13,16 @@ class Educators::IntroductionsController < Educators::BaseController
 
     if @introduction.save
       redirect_to educators_lo_path(@lo), success: t('.success')
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
     if @introduction.update(introduction_params)
       redirect_to educators_lo_path(@lo), success: t('.success')
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -44,7 +47,7 @@ class Educators::IntroductionsController < Educators::BaseController
 
     def add_lo_breadcrumbs(locale_key, **i18n_opts)
       add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
-      add_breadcrumb I18n.t("educators.los.breadcrumbs.show", id: @lo.id), educators_lo_path(@lo)
+      add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id), educators_lo_path(@lo)
       add_breadcrumb I18n.t("educators.introductions.breadcrumbs.#{locale_key}", **i18n_opts)
     end
 
@@ -53,7 +56,7 @@ class Educators::IntroductionsController < Educators::BaseController
       when :new, :create
         add_lo_breadcrumbs(:new)
       when :edit, :update
-        add_breadcrumb I18n.t("educators.los.breadcrumbs.show", id: @lo.id), educators_lo_path(@lo)
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id), educators_lo_path(@lo)
         add_lo_breadcrumbs(:edit, id: @introduction.id)
       end
     end

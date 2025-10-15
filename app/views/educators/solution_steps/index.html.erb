@@ -2,7 +2,7 @@
 <% provide :head_title, t('.title') %>
 
 <h1 class="text-2xl font-bold text-gray-700"><%= @lo.title %></h1>
-<p class="mt-2 text-gray-600"><%= @lo.description %></p>
+<p class="mt-2 text-gray-600"><%= truncate_html(@lo.description.html_safe, length: 400) %></p>
 
 <div class="flex justify-center itens-center">
   <%= render "educators/solution_steps/empty" unless @solution_steps.any? %>

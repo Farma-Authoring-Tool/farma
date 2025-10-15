@@ -2,10 +2,12 @@
 <% provide :head_title, t('.title') %>
 
 <h1 class="text-2xl font-bold text-gray-700"><%= @lo.title %></h1>
-<p class="mt-2 text-gray-600"><%= @lo.description %></p>
+<p class="mt-2 text-gray-600"><%= truncate_html(@lo.description.html_safe, length: 400) %></p>
 
 <% if @lo.picture.attached? %>
   <%= image_tag url_for(@lo.picture), class: "mt-4 w-full h-64 object-cover object-top rounded-md" %>
+<% else %>
+  <%= image_tag "bg/default_lo.png", class: "mt-4 w-full h-64 object-cover object-top rounded-md" %>
 <% end %>
 
 <%= render partial: "educators/introductions/introduction", collection: @lo.introductions.order(created_at: :asc), as: :introduction %>

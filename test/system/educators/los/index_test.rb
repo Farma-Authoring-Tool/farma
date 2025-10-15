@@ -44,8 +44,10 @@ class IndexTest < ApplicationSystemTestCase
   end
 
   should 'navigate to create OA page when clicking on create OA button' do
-    find("a[href='#{new_educators_lo_path}']").click
+    find('button[data-action="click->fab#toggle"]').click
 
+    find("a[href='#{new_educators_lo_path}']").click
+    
     assert_current_path new_educators_lo_path
   end
 end
