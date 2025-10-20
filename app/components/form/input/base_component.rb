@@ -19,7 +19,15 @@ class Form::Input::BaseComponent < ViewComponent::Base
     classes += 'py-1 px-3 focus:outline-none focus:ring-0'
     classes += " #{error_input_class}"
 
-    @form.send(input_type, @attribute, class: classes, id: id, **@options)
+    options = @options.dup
+
+    if @type.to_s == 'text_area'
+      options[:data] ||= {}
+      options[:data][:controller] ||= 'tinymce'
+      options[:data][:tinymce_upload_url_value] ||= helpers.educators_uploader_image_path
+    end
+
+    @form.send(input_type, @attribute, class: classes, id: id, **options)
   end
 
   def label

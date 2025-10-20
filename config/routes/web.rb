@@ -11,14 +11,26 @@ authenticate :user do
 
   namespace :educators do
     root to: 'home#dashboard'
+
     resources :los do
-      resources :introductions
+      post 'uploader/image', to: 'uploader#image'
+
+      resources :introductions do
+        post 'uploader/image', to: 'uploader#image'
+      end
+
       resources :exercises do
+        post 'uploader/image', to: 'uploader#image'
+
         resources :solution_steps do
+          post 'uploader/image', to: 'uploader#image'
+
           resources :tips
         end
       end
     end
+
+    post 'uploader/image', to: 'uploader#image', as: :uploader_image
   end
 
   namespace :students do

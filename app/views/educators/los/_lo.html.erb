@@ -3,13 +3,11 @@
     <%= image_tag lo.picture_url, class: "brightness-75 w-full h-24 object-cover object-top rounded-t-md" %>
   <% end %>
 
-  <div class="p-4 bg-white shadow-md rounded-b-md border border-gray-200 h-28">
-    <h1 class="text-md text-gray-800 md:text-lg font-semibold"><%= lo.title %></h1>
+  <div class="p-4 bg-white shadow-md rounded-b-md border border-gray-200">
+    <h1 class="text-md text-gray-800 md:text-lg font-semibold"><%= truncate_html(lo.title, length: 20) %></h1>
 
     <div class="flex justify-between items-center">
-      <p class="mt-2 text-xs md:text-sm">
-        <%= truncate_html(lo.description.html_safe, length: 50) %>
-      </p>
+      <%= truncate_html(lo.description, length: 50) %>
 
       <div class="flex space-x-2 items-center">
         <%= link_to educators_lo_path(lo), data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" } do %>

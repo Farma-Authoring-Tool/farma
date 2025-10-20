@@ -1,7 +1,7 @@
 <%= form_with(model: [:educators, @lo, @exercise, @solution_step], local: true) do |f| %>
   <%= f.input :title %>
 
-  <%= f.input :description, type: :text_area, data: { controller: "tinymce" } %>
+  <%= f.input :description, type: :text_area %>
 
   <%= f.input :response %>
   

@@ -47,7 +47,7 @@ class IndexTest < ApplicationSystemTestCase
     find('button[data-action="click->fab#toggle"]').click
 
     find("a[href='#{new_educators_lo_path}']").click
-    
+
     assert_current_path new_educators_lo_path
   end
 end

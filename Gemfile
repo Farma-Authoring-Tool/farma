@@ -44,6 +44,7 @@ gem 'tinymce-rails'
 gem 'truncate_html'
 gem 'view_component'
 gem 'whenever'
+gem "image_processing", ">= 1.2"
 
 group :development do
   gem 'brakeman'

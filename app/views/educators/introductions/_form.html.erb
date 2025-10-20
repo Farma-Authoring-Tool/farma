@@ -1,7 +1,7 @@
 <%= form_with(model: [:educators, @lo, @introduction], local: true) do |f| %>
   <%= f.input :title %>
 
-  <%= f.input :description, type: :text_area, data: { controller: "tinymce" } %>
+  <%= f.input :description, type: :text_area %>
 
   <div class="flex gap-6">
     <%= f.checkbox :draft %>
