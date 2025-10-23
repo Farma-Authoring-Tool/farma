@@ -37,6 +37,21 @@ class Educators::TipsController < Educators::BaseController
     redirect_to educators_lo_exercise_solution_steps_path(@lo), success: t('.success')
   end
 
+  def duplicate
+    @lo = current_user.los.find(params[:lo_id])
+    @exercise = @lo.exercises.find(params[:exercise_id])
+    @solution_step = @exercise.solution_steps.find(params[:solution_step_id])
+    @tip = @solution_step.tips.find(params[:id])
+
+    duplicated_tip = Duplicate::TipDuplicator.new(@tip).perform
+    duplicated_tip.solution_step = @solution_step
+    duplicated_tip.save!
+
+    redirect_to educators_lo_exercise_solution_steps_path(@lo, @exercise),
+              success: t('.duplicated', default: 'Dica duplicada com sucesso!')
+  end
+
+
   private
 
     def tip_params

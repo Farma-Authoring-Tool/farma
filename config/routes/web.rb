@@ -13,25 +13,32 @@ authenticate :user do
     root to: 'home#dashboard'
 
     resources :los do
+      post :duplicate, on: :member
       post 'uploader/image', to: 'uploader#image'
 
       resources :introductions do
+        post :duplicate, on: :member
         post 'uploader/image', to: 'uploader#image'
       end
 
       resources :exercises do
+        post :duplicate, on: :member
         post 'uploader/image', to: 'uploader#image'
 
         resources :solution_steps do
+          post :duplicate, on: :member
           post 'uploader/image', to: 'uploader#image'
 
-          resources :tips
+          resources :tips do
+            post :duplicate, on: :member
+          end
         end
       end
     end
 
-    post 'uploader/image', to: 'uploader#image', as: :uploader_image
-  end
+      post 'uploader/image', to: 'uploader#image', as: :uploader_image
+    end
+
 
   namespace :students do
     root to: 'home#dashboard'

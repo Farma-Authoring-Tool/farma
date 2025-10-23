@@ -36,6 +36,20 @@ class Educators::SolutionStepsController < Educators::BaseController
     redirect_to educators_lo_exercise_solution_steps_path(@lo), success: t('.success')
   end
 
+  def duplicate
+    @lo = current_user.los.find(params[:lo_id])
+    @exercise = @lo.exercises.find(params[:exercise_id])
+    @solution_step = @exercise.solution_steps.find(params[:id])
+
+    duplicated_step = Duplicate::SolutionStepDuplicator.new(@solution_step).perform
+    duplicated_step.exercise = @exercise
+    duplicated_step.save!
+
+    redirect_to educators_lo_exercise_solution_steps_path(@lo, @exercise),
+              success: t('.duplicated', default: 'Etapa de solução duplicada com sucesso!')
+  end
+
+
   private
 
     def set_lo

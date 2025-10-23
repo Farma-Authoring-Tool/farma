@@ -1,24 +1,23 @@
 <div class="my-10 p-4 shadow-lg">
-    <h2 class="font-semibold text-lg flex justify-center items-center text-green-500">
+  <div class="flex items-center justify-between w-full"> 
+    <h2 class="font-semibold text-lg text-blue-950 flex-1 text-center flex items-center justify-center">
       <%= icon(:solution_step, class: "text-green-500 mr-2") %>
       <%= solution_step.title %>
     </h2>
 
-    <p class="text-gray-600 m-10"><%= truncate_html(solution_step.description.html_safe, length: 400) %></p>
-
-    <div class="flex justify-start space-x-4 mb-4 mt-2">
-      <%= link_to edit_educators_lo_exercise_solution_step_path(@lo, @exercise, solution_step) do %>
-        <%= icon(:edit, class: "text-gray-500 hover:text-green-700 cursor-pointer") %>
-      <% end %>
-
-      <%= link_to educators_lo_exercise_solution_step_path(@lo, @exercise, solution_step), data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" } do %>
-        <%= icon(:trash, class: "text-gray-500 hover:text-red-700 cursor-pointer") %>
-      <% end %>
-
-      <%= link_to new_educators_lo_exercise_solution_step_tip_path(@lo, @exercise, solution_step)  do %>
-        <%= icon(:tips, class: "text-gray-500 hover:text-blue-700 cursor-pointer") %>
-      <% end %>
+    <div class="flex items-center space-x-2">
+      <%= button_icon(
+        actions: [
+          { url: educators_lo_exercise_solution_step_path(@lo, @exercise, solution_step), method: :delete, icon: :trash, class:"text-gray-400 hover:text-red-500", type: :button },
+          { url: edit_educators_lo_exercise_solution_step_path(@lo, @exercise, solution_step), icon: :edit, class:"text-gray-400 hover:text-green-500", type: :link },
+          { url: duplicate_educators_lo_exercise_solution_step_path(@lo, @exercise, solution_step), icon: :duplicable, class:"text-gray-400 hover:text-blue-500", type: :button },
+          { url: new_educators_lo_exercise_solution_step_tip_path(@lo, @exercise, solution_step), icon: :tips, class:"text-gray-400 hover:text-yellow-500", type: :link }
+        ]
+      ) %>
     </div>
+  </div>  
 
-    <%= render partial: "educators/tips/tip", collection: solution_step.tips.order(:number_attempts), as: :tip, locals: { solution_step: solution_step } %>
+  <p class="text-gray-600 m-10"><%= truncate_html(solution_step.description.html_safe, length: 400) %></p>
+
+  <%= render partial: "educators/tips/tip", collection: solution_step.tips.order(:number_attempts), as: :tip, locals: { solution_step: solution_step } %>
 </div>

@@ -31,6 +31,17 @@ class Educators::ExercisesController < Educators::BaseController
     redirect_to educators_lo_path(@lo), success: t('.success')
   end
 
+  def duplicate
+    @lo = current_user.los.find(params[:lo_id])
+    @exercise = @lo.exercises.find(params[:id])
+
+    duplicated_exercise = Duplicate::ExerciseDuplicator.new(@exercise).perform
+    duplicated_exercise.update(lo: @lo)
+
+    redirect_to educators_lo_path(@lo), success: t('.duplicated', default: 'Exercício duplicado com sucesso!')
+  end
+
+
   private
 
     def set_lo

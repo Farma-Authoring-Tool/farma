@@ -4,20 +4,20 @@
   <% end %>
 
   <div class="p-4 bg-white shadow-md rounded-b-md border border-gray-200">
-    <h1 class="text-md text-gray-800 md:text-lg font-semibold"><%= truncate_html(lo.title, length: 20) %></h1>
-
     <div class="flex justify-between items-center">
-      <%= truncate_html(lo.description, length: 50) %>
+      <h1 class="text-md text-gray-800 md:text-lg font-semibold"><%= truncate_html(lo.title, length: 20) %></h1>
 
-      <div class="flex space-x-2 items-center">
-        <%= link_to educators_lo_path(lo), data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" } do %>
-          <%= icon(:trash, class: "text-red-700 cursor-pointer") %>
-        <% end %>
-
-        <%= link_to edit_educators_lo_path(lo) do %>
-          <%= icon(:edit, class: "text-green-700 cursor-pointer") %>
-        <% end %>
+      <div class="flex space-x-2 items-center ">
+        <%= button_icon(
+          actions: [
+            { url: educators_lo_path(lo), method: :delete, icon: :trash, class:"text-gray-400 hover:text-red-500", type: :button },
+            { url: edit_educators_lo_path(lo), icon: :edit, class:"text-gray-400 hover:text-green-500", type: :link },
+            { url: duplicate_educators_lo_path(lo), icon: :duplicable, class:"text-gray-400 hover:text-blue-500", type: :button }
+          ]
+        ) %>
       </div>
     </div>
+
+    <%= truncate_html(lo.description, length: 50) %>
   </div>
 </div>

@@ -44,6 +44,13 @@ class Educators::LosController < Educators::BaseController
     redirect_to educators_los_path, success: t('.success')
   end
 
+  def duplicate
+    @lo = current_user.los.find(params[:id])
+    duplicated_lo = Duplicate::LoDuplicator.new(@lo).perform
+    redirect_to educators_lo_path(duplicated_lo), success: t('.duplicated', default: 'LO duplicado com sucesso!')
+  end
+
+
   private
 
     def lo_params

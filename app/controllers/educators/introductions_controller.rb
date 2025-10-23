@@ -31,6 +31,20 @@ class Educators::IntroductionsController < Educators::BaseController
     redirect_to educators_lo_path(@lo), success: t('.success')
   end
 
+  def duplicate
+    @lo = current_user.los.find(params[:lo_id])
+    @introduction = @lo.introductions.find(params[:id])
+
+    duplicated = Duplicate::BaseDuplicator.new(@introduction).dup_value_for_attribute(:title)
+    copy = @introduction.dup
+    copy.title = duplicated
+    copy.lo = @lo
+    copy.save!
+
+    redirect_to educators_lo_path(@lo), success: t('.duplicated', default: 'Introdução duplicada com sucesso!')
+  end
+
+
   private
 
     def set_lo
