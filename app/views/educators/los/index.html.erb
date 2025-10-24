@@ -1,5 +1,4 @@
-<% provide :title, t('.title_nav') %>
-<% provide :head_title, t('.title') %>
+<%= render 'educators/sections/title' %>
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
   <%= render partial: "educators/los/lo", collection: @los, as: :lo %>
