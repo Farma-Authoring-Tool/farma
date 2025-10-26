@@ -1,6 +1,6 @@
 class Educators::IntroductionsController < Educators::BaseController
   before_action :set_lo
-  before_action :set_introduction, only: [:edit, :update, :destroy]
+  before_action :set_introduction, only: [:edit, :update, :destroy, :duplicate]
 
   def new
     @introduction = @lo.introductions.build
@@ -32,9 +32,6 @@ class Educators::IntroductionsController < Educators::BaseController
   end
 
   def duplicate
-    @lo = current_user.los.find(params[:lo_id])
-    @introduction = @lo.introductions.find(params[:id])
-
     duplicated = Duplicate::BaseDuplicator.new(@introduction).dup_value_for_attribute(:title)
     copy = @introduction.dup
     copy.title = duplicated
@@ -43,7 +40,6 @@ class Educators::IntroductionsController < Educators::BaseController
 
     redirect_to educators_lo_path(@lo), success: t('.duplicated', default: 'Introdução duplicada com sucesso!')
   end
-
 
   private
 

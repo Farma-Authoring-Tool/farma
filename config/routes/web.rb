@@ -36,9 +36,8 @@ authenticate :user do
       end
     end
 
-      post 'uploader/image', to: 'uploader#image', as: :uploader_image
-    end
-
+    post 'uploader/image', to: 'uploader#image', as: :uploader_image
+  end
 
   namespace :students do
     root to: 'home#dashboard'

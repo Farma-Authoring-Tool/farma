@@ -1,6 +1,6 @@
 class Educators::ExercisesController < Educators::BaseController
   before_action :set_lo
-  before_action :set_exercise, only: [:edit, :update, :destroy]
+  before_action :set_exercise, only: [:edit, :update, :destroy, :duplicate]
 
   def new
     @exercise = @lo.exercises.build
@@ -32,15 +32,11 @@ class Educators::ExercisesController < Educators::BaseController
   end
 
   def duplicate
-    @lo = current_user.los.find(params[:lo_id])
-    @exercise = @lo.exercises.find(params[:id])
-
     duplicated_exercise = Duplicate::ExerciseDuplicator.new(@exercise).perform
     duplicated_exercise.update(lo: @lo)
 
     redirect_to educators_lo_path(@lo), success: t('.duplicated', default: 'Exercício duplicado com sucesso!')
   end
-
 
   private
 

@@ -50,7 +50,6 @@ class Educators::LosController < Educators::BaseController
     redirect_to educators_lo_path(duplicated_lo), success: t('.duplicated', default: 'LO duplicado com sucesso!')
   end
 
-
   private
 
     def lo_params

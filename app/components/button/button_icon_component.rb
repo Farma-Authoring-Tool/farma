@@ -4,4 +4,3 @@ class Button::ButtonIconComponent < ViewComponent::Base
     @actions = actions
   end
 end
-  

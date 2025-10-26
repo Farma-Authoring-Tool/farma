@@ -14,7 +14,7 @@
 <main class="h-screen px-4 py-24 lg:ml-42">
 
   <div class="mb-4 border-b border-gray-200 pb-2">
-    <h1 class="text-3xl font-bold text-gray-500"><%= yield(:head_title) %></h1>
+    <h1 class="text-2xl md:text-3xl font-bold text-gray-500"><%= yield(:head_title) %></h1>
   </div>
 
   <%= render 'layouts/breadcrumbs/breadcrumbs' %>
@@ -23,9 +23,11 @@
 
     <%= render Flash::MessageComponent.new %>
 
-    <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-      <%= yield(:content_title) %>
-    </h2>
+    <% if @lo&.title.present? %>
+      <h2 class="text-xl font-semibold text-gray-700 mb-8">
+        Meu OA: <%= yield :content_title %>
+      </h2>
+    <% end %>
 
     <%= yield %>
 

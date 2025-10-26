@@ -37,6 +37,7 @@ gem 'thruster', require: false
 
 gem 'devise'
 gem 'devise-jwt'
+gem 'image_processing', '>= 1.2'
 gem 'rack-cors'
 gem 'rails-i18n', '~> 8.0.0'
 gem 'tailwindcss-rails', '~> 4.3'
@@ -44,7 +45,6 @@ gem 'tinymce-rails'
 gem 'truncate_html'
 gem 'view_component'
 gem 'whenever'
-gem "image_processing", ">= 1.2"
 
 group :development do
   gem 'brakeman'

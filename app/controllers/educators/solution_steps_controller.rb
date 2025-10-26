@@ -1,7 +1,7 @@
 class Educators::SolutionStepsController < Educators::BaseController
   before_action :set_lo
   before_action :set_exercise
-  before_action :set_solution_step, only: [:edit, :update, :destroy]
+  before_action :set_solution_step, only: [:edit, :update, :destroy, :duplicate]
 
   def index
     @solution_steps = @exercise.solution_steps.order(created_at: :asc)
@@ -37,18 +37,13 @@ class Educators::SolutionStepsController < Educators::BaseController
   end
 
   def duplicate
-    @lo = current_user.los.find(params[:lo_id])
-    @exercise = @lo.exercises.find(params[:exercise_id])
-    @solution_step = @exercise.solution_steps.find(params[:id])
-
     duplicated_step = Duplicate::SolutionStepDuplicator.new(@solution_step).perform
     duplicated_step.exercise = @exercise
     duplicated_step.save!
 
     redirect_to educators_lo_exercise_solution_steps_path(@lo, @exercise),
-              success: t('.duplicated', default: 'Etapa de solução duplicada com sucesso!')
+                success: t('.duplicated', default: 'Etapa de solução duplicada com sucesso!')
   end
-
 
   private
 

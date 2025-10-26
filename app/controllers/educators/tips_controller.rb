@@ -2,7 +2,7 @@ class Educators::TipsController < Educators::BaseController
   before_action :set_lo
   before_action :set_exercise
   before_action :set_solution_step
-  before_action :set_tip, only: [:edit, :update, :destroy]
+  before_action :set_tip, only: [:edit, :update, :destroy, :duplicate]
 
   def index
     @tips = @solution_step.tips.order(created_at: :asc)
@@ -38,19 +38,13 @@ class Educators::TipsController < Educators::BaseController
   end
 
   def duplicate
-    @lo = current_user.los.find(params[:lo_id])
-    @exercise = @lo.exercises.find(params[:exercise_id])
-    @solution_step = @exercise.solution_steps.find(params[:solution_step_id])
-    @tip = @solution_step.tips.find(params[:id])
-
     duplicated_tip = Duplicate::TipDuplicator.new(@tip).perform
     duplicated_tip.solution_step = @solution_step
     duplicated_tip.save!
 
     redirect_to educators_lo_exercise_solution_steps_path(@lo, @exercise),
-              success: t('.duplicated', default: 'Dica duplicada com sucesso!')
+                success: t('.duplicated', default: 'Dica duplicada com sucesso!')
   end
-
 
   private
 
