@@ -4,7 +4,7 @@ class Introduction < ApplicationRecord
   belongs_to :lo, counter_cache: true
 
   validates :title, :description, presence: true
-  validates :title, uniqueness: true
+  validates :title, uniqueness: { scope: :lo }
   validates :public, inclusion: { in: [true, false] }
 
   has_many :introductions_visualizations, dependent: :destroy

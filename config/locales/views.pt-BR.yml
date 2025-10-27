@@ -51,6 +51,7 @@ pt-BR:
       breadcrumbs: Home
       dashboard:
         title: Dashboard
+        title_nav: Dashboard
         welcome: Bem-vindo à
         span: FARMA
         los:
@@ -80,9 +81,12 @@ pt-BR:
       index:
         title: Meus Objetos de Aprendizagem
         title_nav: Meus OAs
+        create_lo: Criar novo OA
       show:
         title: Meu Objeto de Aprendizagem
         title_nav: Meu OA
+        create_introduction: Criar Introdução
+        create_exercise: Criar Exercício
     introductions:
       breadcrumbs:
         new: "Nova Introdução"
@@ -121,7 +125,7 @@ pt-BR:
         title_nav: Edição Exercício
         submit: Atualizar Exercício
       exercise:
-        view: Visualizar Exercício
+        view: Visualizar Questões
     solution_steps:
       breadcrumbs:
         new: "Novo Passo da Solução"
@@ -144,6 +148,7 @@ pt-BR:
       index:
         title: Passos da Solução do Exercício
         title_nav: Passos da Solução 
+        create_solution_step: Criar Questão
       empty:
         solution_step_not_found: Nenhum Exercicio encontrado
     tips:
@@ -165,4 +170,4 @@ pt-BR:
         title_nav: Edição de Dica
         submit: Atualizar Dica
       tip:
-        number_attempts: Tentativas necessarias
+        number_attempts: "Tentativas necessarias: "

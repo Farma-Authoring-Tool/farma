@@ -1,8 +1,8 @@
-<div class="my-10 p-4 shadow-lg">
+<div class="my-10 p-8 shadow-lg">
   <div class="flex items-center justify-between w-full">
     <h2 class="font-semibold text-lg text-green-950 flex-1 text-center flex items-center justify-center">
-      <%= icon(:exercise, class: "text-green-800 mr-2") %>
-      <%= exercise.title %>
+      Exercício: 
+      <%= truncate_html(exercise.title, length: 50)%>
     </h2>
 
     <div class="flex items-center space-x-2">
@@ -16,9 +16,9 @@
     </div>
   </div>
   
-  <p class="text-gray-600 m-10"><%= truncate_html(exercise.description.html_safe, length: 400)%></p>
+  <p class="text-gray-600 m-8"><%= truncate_html(exercise.description.html_safe, length: 400)%></p>
 
   <%= link_to t(".view"),
         educators_lo_exercise_solution_steps_path(@lo, exercise),
-        class: "bg-green-200 text-green-500 text-xs py-1 px-2 rounded-sm hover:text-white hover:bg-green-500" %>
+        class: "bg-green-200 text-green-500 text-xs py-1 px-2 rounded-sm hover:text-white hover:bg-green-500 mt-12" %>
 </div>
