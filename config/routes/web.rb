@@ -42,4 +42,6 @@ authenticate :user do
   namespace :students do
     root to: 'home#dashboard'
   end
+
+  mount ActiveStorage::Engine => '/rails/active_storage'
 end

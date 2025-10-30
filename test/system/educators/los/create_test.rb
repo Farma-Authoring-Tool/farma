@@ -10,7 +10,7 @@ class CreateTest < ApplicationSystemTestCase
 
   should 'successfully create a new LO' do
     fill_in I18n.t('activerecord.attributes.lo.title'), with: 'Novo OA'
-    fill_in I18n.t('activerecord.attributes.lo.description'), with: 'Descrição do OA'
+    fill_in 'no-tinymce', with: 'Descrição do OA'
     attach_file 'lo_picture',
                 Rails.root.join('test/fixtures/files/default_lo.png'),
                 visible: :all

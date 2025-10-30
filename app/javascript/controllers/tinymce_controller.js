@@ -14,6 +14,9 @@ export default class extends Controller {
       license_key: "gpl",
       height: 300,
       menubar: false,
+      relative_urls: false,
+      remove_script_host: false,
+      document_base_url: window.location.origin + "/",
 
       content_style: "body { color: #4B5563; }",
 

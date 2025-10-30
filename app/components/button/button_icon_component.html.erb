@@ -2,7 +2,7 @@
     <% icon = helpers.icon(action[:icon], class: action[:class]) %>
 
     <% if action[:type] == :button %>
-        <%= button_to action[:url], method: action[:method], data: { confirm: "Tem certeza?" } do %>
+        <%= button_to action[:url], method: action[:method], data: { turbo_confirm: "Tem certeza?" } do %>
             <%= icon %>
         <% end %>
     <% else %>

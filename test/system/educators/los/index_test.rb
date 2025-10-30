@@ -12,7 +12,7 @@ class IndexTest < ApplicationSystemTestCase
   end
 
   should 'show recently modified OA' do
-    assert_selector 'h1', text: @lo.title
+    assert_text @lo.title.truncate(20)
     assert_selector "img[src*='image_base_test.jpg']"
   end
 
@@ -30,7 +30,7 @@ class IndexTest < ApplicationSystemTestCase
 
   should 'remove OA by clicking delete icon' do
     accept_confirm do
-      find("a[data-turbo-method='delete'][href='#{educators_lo_path(@lo)}']").click
+      find("form.button_to[action='#{educators_lo_path(@lo)}'] button").click
     end
 
     assert_selector('[role="alert"]', text: I18n.t('educators.los.destroy.success'))
@@ -44,9 +44,11 @@ class IndexTest < ApplicationSystemTestCase
   end
 
   should 'navigate to create OA page when clicking on create OA button' do
-    find('button[data-action="click->fab#toggle"]').click
+    within 'main' do
+      find('button[data-action="click->dropdown#toggle"]').click
 
-    find("a[href='#{new_educators_lo_path}']").click
+      find("a[href='#{new_educators_lo_path}']").click
+    end
 
     assert_current_path new_educators_lo_path
   end

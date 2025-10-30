@@ -12,7 +12,7 @@ class UpdateTest < ApplicationSystemTestCase
 
   should 'successfully update the LO' do
     fill_in I18n.t('activerecord.attributes.lo.title'), with: 'OA atualizado'
-    fill_in I18n.t('activerecord.attributes.lo.description'), with: 'Descrição atualizada'
+    fill_in 'no-tinymce', with: 'Descrição atualizada'
     uncheck I18n.t('activerecord.attributes.lo.accessible')
     click_on I18n.t('educators.los.edit.submit')
 
@@ -25,7 +25,7 @@ class UpdateTest < ApplicationSystemTestCase
 
   should 'show validation errors when fields are blank' do
     fill_in I18n.t('activerecord.attributes.lo.title'), with: ''
-    fill_in I18n.t('activerecord.attributes.lo.description'), with: ''
+    fill_in 'no-tinymce', with: ''
 
     click_on I18n.t('educators.los.edit.submit')
 
