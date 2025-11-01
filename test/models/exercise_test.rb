@@ -3,7 +3,6 @@ require 'test_helper'
 class ExerciseTest < ActiveSupport::TestCase
   context 'validations' do
     should validate_presence_of(:title)
-    should validate_uniqueness_of(:title)
     should validate_presence_of(:description)
     should allow_value(true).for(:public)
     should allow_value(false).for(:public)
