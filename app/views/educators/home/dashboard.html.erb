@@ -1,13 +1,12 @@
 <%= render 'educators/sections/title' %>
 
-<h1 class="text-2xl font-semibold text-gray-500 mb-4"><%= t('.welcome') %>
-  <span class="text-2xl font-bold text-green-500"> <%= t('.span') %></span>
-</h1>
+<section>
 
-<section class="border border-gray-300 rounded-md p-5">
-  <h2 class="text-xl font-semibold text-gray-500 mt-2 mb-2 border-b border-gray-300"><%= t('.los.recents') %></h2>
+  <h1 class="text-2xl font-semibold text-gray-500 border-b border-gray-300 mb-4">
+    <%= t('.los.recents') %>
+  </h1>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
     <%= render partial: "educators/los/lo", collection: @los, as: :lo %>
   </div>
 

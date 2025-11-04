@@ -55,7 +55,7 @@ pt-BR:
         welcome: Bem-vindo à
         span: FARMA
         los:
-          recents: 'Objetos de aprendizagem vistos recentemente'
+          recents: OAs recentes
     los:
       breadcrumbs:
         index: Meus objetos de Aprendizagem
@@ -135,19 +135,19 @@ pt-BR:
         success: "Passo da Solução criado com sucesso!"
       update:
         success: "Passo da Solução atualizado com sucesso!"
-      destroy:  
+      destroy:
         success: "Passo da Solução removido com sucesso!"
       new:
         title: Crie um passo da solução para o seu exercício
         title_nav: Criação Passo da Solução
         submit: Criar Passo da Solução para Exercício
-      edit: 
+      edit:
         title: Edite um passo da solução para o seu exercício
         title_nav: Edição Passo da Solução
         submit: Atualizar Passo da Solução
       index:
         title: Passos da Solução do Exercício
-        title_nav: Passos da Solução 
+        title_nav: Passos da Solução
         create_solution_step: Criar Questão
       empty:
         solution_step_not_found: Nenhum Exercicio encontrado
@@ -159,13 +159,13 @@ pt-BR:
         success: "Dica criada com sucesso!"
       update:
         success: "Dica atualizada com sucesso!"
-      destroy:  
+      destroy:
         success: "Dica removida com sucesso!"
       new:
         title: Crie uma dica para o seu exercício
         title_nav: Criação Dica
         submit: Criar Dica para Exercício
-      edit: 
+      edit:
         title: Edite uma dica para o seu exercício
         title_nav: Edição de Dica
         submit: Atualizar Dica

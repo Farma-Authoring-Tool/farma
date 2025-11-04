@@ -1,6 +1,6 @@
 <%= render 'educators/sections/title' %>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
   <%= render partial: "educators/los/lo", collection: @los, as: :lo %>
 </div>
 
@@ -10,8 +10,8 @@
 
 <div class="fixed bottom-6 right-6">
   <%= button(
-    actions: [
-      { url: new_educators_lo_path, text: t(".create_lo") }
-    ]
-  ) %>
+        actions: [
+          { url: new_educators_lo_path, text: t(".create_lo") }
+        ]
+      ) %>
 </div>
