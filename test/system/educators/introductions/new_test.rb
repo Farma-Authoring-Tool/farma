@@ -13,9 +13,9 @@ class NewTest < ApplicationSystemTestCase
   should 'successfully create a new Introduction' do
     fill_in I18n.t('activerecord.attributes.introduction.title'), with: 'Nova introdução'
 
-    assert_selector('iframe[id$="_description_ifr"]', wait: 10)
+    assert_selector('iframe.tox-edit-area__iframe', wait: 5)
 
-    within_frame(find('iframe[id$="_description_ifr"]')) do
+    within_frame(find('iframe.tox-edit-area__iframe')) do
       find_by_id('tinymce').set('Descrição da introdução')
     end
 

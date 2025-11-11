@@ -13,9 +13,10 @@ class NewTest < ApplicationSystemTestCase
   should 'successfully create a new Exercise' do
     fill_in I18n.t('activerecord.attributes.exercise.title'), with: 'Novo Exercicio'
 
-    within_frame(find('iframe[id$="_description_ifr"]')) do
-      find('body').click
-      find('body').set('Descrição do Exercicio')
+    assert_selector('iframe.tox-edit-area__iframe', wait: 5)
+
+    within_frame(find('iframe.tox-edit-area__iframe')) do
+      find('#tinymce').set('Descrição da introdução atualizado')
     end
 
     check I18n.t('activerecord.attributes.exercise.draft')

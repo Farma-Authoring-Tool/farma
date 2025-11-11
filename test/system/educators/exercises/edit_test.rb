@@ -15,9 +15,10 @@ class EditTest < ApplicationSystemTestCase
   should 'successfully create a new Exercise' do
     fill_in I18n.t('activerecord.attributes.lo.title'), with: 'Novo Exercicio atualizado'
 
-    within_frame(find('iframe[id$="_description_ifr"]')) do
-      find('body').click
-      find('body').set('Descrição do Exercicio atualizado')
+    assert_selector('iframe.tox-edit-area__iframe', wait: 5)
+
+    within_frame(find('iframe.tox-edit-area__iframe')) do
+      find('#tinymce').set('Descrição da introdução atualizado')
     end
 
     check I18n.t('activerecord.attributes.exercise.draft')
@@ -35,9 +36,10 @@ class EditTest < ApplicationSystemTestCase
   should 'show validation errors when fields are blank' do
     fill_in I18n.t('activerecord.attributes.lo.title'), with: ''
 
-    within_frame(find('iframe[id$="_description_ifr"]')) do
-      find('body').click
-      find('body').set('')
+    assert_selector('iframe.tox-edit-area__iframe', wait: 5)
+
+    within_frame(find('iframe.tox-edit-area__iframe')) do
+      find('#tinymce').set('Descrição da introdução atualizado')
     end
 
     click_on I18n.t('educators.exercises.edit.submit')

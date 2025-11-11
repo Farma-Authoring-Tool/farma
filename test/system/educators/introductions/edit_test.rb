@@ -15,10 +15,10 @@ class EditTest < ApplicationSystemTestCase
   should 'successfully create a new introduction' do
     fill_in I18n.t('activerecord.attributes.introduction.title'), with: 'Nova Introdução atualizado'
 
-    assert_selector('iframe[id$="_description_ifr"]', wait: 10)
+    assert_selector('iframe.tox-edit-area__iframe', wait: 5)
 
-    within_frame(find('iframe[id$="_description_ifr"]')) do
-      find_by_id('tinymce').set('Descrição da introdução atualizado')
+    within_frame(find('iframe.tox-edit-area__iframe')) do
+      find('#tinymce').set('Descrição da introdução atualizado')
     end
 
     check I18n.t('activerecord.attributes.introduction.draft')
@@ -36,10 +36,10 @@ class EditTest < ApplicationSystemTestCase
   should 'show validation errors when fields are blank' do
     fill_in I18n.t('activerecord.attributes.introduction.title'), with: ''
 
-    assert_selector('iframe[id$="_description_ifr"]', wait: 10)
+    assert_selector('iframe.tox-edit-area__iframe', wait: 5)
 
-    within_frame(find('iframe[id$="_description_ifr"]')) do
-      find_by_id('tinymce').set('')
+    within_frame(find('iframe.tox-edit-area__iframe')) do
+      find('#tinymce').set('Descrição da introdução atualizado')
     end
 
     click_on I18n.t('educators.introductions.edit.submit')
