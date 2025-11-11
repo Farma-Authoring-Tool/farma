@@ -24,7 +24,7 @@ class RecentLosTest < ApplicationSystemTestCase
   end
 
   should 'navigate to OA details page when clicking on an OA' do
-    find("img[src*='image_base_test.jpg']").click
+    find("a[href='#{educators_lo_path(@lo)}']").click
 
     assert_current_path educators_lo_path(@lo)
   end

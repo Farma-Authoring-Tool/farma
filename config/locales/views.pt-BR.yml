@@ -100,7 +100,7 @@ pt-BR:
       new:
         title: Crie a introdução do seu Objeto de Aprendizagem
         title_nav: Criação Introdução
-        submit: Criar Introdução para OA
+        submit: Criar Introdução
       edit:
         title: Edite a introdução do seu Objeto de Aprendizagem
         title_nav: Edição Introdução
@@ -119,7 +119,7 @@ pt-BR:
       new:
         title: Crie um exercício para o seu Objeto de Aprendizagem
         title_nav: Criação Exercício
-        submit: Criar Exercício para OA
+        submit: Criar Exercício
       edit:
         title: Edite um exercício para o seu Objeto de Aprendizagem
         title_nav: Edição Exercício

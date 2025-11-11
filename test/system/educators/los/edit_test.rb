@@ -1,6 +1,6 @@
 require 'application_system_test_case'
 
-class UpdateTest < ApplicationSystemTestCase
+class EditTest < ApplicationSystemTestCase
   setup do
     @user = create(:user)
     sign_in(@user)

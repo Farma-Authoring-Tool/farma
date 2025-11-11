@@ -1,0 +1,47 @@
+require 'application_system_test_case'
+
+class EditTest < ApplicationSystemTestCase
+  setup do
+    @user = create(:user)
+    sign_in(@user)
+
+    @lo = FactoryBot.create(:lo, user: @user)
+
+    @introduction = FactoryBot.create(:introduction, lo: @lo)
+
+    visit edit_educators_lo_introduction_path(@lo, @introduction)
+  end
+
+  should 'successfully create a new introduction' do
+    fill_in I18n.t('activerecord.attributes.introduction.title'), with: 'Nova Introdução atualizado'
+
+    within_frame(find('iframe[id$="_description_ifr"]')) do
+      find('body').click
+      find('body').set('Descrição da Introdução atualizado')
+    end
+
+    check I18n.t('activerecord.attributes.introduction.draft')
+
+    click_on I18n.t('educators.introductions.edit.submit')
+
+    assert_current_path educators_lo_path(@lo)
+
+    assert_text I18n.t('educators.introductions.update.success')
+
+    assert_text 'Nova Introdução atualizado'
+    assert_text 'Descrição da Introdução atualizado'
+  end
+
+  should 'show validation errors when fields are blank' do
+    fill_in I18n.t('activerecord.attributes.introduction.title'), with: ''
+
+    within_frame(find('iframe[id$="_description_ifr"]')) do
+      find('body').click
+      find('body').set('')
+    end
+
+    click_on I18n.t('educators.introductions.edit.submit')
+
+    assert_selector '.introduction_title p', text: I18n.t('errors.messages.blank')
+  end
+end

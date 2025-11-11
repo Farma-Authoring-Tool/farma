@@ -3,11 +3,7 @@
 
   <%= f.input :description, type: :text_area %>
 
-  <div class="flex gap-6">
-    <%= f.checkbox :draft %>
-  </div>    
+  <%= f.checkbox :draft %>   
 
-  <div class="flex items-center">
-    <%= f.submit class: "w-full" %>
-  </div>
+  <%= f.submit class: "w-full" %>
 <% end %>

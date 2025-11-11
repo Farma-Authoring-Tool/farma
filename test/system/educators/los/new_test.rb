@@ -1,6 +1,6 @@
 require 'application_system_test_case'
 
-class CreateTest < ApplicationSystemTestCase
+class NewTest < ApplicationSystemTestCase
   setup do
     @user = create(:user)
     sign_in(@user)
@@ -15,7 +15,7 @@ class CreateTest < ApplicationSystemTestCase
                 Rails.root.join('test/fixtures/files/default_lo.png'),
                 visible: :all
     check I18n.t('activerecord.attributes.lo.accessible')
-    check I18n.t('activerecord.attributes.lo.accessible')
+    check I18n.t('activerecord.attributes.lo.duplicable')
 
     click_on I18n.t('educators.los.new.submit')
 
