@@ -13,9 +13,10 @@ class NewTest < ApplicationSystemTestCase
   should 'successfully create a new Introduction' do
     fill_in I18n.t('activerecord.attributes.introduction.title'), with: 'Nova introdução'
 
+    assert_selector('iframe[id$="_description_ifr"]', wait: 10)
+
     within_frame(find('iframe[id$="_description_ifr"]')) do
-      find('body').click
-      find('body').set('Descrição da introdução')
+      find_by_id('tinymce').set('Descrição da introdução')
     end
 
     check I18n.t('activerecord.attributes.introduction.draft')
