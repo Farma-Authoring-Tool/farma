@@ -55,7 +55,7 @@ pt-BR:
         welcome: Bem-vindo à
         span: FARMA
         los:
-          recents: OAs recentes
+          recents: 'OAs recentes'
     los:
       breadcrumbs:
         index: Meus objetos de Aprendizagem
