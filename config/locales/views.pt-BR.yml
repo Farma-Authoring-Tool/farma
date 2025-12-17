@@ -47,6 +47,11 @@ pt-BR:
           desc: Acesse o painel de estudante
         select: Selecione seu perfil
   educators:
+    aside:
+      navigation:
+        home: Home
+        my_los: Meus OAs
+        teams: Turmas
     home:
       breadcrumbs: Home
       dashboard:
