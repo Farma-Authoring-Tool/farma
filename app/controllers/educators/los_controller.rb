@@ -39,8 +39,8 @@ class Educators::LosController < Educators::BaseController
 
   def destroy
     @lo = current_user.los
-                       .includes(introductions: :introductions_visualizations)
-                       .find(params[:id])
+                      .includes(introductions: :introductions_visualizations)
+                      .find(params[:id])
     @lo.destroy!
 
     redirect_to educators_los_path, success: t('.success')
@@ -58,21 +58,20 @@ class Educators::LosController < Educators::BaseController
       params.fetch(:lo, {}).permit(:title, :description, :picture, :accessible, :duplicable)
     end
 
-    def add_lo_breadcrumbs(action_name, **i18n_opts)
-      add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
-      add_breadcrumb I18n.t("educators.los.breadcrumbs.#{action_name}", **i18n_opts)
-    end
-
     def set_breadcrumbs
       case action_name.to_sym
       when :index
-        add_breadcrumb I18n.t('educators.los.breadcrumbs.index')
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
       when :new, :create
-        add_lo_breadcrumbs(:new)
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.new')
       when :show
-        add_lo_breadcrumbs(:show, id: @lo.id)
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id)
       when :edit, :update
-        add_lo_breadcrumbs(:edit, id: @lo.id)
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id), educators_lo_path(@lo)
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.edit')
       end
     end
 end

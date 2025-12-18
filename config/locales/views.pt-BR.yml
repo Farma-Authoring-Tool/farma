@@ -68,7 +68,7 @@ pt-BR:
         index: Meus objetos de Aprendizagens
         new: Novo Objeto de Aprendizagem
         show: "Objeto de Aprendizagem #%{id}"
-        edit: "Editar Objeto de Aprendizagem #%{id}"
+        edit: Editar
       create:
         success: Objeto de Aprendizagem criado com sucesso!
       update:
@@ -76,13 +76,11 @@ pt-BR:
       destroy:
         success: Objeto de Aprendizagem removido com sucesso!
       new:
-        title: Crie seu Objeto de Aprendizagem
-        title_nav: Criação OA
-        submit: Criar Objeto de Aprendizagem
+        page_title: Novo Objeto de Aprendizagem
+        page_heading: Novo Objeto de Aprendizagem
       edit:
-        title: Edição do seu Objeto de Aprendizagem
-        title_nav: Edição OA
-        submit: Atualizar Objeto de Aprendizagem
+        page_title: "Editar Objeto de Aprendizagem #%{id}"
+        page_heading: "Editar Objeto de Aprendizagem #%{id}"
       empty:
         oa_not_found: Nenhum Objeto de Aprendizagem encontrado
       index:

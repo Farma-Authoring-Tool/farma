@@ -78,3 +78,11 @@ Lint/MissingSuper:
     - "app/components/form/input/submit_component.rb"
     - "app/components/flash/message_component.rb"
     - "app/components/**/*.rb"
+
+Metrics/AbcSize:
+  AllowedMethods:
+    - set_breadcrumbs
+
+Metrics/MethodLength:
+  AllowedMethods:
+    - set_breadcrumbs
