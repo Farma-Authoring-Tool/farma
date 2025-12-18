@@ -38,8 +38,10 @@ class Educators::LosController < Educators::BaseController
   end
 
   def destroy
-    @lo = current_user.los.find(params[:id])
-    @lo.destroy
+    @lo = current_user.los
+                       .includes(introductions: :introductions_visualizations)
+                       .find(params[:id])
+    @lo.destroy!
 
     redirect_to educators_los_path, success: t('.success')
   end
