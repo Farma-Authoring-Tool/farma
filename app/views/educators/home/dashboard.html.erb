@@ -1,8 +1,9 @@
-<%= render 'educators/sections/title' %>
+<% provide :page_title, t(".page_title") %>
+<% provide :page_heading, t(".page_heading") %>
 
-<section >
+<section>
   <h1 class="text-2xl font-semibold text-gray-500 border-b border-gray-300 mb-4">
-    <%= t('.los.recents') %>
+    <%= t('.los.recent') %>
   </h1>
 
   <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">

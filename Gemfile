@@ -21,7 +21,7 @@ gem 'turbo-rails'
 gem 'stimulus-rails'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [ :mingw, :mswin, :x64_mingw, :jruby ]
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
 gem 'solid_cable'
 gem 'solid_cache'
@@ -35,6 +35,7 @@ gem 'thruster', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem 'active_link_to'
 gem 'devise'
 gem 'devise-jwt'
 gem 'image_processing', '>= 1.2'
@@ -45,7 +46,6 @@ gem 'tinymce-rails'
 gem 'truncate_html'
 gem 'view_component'
 gem 'whenever'
-gem 'active_link_to'
 
 group :development do
   gem 'brakeman'
@@ -64,7 +64,7 @@ group :development, :test do
   gem 'factory_bot_rails'
 
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: [ :mri, :mingw, :x64_mingw ]
+  gem 'debug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'faker', '~> 3.3'
 end
 

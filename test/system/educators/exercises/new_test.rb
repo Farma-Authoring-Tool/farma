@@ -16,7 +16,7 @@ class NewTest < ApplicationSystemTestCase
     assert_selector('iframe.tox-edit-area__iframe', wait: 5)
 
     within_frame(find('iframe.tox-edit-area__iframe')) do
-      find('#tinymce').set('Descrição da introdução atualizado')
+      find_by_id('tinymce').set('Descrição da introdução atualizado')
     end
 
     check I18n.t('activerecord.attributes.exercise.draft')

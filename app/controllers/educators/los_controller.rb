@@ -56,13 +56,15 @@ class Educators::LosController < Educators::BaseController
       params.fetch(:lo, {}).permit(:title, :description, :picture, :accessible, :duplicable)
     end
 
-    def add_lo_breadcrumbs(locale_key, **i18n_opts)
+    def add_lo_breadcrumbs(action_name, **i18n_opts)
       add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
-      add_breadcrumb I18n.t("educators.los.breadcrumbs.#{locale_key}", **i18n_opts)
+      add_breadcrumb I18n.t("educators.los.breadcrumbs.#{action_name}", **i18n_opts)
     end
 
     def set_breadcrumbs
       case action_name.to_sym
+      when :index
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.index')
       when :new, :create
         add_lo_breadcrumbs(:new)
       when :show

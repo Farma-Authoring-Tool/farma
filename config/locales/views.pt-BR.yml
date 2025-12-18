@@ -55,12 +55,12 @@ pt-BR:
     home:
       breadcrumbs: Home
       dashboard:
-        title: Dashboard
-        title_nav: Dashboard
+        page_title: Página Inicial
+        page_heading: Página Inicial
         welcome: Bem-vindo à
         span: FARMA
         los:
-          recents: 'OAs recentes'
+          recent: 'OAs recentes'
     los:
       breadcrumbs:
         index: Meus objetos de Aprendizagem
@@ -84,9 +84,10 @@ pt-BR:
       empty:
         oa_not_found: Nenhum Objeto de Aprendizagem encontrado
       index:
-        title: Meus Objetos de Aprendizagem
-        title_nav: Meus OAs
-        create_lo: Criar novo OA
+        page_title: Meus Objetos de Aprendizagem
+        page_heading: Meus Objetos de Aprendizagem
+        lo:
+          create: Criar novo OA
       show:
         title: Meu Objeto de Aprendizagem
         title_nav: Meu OA
