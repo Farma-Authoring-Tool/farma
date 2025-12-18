@@ -5,11 +5,13 @@ pt-BR:
     title: FARMA
     description: Construa Objetos de Aprendizagem para o ensino de matemática
   links:
-    forgot_password: 'Esqueceu sua senha?'
-    remembered_password: 'Lembrou sua senha?'
+    forgot_password: Esqueceu sua senha?
+    remembered_password: Lembrou sua senha?
     profile: Perfil
     sign_out: Sair
     choose_profile: Escolher perfil
+  prompts:
+    confirm: Tem certeza?
   home:
     header:
       logo_alt: Logo do FARMA
@@ -63,16 +65,16 @@ pt-BR:
           recent: 'OAs recentes'
     los:
       breadcrumbs:
-        index: Meus objetos de Aprendizagem
+        index: Meus objetos de Aprendizagens
         new: Novo Objeto de Aprendizagem
         show: "Objeto de Aprendizagem #%{id}"
         edit: "Editar Objeto de Aprendizagem #%{id}"
       create:
-        success: "Objeto de Aprendizagem criado com sucesso!"
+        success: Objeto de Aprendizagem criado com sucesso!
       update:
-        success: "Objeto de Aprendizagem atualizado com sucesso!"
+        success: Objeto de Aprendizagem atualizado com sucesso!
       destroy:
-        success: "Objeto de Aprendizagem removido com sucesso!"
+        success: Objeto de Aprendizagem removido com sucesso!
       new:
         title: Crie seu Objeto de Aprendizagem
         title_nav: Criação OA
@@ -86,23 +88,30 @@ pt-BR:
       index:
         page_title: Meus Objetos de Aprendizagem
         page_heading: Meus Objetos de Aprendizagem
-        lo:
-          create: Criar novo OA
+        actions:
+          lo:
+            create: Criar novo OA
       show:
-        title: Meu Objeto de Aprendizagem
-        title_nav: Meu OA
-        create_introduction: Criar Introdução
-        create_exercise: Criar Exercício
+        page_title: "OA #%{id}"
+        page_heading: "Objeto de Aprendizagem #%{id}"
+        contents:
+          title: Conteúdos
+          empty_state: Ainda não há páginas. Crie uma introdução ou um exercício para começar.
+        actions:
+          introduction:
+            create: Criar Introdução
+          exercise:
+            create: Criar Exercício
     introductions:
       breadcrumbs:
-        new: "Nova Introdução"
+        new: Nova Introdução
         edit: "Editar Introdução #%{id}"
       create:
-        success: "Introdução criada com sucesso!"
+        success: Introdução criada com sucesso!
       update:
-        success: "Introdução atualizada com sucesso!"
+        success: Introdução atualizada com sucesso!
       destroy:
-        success: "Introdução removida com sucesso!"
+        success: Introdução removida com sucesso!
       new:
         title: Crie a introdução do seu Objeto de Aprendizagem
         title_nav: Criação Introdução
@@ -113,15 +122,15 @@ pt-BR:
         submit: Atualizar Introdução
     exercises:
       breadcrumbs:
-        new: "Novo Exercício"
+        new: Novo Exercício
         edit: "Editar Exercício #%{id}"
         show: "Exercício #%{id}"
       create:
-        success: "Exercício criado com sucesso!"
+        success: Exercício criado com sucesso!
       update:
-        success: "Exercício atualizado com sucesso!"
+        success: Exercício atualizado com sucesso!
       destroy:
-        success: "Exercício removido com sucesso!"
+        success: Exercício removido com sucesso!
       new:
         title: Crie um exercício para o seu Objeto de Aprendizagem
         title_nav: Criação Exercício
@@ -134,15 +143,15 @@ pt-BR:
         view: Visualizar Questões
     solution_steps:
       breadcrumbs:
-        new: "Novo Passo da Solução"
+        new: Novo Passo da Solução
         edit: "Editar Passo da Solução #%{id}"
         index: "Passos da Solução do Exercício #%{id}"
       create:
-        success: "Passo da Solução criado com sucesso!"
+        success: Passo da Solução criado com sucesso!
       update:
-        success: "Passo da Solução atualizado com sucesso!"
+        success: Passo da Solução atualizado com sucesso!
       destroy:
-        success: "Passo da Solução removido com sucesso!"
+        success: Passo da Solução removido com sucesso!
       new:
         title: Crie um passo da solução para o seu exercício
         title_nav: Criação Passo da Solução
@@ -162,11 +171,11 @@ pt-BR:
         new: "Nova Dica"
         edit: "Editar Dica #%{id}"
       create:
-        success: "Dica criada com sucesso!"
+        success: Dica criada com sucesso!
       update:
-        success: "Dica atualizada com sucesso!"
+        success: Dica atualizada com sucesso!
       destroy:
-        success: "Dica removida com sucesso!"
+        success: Dica removida com sucesso!
       new:
         title: Crie uma dica para o seu exercício
         title_nav: Criação Dica

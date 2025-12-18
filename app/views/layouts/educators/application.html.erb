@@ -23,14 +23,7 @@
 
     <%= render Flash::MessageComponent.new %>
 
-    <% if @lo&.title.present? %>
-      <h2 class="text-xl font-semibold text-gray-700 mb-8">
-        Meu OA: <%= yield :content_title %>
-      </h2>
-    <% end %>
-
     <%= yield %>
-
 
   </div>
 </main>
