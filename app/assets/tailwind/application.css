@@ -34,6 +34,14 @@
   /*------------------------------------------------------------------------------------*/
   /* sidebar nav */
   aside nav ul li a {
-    @apply text-gray-700 flex items-center p-2 rounded-lg hover:bg-blue-100;
+    @apply text-green-700 flex items-center p-2 rounded-lg hover:bg-green-100;
+
+    svg {
+      @apply mr-2;
+    }
+  }
+
+  aside nav ul li a.active {
+    @apply bg-green-100;
   }
 }

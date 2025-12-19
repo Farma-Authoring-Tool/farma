@@ -1,8 +1,7 @@
-<%= form_with(model: [:educators, @lo], local: true) do |f| %>
-  <%= f.input :title %>
+<%= form_with(model: [ :educators, @lo ], local: true) do |f| %>
 
-  <%= f.input :description, type: :text_area, id: "no-tinymce"%>
-  
+  <%= f.input :title %>
+  <%= f.input :description, type: :text_area, id: "no-tinymce" %>
   <%= f.file_input :picture, accept: Lo::ACCEPTED_PICTURE_TYPES_TEXT %>
 
   <div class="flex gap-6">

@@ -1,9 +1,7 @@
-<%= form_with(model: [:educators, @lo, @exercise], local: true) do |f| %>
+<%= form_with(model: [ :educators, @lo, @exercise ], local: true) do |f| %>
   <%= f.input :title %>
-
   <%= f.input :description, type: :text_area %>
-
-  <%= f.checkbox :draft %>   
+  <%= f.checkbox :draft %>
 
   <%= f.submit class: "w-full" %>
 <% end %>

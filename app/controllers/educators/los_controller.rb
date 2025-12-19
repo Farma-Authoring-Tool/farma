@@ -23,7 +23,7 @@ class Educators::LosController < Educators::BaseController
     if @lo.save
       redirect_to educators_root_path, success: t('.success')
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -33,21 +33,23 @@ class Educators::LosController < Educators::BaseController
     if @lo.update(lo_params)
       redirect_to educators_root_path, success: t('.success')
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 
   def destroy
-    @lo = current_user.los.find(params[:id])
-    @lo.destroy
+    @lo = current_user.los
+                      .includes(introductions: :introductions_visualizations)
+                      .find(params[:id])
+    @lo.destroy!
 
     redirect_to educators_los_path, success: t('.success')
   end
 
   def duplicate
     @lo = current_user.los.find(params[:id])
-    duplicated_lo = Duplicate::LoDuplicator.new(@lo).perform
-    redirect_to educators_lo_path(duplicated_lo), success: t('.duplicated', default: 'LO duplicado com sucesso!')
+    duplicated_lo = @lo.duplicate
+    redirect_to educators_lo_path(duplicated_lo), success: t('.success')
   end
 
   private
@@ -56,19 +58,20 @@ class Educators::LosController < Educators::BaseController
       params.fetch(:lo, {}).permit(:title, :description, :picture, :accessible, :duplicable)
     end
 
-    def add_lo_breadcrumbs(locale_key, **i18n_opts)
-      add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
-      add_breadcrumb I18n.t("educators.los.breadcrumbs.#{locale_key}", **i18n_opts)
-    end
-
     def set_breadcrumbs
       case action_name.to_sym
+      when :index
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
       when :new, :create
-        add_lo_breadcrumbs(:new)
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.new')
       when :show
-        add_lo_breadcrumbs(:show, id: @lo.id)
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id)
       when :edit, :update
-        add_lo_breadcrumbs(:edit, id: @lo.id)
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id), educators_lo_path(@lo)
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.edit')
       end
     end
 end

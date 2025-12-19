@@ -1,17 +1,42 @@
-<%= render 'educators/sections/title' %>
-
-<p class="mt-2 text-gray-600"><%= truncate_html(@lo.description.html_safe, length: 400) %></p>
+<% provide :page_title, t(".page_title") %>
+<% provide :page_heading, t(".page_heading", lo_id: @lo.id, exercise_id: @exercise.id) %>
+<% provide :content_title, t(".content_title", lo: @lo.title, exercise: @exercise.title) %>
 
 <div class="flex justify-center itens-center">
   <%= render "educators/solution_steps/empty" unless @solution_steps.any? %>
 </div>
 
-<%= render partial: "educators/solution_steps/solution_step", collection: @solution_steps, as: :solution_step %>
+<section class="rounded-xl border border-gray-200 bg-white shadow-sm p-5 md:p-6">
+  <div class="flex items-start justify-between gap-4">
+    <div class="flex-1 space-y-3">
+      <header>
+        <h2 class="text-sm font-medium text-gray-500">
+          <%= Exercise.model_name.human %>
+        </h2>
+        <h3 class="text-lg font-semibold text-gray-900">
+          <%= @exercise.title %>
+        </h3>
+      </header>
 
-<div class="fixed bottom-6 right-6">
-  <%= button(
-    actions: [
-      { url: new_educators_lo_exercise_solution_step_path(@lo, @exercise), text: t(".create_solution_step") }
-    ]
-  ) %>
-</div>
+      <% if @exercise.description.present? %>
+        <div class="prose max-w-none">
+          <%= sanitize(@exercise.description) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="mt-10 space-y-4">
+
+  <div class="flex items-center justify-between">
+    <h3 class="text-md font-semibold text-gray-900"><%= t(".contents.title") %></h3>
+  </div>
+
+  <%= render partial: "educators/solution_steps/solution_step", collection: @solution_steps, as: :solution_step %>
+
+</section>
+
+<%= render Button::FloatingActionComponent.new(actions: [
+  { url: new_educators_lo_exercise_solution_step_path(@lo, @exercise), text: t(".actions.solution_step.create") }
+]) %>

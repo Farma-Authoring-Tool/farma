@@ -8,12 +8,23 @@ class ExerciseTest < ActiveSupport::TestCase
     should allow_value(false).for(:public)
     should_not allow_value(nil).for(:public)
     should_not allow_value('').for(:public)
+
+    should 'enforce unique title per lo' do
+      lo = create(:lo)
+      create(:exercise, lo: lo, title: 'Duplicado')
+
+      duplicate = build(:exercise, lo: lo, title: 'Duplicado')
+
+      assert_not duplicate.valid?
+      assert_includes duplicate.errors[:title], t('errors.messages.taken')
+    end
   end
 
   context 'relationships' do
     should belong_to(:lo)
     should have_many(:solution_steps)
     should have_many(:solution_steps).dependent(:destroy)
+    should have_many(:exercises_visualizations).dependent(:destroy)
   end
 
   context 'duplicating an exercise' do
@@ -60,6 +71,34 @@ class ExerciseTest < ActiveSupport::TestCase
 
         assert_equal index + 1, step.position, "SolutionStep with ID #{id} should be at position #{index + 1}"
       end
+
+      assert_equal new_order_ids, @exercise.solution_steps.order(:position).pluck(:id)
+    end
+  end
+
+  context 'position initialization' do
+    should 'set position on create' do
+      exercise = FactoryBot.create(:exercise, position: nil)
+
+      assert_not_nil exercise.position
+    end
+  end
+
+  context 'visualizations and status' do
+    setup do
+      @exercise = FactoryBot.create(:exercise)
+      @user = FactoryBot.create(:user)
+      @team = FactoryBot.create(:team)
+    end
+
+    should 'return viewed status when visualization exists' do
+      FactoryBot.create(:exercises_visualization, exercise: @exercise, user: @user, team: @team)
+
+      assert_equal :viewed, @exercise.status(@user, @team)
+    end
+
+    should 'return not_viewed status when no visualization exists' do
+      assert_equal :not_viewed, @exercise.status(@user, @team)
     end
   end
 end

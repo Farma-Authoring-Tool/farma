@@ -22,7 +22,7 @@ module Duplicate
         @model.solution_steps.each do |solution_step|
           duplicated_step = solution_step.duplicate
           duplicated_step.exercise = duplicated_exercise
-          duplicated_step.save
+          duplicated_step.save!
         end
       end
   end

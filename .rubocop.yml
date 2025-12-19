@@ -23,6 +23,7 @@ AllCops:
     - "config/initializers/content_security_policy.rb"
     - "config/environments/production.rb"
     - "config/initializers/devise.rb"
+    - "db/migrate/20251217114343_create_active_storage_tables.active_storage.rb"
 
 Style/Documentation:
   Enabled: false
@@ -59,6 +60,9 @@ Metrics/BlockLength:
     - "config/environments/devise.rb"
     - "test/controllers/**/*"
 
+Metrics/ClassLength:
+  Max: 150
+
 Naming/MethodParameterName:
   Exclude:
     - "app/models/logics/lo/pages.rb"
@@ -76,3 +80,12 @@ Lint/MissingSuper:
     - "app/components/form/input/base_component.rb"
     - "app/components/form/input/submit_component.rb"
     - "app/components/flash/message_component.rb"
+    - "app/components/**/*.rb"
+
+Metrics/AbcSize:
+  AllowedMethods:
+    - set_breadcrumbs
+
+Metrics/MethodLength:
+  AllowedMethods:
+    - set_breadcrumbs

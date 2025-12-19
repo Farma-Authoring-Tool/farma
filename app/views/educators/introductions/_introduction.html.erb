@@ -1,20 +1,27 @@
-<div class="my-10 p-4 shadow-lg">
-  <div class="flex items-center justify-between w-full">
-    <h2 class="font-semibold text-lg text-blue-950 flex-1 text-center flex items-center justify-center">
-      Introdução:
-      <%= truncate_html(introduction.title, length: 50)%>
-    </h2>
+<div class="rounded-xl border border-gray-200 bg-white shadow-sm p-5 md:p-6">
+  <div class="flex items-start justify-between gap-4">
+    <div class="space-y-3 flex-1">
 
-    <div class="flex items-center space-x-2">
-      <%= button_icon(
-        actions: [
-            { url: educators_lo_introduction_path(@lo, introduction), method: :delete, icon: :trash, class:"text-gray-400 hover:text-red-500", type: :button },
-            { url: edit_educators_lo_introduction_path(@lo, introduction), icon: :edit, class:"text-gray-400 hover:text-green-500", type: :link },
-            { url: duplicate_educators_lo_introduction_path(@lo, introduction), icon: :duplicable, class:"text-gray-400 hover:text-blue-500", type: :button }
-          ]
-        ) %>
-      </div>
+      <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-blue-50 text-blue-700">
+        <%= Introduction.model_name.human %>
+      </span>
+
+      <h3 class="text-lg font-semibold text-gray-900"><%= introduction.title %></h3>
+      <div><%= introduction.description.html_safe %></div>
+    </div>
+
+    <div class="flex items-start gap-2">
+      <%= link_to edit_educators_lo_introduction_path(@lo, introduction) do %>
+        <%= icon(:edit, class: "text-gray-400 hover:text-green-500") %>
+      <% end %>
+
+      <%= button_to duplicate_educators_lo_introduction_path(@lo, introduction), method: :post do %>
+        <%= icon(:duplicable, class: "text-gray-400 hover:text-blue-500 mb-3") %>
+      <% end %>
+
+      <%= link_to educators_lo_introduction_path(@lo, introduction), data: { turbo_method: :delete, turbo_confirm: t("prompts.confirm") } do %>
+        <%= icon(:trash, class: "text-gray-400 hover:text-red-500") %>
+      <% end %>
+    </div>
   </div>
-
-  <p class="text-gray-600 m-10 text-justify p-x"><%= truncate_html(introduction.description.html_safe, length: 400) %></p>
 </div>
