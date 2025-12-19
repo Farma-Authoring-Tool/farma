@@ -149,13 +149,15 @@ pt-BR:
       breadcrumbs:
         new: Novo Passo da Solução
         edit: "Editar Passo da Solução #%{id}"
-        index: "Passos da Solução do Exercício #%{id}"
+        index: Passos de solução do exercício
       create:
         success: Passo da Solução criado com sucesso!
       update:
         success: Passo da Solução atualizado com sucesso!
       destroy:
         success: Passo da Solução removido com sucesso!
+      duplicate:
+        success: Passo de Solução duplicado com sucesso!
       new:
         title: Crie um passo da solução para o seu exercício
         title_nav: Criação Passo da Solução
@@ -165,11 +167,15 @@ pt-BR:
         title_nav: Edição Passo da Solução
         submit: Atualizar Passo da Solução
       index:
-        title: Passos da Solução do Exercício
-        title_nav: Passos da Solução
-        create_solution_step: Criar Questão
-      empty:
-        solution_step_not_found: Nenhum Exercicio encontrado
+        page_title: Passos de Solução do Exercício
+        page_heading: "Passos de solução do exercício #%{exercise_id} do OA #%{lo_id}"
+        content_title: "Passos de solução para o exercício #%{exercise} do OA #%{lo}"
+        empty: Nenhum Exercicio encontrado
+        contents:
+          title: Passos de solução
+        actions:
+          solution_step:
+            create: Criar passo de solução
     tips:
       breadcrumbs:
         new: "Nova Dica"

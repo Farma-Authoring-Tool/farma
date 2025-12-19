@@ -1,10 +1,10 @@
 class Educators::SolutionStepsController < Educators::BaseController
   before_action :set_lo
   before_action :set_exercise
-  before_action :set_solution_step, only: [:edit, :update, :destroy, :duplicate]
+  before_action :set_solution_step, only: [:edit, :update, :duplicate]
 
   def index
-    @solution_steps = @exercise.solution_steps.order(created_at: :asc)
+    @solution_steps = @exercise.solution_steps.includes(:tips).order(created_at: :asc)
   end
 
   def new
@@ -25,24 +25,24 @@ class Educators::SolutionStepsController < Educators::BaseController
 
   def update
     if @solution_step.update(solution_step_params)
-      redirect_to educators_lo_exercise_solution_steps_path(@lo), success: t('.success')
+      redirect_to educators_lo_exercise_solution_steps_path(@lo, @exercise), success: t('.success')
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @solution_step.destroy
-    redirect_to educators_lo_exercise_solution_steps_path(@lo), success: t('.success')
+    @solution_step = @exercise.solution_steps
+                              .includes(tips: :tips_visualizations)
+                              .find(params[:id])
+    @solution_step.destroy!
+    redirect_to educators_lo_exercise_solution_steps_path(@lo, @exercise), success: t('.success')
   end
 
   def duplicate
-    duplicated_step = Duplicate::SolutionStepDuplicator.new(@solution_step).perform
-    duplicated_step.exercise = @exercise
-    duplicated_step.save!
-
+    @solution_step.duplicate
     redirect_to educators_lo_exercise_solution_steps_path(@lo, @exercise),
-                success: t('.duplicated', default: 'Etapa de solução duplicada com sucesso!')
+                success: t('.success')
   end
 
   private
@@ -63,19 +63,15 @@ class Educators::SolutionStepsController < Educators::BaseController
       params.fetch(:solution_step, {}).permit(:title, :description, :response, :decimal_digits, :public)
     end
 
-    def add_base_breadcrumbs
-      add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
-      add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id), educators_lo_path(@lo)
-      add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.index', id: @exercise.id),
-                     educators_lo_exercise_solution_steps_path(@lo, @exercise)
-    end
-
     def add_action_breadcrumbs(locale_key = nil, **i18n_opts)
       add_breadcrumb I18n.t("educators.solution_steps.breadcrumbs.#{locale_key}", **i18n_opts) if locale_key
     end
 
     def set_breadcrumbs
-      add_base_breadcrumbs
+      add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
+      add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id), educators_lo_path(@lo)
+      add_breadcrumb I18n.t('educators.exercises.breadcrumbs.show', id: @exercise.id)
+      add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.index')
 
       case action_name.to_sym
       when :index
