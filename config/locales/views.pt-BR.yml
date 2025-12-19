@@ -187,12 +187,12 @@ pt-BR:
       destroy:
         success: Dica removida com sucesso!
       new:
-        title: Crie uma dica para o seu exercício
-        title_nav: Criação Dica
-        submit: Criar Dica para Exercício
+        page_title: Nova Dica
+        page_heading: "Nova dica para o passo #%{solution_step_id} do exercício #%{exercise_id} do OA #%{lo_id}"
+        content_title: "Nova dica para o passo %{solution_step} do exercício %{exercise} do OA #%{lo}"
       edit:
-        title: Edite uma dica para o seu exercício
-        title_nav: Edição de Dica
-        submit: Atualizar Dica
+        page_title: Editar Dica
+        page_heading: "Editar dica #%{tip_id} para o passo #%{solution_step_id} do exercício #%{exercise_id} do OA #%{lo_id}"
+        content_title: "Editar dica %{tip} para o passo %{solution_step} do exercício %{exercise} do OA #%{lo}"
       tip:
         number_attempts: "Tentativas necessarias: "
