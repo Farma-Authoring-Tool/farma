@@ -20,12 +20,4 @@ module ApplicationHelper
     ]
     sanitize svg, tags: tags, attributes: attributes
   end
-
-  def button(actions:)
-    render Button::FloatingActionComponent.new(actions: actions)
-  end
-
-  def button_icon(actions:)
-    render Button::ButtonIconComponent.new(actions: actions)
-  end
 end
