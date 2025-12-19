@@ -1,7 +1,7 @@
 class Educators::SolutionStepsController < Educators::BaseController
   before_action :set_lo
   before_action :set_exercise
-  before_action :set_solution_step, only: [:edit, :update, :duplicate]
+  before_action :set_solution_step, only: [ :edit, :update, :duplicate ]
 
   def index
     @solution_steps = @exercise.solution_steps.includes(:tips).order(created_at: :asc)
@@ -63,23 +63,20 @@ class Educators::SolutionStepsController < Educators::BaseController
       params.fetch(:solution_step, {}).permit(:title, :description, :response, :decimal_digits, :public)
     end
 
-    def add_action_breadcrumbs(locale_key = nil, **i18n_opts)
-      add_breadcrumb I18n.t("educators.solution_steps.breadcrumbs.#{locale_key}", **i18n_opts) if locale_key
-    end
-
     def set_breadcrumbs
       add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
       add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id), educators_lo_path(@lo)
-      add_breadcrumb I18n.t('educators.exercises.breadcrumbs.show', id: @exercise.id)
-      add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.index')
+      add_breadcrumb I18n.t('educators.exercises.breadcrumbs.show', id: @exercise.id), educators_lo_path(@lo)
 
       case action_name.to_sym
       when :index
-        # noop — handled elsewhere
+        add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.index')
       when :new, :create
-        add_action_breadcrumbs(:new)
+        add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.index'), educators_lo_exercise_solution_steps_path(@lo, @exercise)
+        add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.new')
       when :edit, :update
-        add_action_breadcrumbs(:edit, id: @solution_step.id)
+        add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.index'), educators_lo_exercise_solution_steps_path(@lo, @exercise)
+        add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.edit', id: @solution_step.id)
       end
     end
 end

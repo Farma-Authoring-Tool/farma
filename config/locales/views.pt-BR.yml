@@ -147,9 +147,9 @@ pt-BR:
           steps: Passos de soluções
     solution_steps:
       breadcrumbs:
-        new: Novo Passo da Solução
-        edit: "Editar Passo da Solução #%{id}"
-        index: Passos de solução do exercício
+        new: Novo
+        edit: "Editar #%{id}"
+        index: Passos de solução
       create:
         success: Passo da Solução criado com sucesso!
       update:
@@ -159,13 +159,13 @@ pt-BR:
       duplicate:
         success: Passo de Solução duplicado com sucesso!
       new:
-        title: Crie um passo da solução para o seu exercício
-        title_nav: Criação Passo da Solução
-        submit: Criar Passo da Solução para Exercício
+        page_title: Novo Passo de Solução
+        page_heading: "Novo passo de solução para o exercício #%{exercise_id} do OA #%{lo_id}"
+        content_title: "Novo psso de solução para o exercício #%{exercise} do OA #%{lo}"
       edit:
-        title: Edite um passo da solução para o seu exercício
-        title_nav: Edição Passo da Solução
-        submit: Atualizar Passo da Solução
+        page_title: Editar Passo de Solução
+        page_heading: "Editar passo de solução para o exercício #%{exercise_id} do OA #%{lo_id}"
+        content_title: "Editar psso de solução para o exercício #%{exercise} do OA #%{lo}"
       index:
         page_title: Passos de Solução do Exercício
         page_heading: "Passos de solução do exercício #%{exercise_id} do OA #%{lo_id}"

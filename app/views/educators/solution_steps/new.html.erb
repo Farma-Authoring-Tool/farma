@@ -1,3 +1,5 @@
-<%= render 'educators/sections/title' %>
+<% provide :page_title, t(".page_title") %>
+<% provide :page_heading, t(".page_heading", lo_id: @lo.id, exercise_id: @exercise.id) %>
+<% provide :content_title, t(".content_title", lo: @lo.title, exercise: @exercise.title) %>
 
 <%= render 'form' %>
