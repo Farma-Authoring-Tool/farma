@@ -144,33 +144,33 @@ pt-BR:
         content_title: "Editar exercício do OA %{title}"
       exercise:
         actions:
-          steps: Passos de soluções
+          steps: Passos de solução
     solution_steps:
       breadcrumbs:
         new: Novo
         edit: "Editar #%{id}"
         index: Passos de solução
       create:
-        success: Passo da Solução criado com sucesso!
+        success: Passo de solução criado com sucesso!
       update:
-        success: Passo da Solução atualizado com sucesso!
+        success: Passo de solução atualizado com sucesso!
       destroy:
-        success: Passo da Solução removido com sucesso!
+        success: Passo de solução removido com sucesso!
       duplicate:
-        success: Passo de Solução duplicado com sucesso!
+        success: Passo de solução duplicado com sucesso!
       new:
         page_title: Novo Passo de Solução
         page_heading: "Novo passo de solução para o exercício #%{exercise_id} do OA #%{lo_id}"
-        content_title: "Novo psso de solução para o exercício #%{exercise} do OA #%{lo}"
+        content_title: "Novo passo de solução para o exercício %{exercise} do OA %{lo}"
       edit:
         page_title: Editar Passo de Solução
         page_heading: "Editar passo de solução para o exercício #%{exercise_id} do OA #%{lo_id}"
-        content_title: "Editar psso de solução para o exercício #%{exercise} do OA #%{lo}"
+        content_title: "Editar passo de solução para o exercício %{exercise} do OA %{lo}"
       index:
         page_title: Passos de Solução do Exercício
         page_heading: "Passos de solução do exercício #%{exercise_id} do OA #%{lo_id}"
-        content_title: "Passos de solução para o exercício #%{exercise} do OA #%{lo}"
-        empty: Nenhum Exercicio encontrado
+        content_title: "Passos de solução para o exercício %{exercise} do OA %{lo}"
+        empty: Nenhum exercício encontrado
         contents:
           title: Passos de solução
         actions:
@@ -189,10 +189,10 @@ pt-BR:
       new:
         page_title: Nova Dica
         page_heading: "Nova dica para o passo #%{solution_step_id} do exercício #%{exercise_id} do OA #%{lo_id}"
-        content_title: "Nova dica para o passo %{solution_step} do exercício %{exercise} do OA #%{lo}"
+        content_title: "Nova dica para o passo %{solution_step} do exercício %{exercise} do OA %{lo}"
       edit:
         page_title: Editar Dica
         page_heading: "Editar dica #%{tip_id} para o passo #%{solution_step_id} do exercício #%{exercise_id} do OA #%{lo_id}"
-        content_title: "Editar dica %{tip} para o passo %{solution_step} do exercício %{exercise} do OA #%{lo}"
+        content_title: "Editar dica %{tip} para o passo %{solution_step} do exercício %{exercise} do OA %{lo}"
       tip:
-        number_attempts: "Tentativas necessarias: "
+        number_attempts: "Tentativas necessárias: "
