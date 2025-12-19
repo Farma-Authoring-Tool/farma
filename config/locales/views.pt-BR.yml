@@ -111,13 +111,13 @@ pt-BR:
       destroy:
         success: Introdução removida com sucesso!
       new:
-        title: Crie a introdução do seu Objeto de Aprendizagem
-        title_nav: Criação Introdução
-        submit: Criar Introdução
+        page_title: Nova Introdução
+        page_heading: Nova Introdução
+        content_title: "Nova introdução para o OA %{title}"
       edit:
-        title: Edite a introdução do seu Objeto de Aprendizagem
-        title_nav: Edição Introdução
-        submit: Atualizar Introdução
+        page_title: Editar Introdução
+        page_heading: Editar Introdução
+        content_title: "Editar introdução do OA %{title}"
     exercises:
       breadcrumbs:
         new: Novo Exercício
@@ -138,7 +138,8 @@ pt-BR:
         title_nav: Edição Exercício
         submit: Atualizar Exercício
       exercise:
-        view: Visualizar Questões
+        actions:
+          steps: Passos de soluções
     solution_steps:
       breadcrumbs:
         new: Novo Passo da Solução
