@@ -6,7 +6,7 @@
 
   <% if tip.description.present? %>
     <div class="text-sm text-gray-600 prose max-w-none">
-      <%= tip.description.html_safe %>
+      <%= sanitize(tip.description) %>
     </div>
   <% end %>
 

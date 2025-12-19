@@ -20,7 +20,7 @@
 
       <% if @exercise.description.present? %>
         <div class="prose max-w-none">
-          <%= @exercise.description.html_safe %>
+          <%= sanitize(@exercise.description) %>
         </div>
       <% end %>
     </div>
