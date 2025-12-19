@@ -75,17 +75,18 @@ pt-BR:
         success: Objeto de Aprendizagem atualizado com sucesso!
       destroy:
         success: Objeto de Aprendizagem removido com sucesso!
+      duplicate:
+        success: LO duplicado com sucesso!
       new:
         page_title: Novo Objeto de Aprendizagem
         page_heading: Novo Objeto de Aprendizagem
       edit:
         page_title: "Editar Objeto de Aprendizagem #%{id}"
         page_heading: "Editar Objeto de Aprendizagem #%{id}"
-      empty:
-        oa_not_found: Nenhum Objeto de Aprendizagem encontrado
       index:
         page_title: Meus Objetos de Aprendizagem
         page_heading: Meus Objetos de Aprendizagem
+        empty: Nenhum Objeto de Aprendizagem encontrado
         actions:
           lo:
             create: Criar novo OA
