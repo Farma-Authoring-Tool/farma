@@ -1,6 +1,6 @@
 class Educators::IntroductionsController < Educators::BaseController
   before_action :set_lo
-  before_action :set_introduction, only: [ :edit, :update, :destroy, :duplicate ]
+  before_action :set_introduction, only: [:edit, :update, :destroy, :duplicate]
 
   def new
     @introduction = @lo.introductions.build

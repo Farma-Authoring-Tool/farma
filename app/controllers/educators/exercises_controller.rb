@@ -32,10 +32,8 @@ class Educators::ExercisesController < Educators::BaseController
   end
 
   def duplicate
-    duplicated_exercise = Duplicate::ExerciseDuplicator.new(@exercise).perform
-    duplicated_exercise.update(lo: @lo)
-
-    redirect_to educators_lo_path(@lo), success: t('.duplicated', default: 'Exercício duplicado com sucesso!')
+    @exercise.duplicate
+    redirect_to educators_lo_path(@lo), success: t('.success')
   end
 
   private
@@ -52,18 +50,16 @@ class Educators::ExercisesController < Educators::BaseController
       params.fetch(:exercise, {}).permit(:title, :description, :public)
     end
 
-    def add_lo_breadcrumbs(locale_key, **i18n_opts)
-      add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
-      add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id), educators_lo_path(@lo)
-      add_breadcrumb I18n.t("educators.exercises.breadcrumbs.#{locale_key}", **i18n_opts)
-    end
-
     def set_breadcrumbs
       case action_name.to_sym
       when :new, :create
-        add_lo_breadcrumbs(:new)
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id), educators_lo_path(@lo)
+        add_breadcrumb I18n.t('educators.exercises.breadcrumbs.new')
       when :edit, :update
-        add_lo_breadcrumbs(:edit, id: @exercise.id)
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.index'), educators_los_path
+        add_breadcrumb I18n.t('educators.los.breadcrumbs.show', id: @lo.id), educators_lo_path(@lo)
+        add_breadcrumb I18n.t('educators.exercises.breadcrumbs.edit', id: @exercise.id)
       end
     end
 end

@@ -132,14 +132,16 @@ pt-BR:
         success: Exercício atualizado com sucesso!
       destroy:
         success: Exercício removido com sucesso!
+      duplicate:
+        success: Exercício duplicado com sucesso!
       new:
-        title: Crie um exercício para o seu Objeto de Aprendizagem
-        title_nav: Criação Exercício
-        submit: Criar Exercício
+        page_title: Novo Exercício
+        page_heading: Novo Exercício
+        content_title: "Novo exercício para o OA %{title}"
       edit:
-        title: Edite um exercício para o seu Objeto de Aprendizagem
-        title_nav: Edição Exercício
-        submit: Atualizar Exercício
+        page_title: Editar Exercício
+        page_heading: Editar Exercício
+        content_title: "Editar exercício do OA %{title}"
       exercise:
         actions:
           steps: Passos de soluções
