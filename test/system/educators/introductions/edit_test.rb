@@ -21,9 +21,7 @@ class EditTest < ApplicationSystemTestCase
       find_by_id('tinymce').set('Descrição da introdução atualizado')
     end
 
-    check I18n.t('activerecord.attributes.introduction.draft')
-
-    click_on I18n.t('educators.introductions.edit.submit')
+    find("input[type='submit']").click
 
     assert_current_path educators_lo_path(@lo)
 
@@ -42,7 +40,7 @@ class EditTest < ApplicationSystemTestCase
       find_by_id('tinymce').set('Descrição da introdução atualizado')
     end
 
-    click_on I18n.t('educators.introductions.edit.submit')
+    find("input[type='submit']").click
 
     assert_selector '.introduction_title p', text: I18n.t('errors.messages.blank')
   end

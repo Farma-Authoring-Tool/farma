@@ -33,6 +33,6 @@ class Lo < ApplicationRecord
   def picture_url
     return ActionController::Base.helpers.asset_url('bg/default_lo.png') unless picture.attached?
 
-    Rails.application.routes.url_helpers.rails_blob_url(avatar)
+    Rails.application.routes.url_helpers.rails_blob_url(picture, only_path: true)
   end
 end

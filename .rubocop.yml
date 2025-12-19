@@ -60,6 +60,9 @@ Metrics/BlockLength:
     - "config/environments/devise.rb"
     - "test/controllers/**/*"
 
+Metrics/ClassLength:
+  Max: 150
+
 Naming/MethodParameterName:
   Exclude:
     - "app/models/logics/lo/pages.rb"

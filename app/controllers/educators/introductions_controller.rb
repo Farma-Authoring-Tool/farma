@@ -14,7 +14,7 @@ class Educators::IntroductionsController < Educators::BaseController
     if @introduction.save
       redirect_to educators_lo_path(@lo), success: t('.success')
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -22,7 +22,7 @@ class Educators::IntroductionsController < Educators::BaseController
     if @introduction.update(introduction_params)
       redirect_to educators_lo_path(@lo), success: t('.success')
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 

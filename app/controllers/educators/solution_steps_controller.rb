@@ -19,7 +19,7 @@ class Educators::SolutionStepsController < Educators::BaseController
     if @solution_step.save
       redirect_to educators_lo_exercise_solution_steps_path(@lo), success: t('.success')
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -27,7 +27,7 @@ class Educators::SolutionStepsController < Educators::BaseController
     if @solution_step.update(solution_step_params)
       redirect_to educators_lo_exercise_solution_steps_path(@lo, @exercise), success: t('.success')
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 

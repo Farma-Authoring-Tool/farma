@@ -5,6 +5,6 @@ FactoryBot.define do
     attempt_number { 1 }
     user
     team
-    association :solution_step
+    solution_step
   end
 end

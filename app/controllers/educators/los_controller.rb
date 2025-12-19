@@ -23,7 +23,7 @@ class Educators::LosController < Educators::BaseController
     if @lo.save
       redirect_to educators_root_path, success: t('.success')
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -33,7 +33,7 @@ class Educators::LosController < Educators::BaseController
     if @lo.update(lo_params)
       redirect_to educators_root_path, success: t('.success')
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 

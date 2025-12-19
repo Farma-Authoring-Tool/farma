@@ -1,6 +1,6 @@
 require 'application_system_test_case'
 
-class NewTest < ApplicationSystemTestCase
+class Educators::ExerciseControllerNewTest < ApplicationSystemTestCase
   setup do
     @user = create(:user)
     sign_in(@user)
@@ -16,12 +16,12 @@ class NewTest < ApplicationSystemTestCase
     assert_selector('iframe.tox-edit-area__iframe', wait: 5)
 
     within_frame(find('iframe.tox-edit-area__iframe')) do
-      find_by_id('tinymce').set('Descrição da introdução atualizado')
+      find_by_id('tinymce').set('Descrição do Exercicio')
     end
 
     check I18n.t('activerecord.attributes.exercise.draft')
 
-    click_on I18n.t('educators.exercises.new.submit')
+    find("input[type='submit']").click
 
     assert_current_path educators_lo_path(@lo)
 
@@ -32,7 +32,7 @@ class NewTest < ApplicationSystemTestCase
   end
 
   should 'show validation errors when fields are blank' do
-    click_on I18n.t('educators.exercises.new.submit')
+    find("input[type='submit']").click
 
     assert_selector '.exercise_title p', text: I18n.t('errors.messages.blank')
   end

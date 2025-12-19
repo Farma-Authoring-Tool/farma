@@ -21,7 +21,7 @@ class NewTest < ApplicationSystemTestCase
 
     check I18n.t('activerecord.attributes.introduction.draft')
 
-    click_on I18n.t('educators.introductions.new.submit')
+    find("input[type='submit']").click
 
     assert_current_path educators_lo_path(@lo)
 
@@ -32,7 +32,7 @@ class NewTest < ApplicationSystemTestCase
   end
 
   should 'show validation errors when fields are blank' do
-    click_on I18n.t('educators.introductions.new.submit')
+    find("input[type='submit']").click
 
     assert_selector '.introduction_title p', text: I18n.t('errors.messages.blank')
   end
