@@ -110,6 +110,8 @@ pt-BR:
         success: Introdução atualizada com sucesso!
       destroy:
         success: Introdução removida com sucesso!
+      duplicate:
+        success: Introdução duplicada com sucesso!
       new:
         page_title: Nova Introdução
         page_heading: Nova Introdução
