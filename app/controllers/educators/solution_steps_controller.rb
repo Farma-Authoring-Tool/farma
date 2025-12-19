@@ -1,7 +1,7 @@
 class Educators::SolutionStepsController < Educators::BaseController
   before_action :set_lo
   before_action :set_exercise
-  before_action :set_solution_step, only: [ :edit, :update, :duplicate ]
+  before_action :set_solution_step, only: [:edit, :update, :duplicate]
 
   def index
     @solution_steps = @exercise.solution_steps.includes(:tips).order(created_at: :asc)
@@ -72,10 +72,12 @@ class Educators::SolutionStepsController < Educators::BaseController
       when :index
         add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.index')
       when :new, :create
-        add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.index'), educators_lo_exercise_solution_steps_path(@lo, @exercise)
+        add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.index'),
+                       educators_lo_exercise_solution_steps_path(@lo, @exercise)
         add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.new')
       when :edit, :update
-        add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.index'), educators_lo_exercise_solution_steps_path(@lo, @exercise)
+        add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.index'),
+                       educators_lo_exercise_solution_steps_path(@lo, @exercise)
         add_breadcrumb I18n.t('educators.solution_steps.breadcrumbs.edit', id: @solution_step.id)
       end
     end
