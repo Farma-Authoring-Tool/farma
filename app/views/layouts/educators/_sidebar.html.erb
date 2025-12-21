@@ -1,21 +1,20 @@
-<aside data-sidebar-target="sidebar" class="fixed top-0 left-0 z-40 h-screen w-42 -translate-x-full pt-0 pt-16 transition-transform lg:translate-x-0">
-  <div class="h-full overflow-y-auto bg-gray-900 px-3 py-4">
-
+<aside data-sidebar-target="sidebar" class="fixed top-0 left-0 z-40 h-screen w-42 -translate-x-full pt-16 transition-transform lg:translate-x-0" aria-label="Sidebar Navigation">
+  <div class="h-full overflow-y-auto bg-white shadow-lg px-3 py-4">
     <nav>
-      <ul class="space-y-2 font-sm">
-        <li class="text-green-700">
-          <%= link_to educators_root_path do%>
-            <%= icon(:home, class:"text-green-500")%>
-            <span class="ms-2 text-green-500">Home</span>
-          <% end %>
-
-          <%= link_to educators_los_path do%>
-            <%= icon(:oa, class:"text-green-500")%>
-            <span class="ms-2 text-green-500">Meus OA</span>
+      <ul class="space-y-1 text-sm">
+        <li>
+          <%= active_link_to educators_root_path, active: :exclusive do %>
+            <%= icon(:home, class: "text-green-600") %>
+            <%= t('educators.aside.navigation.home') %>
           <% end %>
         </li>
-      </ul> 
+        <li>
+          <%= active_link_to educators_los_path do %>
+            <%= icon(:oa, class: "text-green-600") %>
+            <%= t('educators.aside.navigation.my_los') %>
+          <% end %>
+        </li>
+      </ul>
     </nav>
-
   </div>
 </aside>

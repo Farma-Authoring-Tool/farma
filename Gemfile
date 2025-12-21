@@ -35,11 +35,15 @@ gem 'thruster', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem 'active_link_to'
 gem 'devise'
 gem 'devise-jwt'
+gem 'image_processing', '>= 1.2'
 gem 'rack-cors'
 gem 'rails-i18n', '~> 8.0.0'
 gem 'tailwindcss-rails', '~> 4.3'
+gem 'tinymce-rails'
+gem 'truncate_html'
 gem 'view_component'
 gem 'whenever'
 

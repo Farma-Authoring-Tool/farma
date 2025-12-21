@@ -1,7 +1,7 @@
-<% provide :title, t('.title_nav') %>
-<% provide :head_title, t('.title') %>
+<% provide :page_title, t(".page_title") %>
+<% provide :page_heading, t(".page_heading") %>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
   <%= render partial: "educators/los/lo", collection: @los, as: :lo %>
 </div>
 
@@ -9,8 +9,4 @@
   <%= render "educators/los/empty" unless @los.any? %>
 </div>
 
-<div class="fixed bottom-8 right-8">
-  <%= link_to new_educators_lo_path do %>
-    <%= icon(:buttonCreate, class: 'w-9 h-9 text-green-600') %>
-  <% end %>
-</div>
+<%= render Button::FloatingActionComponent.new(actions: [ { url: new_educators_lo_path, text: t(".actions.lo.create") } ]) %>

@@ -35,6 +35,24 @@ pt-BR:
         duplicable: Permitir cópia
         picture: Imagem
         <<: *commons
+      introduction:
+        title: Título
+        description: Descrição
+        draft: Publicar
+      exercise:
+        title: Título
+        description: Descrição
+        draft: Publicar
+      solution_step:
+        title: Título
+        description: Descrição
+        response: Resposta
+        decimal_digits: Casas decimais para considerar a questão
+        draft: Publicar
+      tip:
+        title: Título
+        description: Descrição
+        number_attempts: Numero de tentativas para ativar a dica
       user:
         confirmation_sent_at: Confirmação enviada em
         confirmation_token: Token de confirmação

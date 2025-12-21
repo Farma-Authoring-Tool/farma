@@ -7,7 +7,7 @@ class Exercise < ApplicationRecord
   has_many :exercises_visualizations, dependent: :destroy
 
   validates :title, :description, presence: true
-  validates :title, uniqueness: true
+  validates :title, uniqueness: { scope: :lo_id }
   validates :public, inclusion: { in: [true, false] }
 
   before_create :set_position

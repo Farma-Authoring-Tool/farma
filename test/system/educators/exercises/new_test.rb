@@ -1,0 +1,39 @@
+require 'application_system_test_case'
+
+class Educators::ExerciseControllerNewTest < ApplicationSystemTestCase
+  setup do
+    @user = create(:user)
+    sign_in(@user)
+
+    @lo = FactoryBot.create(:lo, user: @user)
+
+    visit new_educators_lo_exercise_path(@lo)
+  end
+
+  should 'successfully create a new Exercise' do
+    fill_in I18n.t('activerecord.attributes.exercise.title'), with: 'Novo Exercicio'
+
+    assert_selector('iframe.tox-edit-area__iframe', wait: 5)
+
+    within_frame(find('iframe.tox-edit-area__iframe')) do
+      find_by_id('tinymce').set('Descrição do Exercicio')
+    end
+
+    check I18n.t('activerecord.attributes.exercise.draft')
+
+    find("input[type='submit']").click
+
+    assert_current_path educators_lo_path(@lo)
+
+    assert_text I18n.t('educators.exercises.create.success')
+
+    assert_text 'Novo Exercicio'
+    assert_text 'Descrição do Exercicio'
+  end
+
+  should 'show validation errors when fields are blank' do
+    find("input[type='submit']").click
+
+    assert_selector '.exercise_title p', text: I18n.t('errors.messages.blank')
+  end
+end

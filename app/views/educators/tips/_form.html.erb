@@ -1,0 +1,9 @@
+<%= form_with(model: [ :educators, @lo, @exercise, @solution_step, @tip ], local: true) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description, type: :text_area %>
+  <%= f.input :number_attempts, min: 1, max: 10, step: 1 %>
+
+  <div class="flex items-center">
+    <%= f.submit class: "w-full" %>
+  </div>
+<% end %>

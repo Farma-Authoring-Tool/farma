@@ -4,8 +4,8 @@ class Tip < ApplicationRecord
   belongs_to :solution_step, counter_cache: true
   has_many :tips_visualizations, dependent: :destroy
 
-  validates :title, :description, presence: true
-  validates :title, uniqueness: true
+  validates :title, :description, :number_attempts, presence: true
+  validates :title, uniqueness: { scope: :solution_step_id }
 
   before_create :set_position
 

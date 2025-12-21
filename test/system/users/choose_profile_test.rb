@@ -31,7 +31,7 @@ class ChooseProfileTest < ApplicationSystemTestCase
   should 'navigate to educator profile' do
     click_on I18n.t('users.profile.choose.educator.title')
 
-    assert_text I18n.t('educators.home.dashboard.welcome')
+    assert_text @user.name
     assert_current_path educators_root_path
   end
 end

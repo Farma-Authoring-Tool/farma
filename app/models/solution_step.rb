@@ -11,8 +11,8 @@ class SolutionStep < ApplicationRecord
   has_many :solution_steps_visualizations, dependent: :destroy
   has_many :answers, dependent: :destroy
 
-  validates :title, :description, presence: true
-  validates :title, uniqueness: true
+  validates :title, :description, :response, :decimal_digits, presence: true
+  validates :title, uniqueness: { scope: :exercise_id }
   validates :public, inclusion: { in: [true, false] }
 
   before_create :set_position

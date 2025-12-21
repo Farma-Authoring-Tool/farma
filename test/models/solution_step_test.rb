@@ -3,12 +3,22 @@ require 'test_helper'
 class SolutionStepTest < ActiveSupport::TestCase
   context 'validations' do
     should validate_presence_of(:title)
-    should validate_uniqueness_of(:title)
+    should validate_presence_of(:description)
 
     should allow_value(true).for(:public)
     should allow_value(false).for(:public)
     should_not allow_value(nil).for(:public)
     should_not allow_value('').for(:public)
+
+    should 'enforce unique title per exercise' do
+      exercise = FactoryBot.create(:exercise)
+      FactoryBot.create(:solution_step, exercise: exercise, title: 'Duplicado')
+
+      duplicate = FactoryBot.build(:solution_step, exercise: exercise, title: 'Duplicado')
+
+      assert_not duplicate.valid?
+      assert_includes duplicate.errors[:title], I18n.t('errors.messages.taken')
+    end
   end
 
   context 'relationships' do
@@ -64,6 +74,8 @@ class SolutionStepTest < ActiveSupport::TestCase
 
         assert_equal index + 1, tip.position, "Tip with ID #{id} should be at position #{index + 1}"
       end
+
+      assert_equal new_order_ids, @solution_step.tips.order(:position).pluck(:id)
     end
   end
 
@@ -116,6 +128,46 @@ class SolutionStepTest < ActiveSupport::TestCase
 
       assert_not answer.correct
       assert_equal 1, answer.attempt_number
+    end
+  end
+
+  context 'position initialization' do
+    should 'set position on create' do
+      step = create(:solution_step, position: nil)
+
+      assert_not_nil step.position
+    end
+  end
+
+  context 'visualizations and status' do
+    setup do
+      @solution_step = FactoryBot.create(:solution_step)
+      @user = create(:user)
+      @team = create(:team)
+    end
+
+    should 'return viewed status when only visualized' do
+      create(:solution_steps_visualization, solution_step: @solution_step, user: @user, team: @team)
+
+      assert_equal :viewed, @solution_step.status(@user, @team)
+    end
+
+    should 'return correct status when a correct answer exists' do
+      create(:solution_steps_visualization, solution_step: @solution_step, user: @user, team: @team)
+      create(:answer, solution_step: @solution_step, user: @user, team: @team, response: @solution_step.response)
+
+      assert_equal :correct, @solution_step.status(@user, @team)
+    end
+
+    should 'return incorrect status when only incorrect answers exist' do
+      create(:solution_steps_visualization, solution_step: @solution_step, user: @user, team: @team)
+      create(:answer, solution_step: @solution_step, user: @user, team: @team, response: '123456')
+
+      assert_equal :incorrect, @solution_step.status(@user, @team)
+    end
+
+    should 'return not_viewed when no visualization exists' do
+      assert_equal :not_viewed, @solution_step.status(@user, @team)
     end
   end
 end

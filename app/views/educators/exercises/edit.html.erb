@@ -1,0 +1,5 @@
+<% provide :page_title, t(".page_title") %>
+<% provide :page_heading, t(".page_heading") %>
+<% provide :content_title, t(".content_title", title: @lo.title) %>
+
+<%= render 'form' %>

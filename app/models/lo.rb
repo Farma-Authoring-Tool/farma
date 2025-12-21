@@ -31,10 +31,8 @@ class Lo < ApplicationRecord
   delegate :attached?, to: :picture, prefix: true
 
   def picture_url
-    if picture.attached?
-      Rails.application.routes.url_helpers.rails_blob_path(picture, only_path: true)
-    else
-      ActionController::Base.helpers.asset_path('bg/default_lo.png')
-    end
+    return ActionController::Base.helpers.asset_url('bg/default_lo.png') unless picture.attached?
+
+    Rails.application.routes.url_helpers.rails_blob_url(picture, only_path: true)
   end
 end

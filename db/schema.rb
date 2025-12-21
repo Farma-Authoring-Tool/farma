@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_16_162455) do
+ActiveRecord::Schema[8.0].define(version: 2025_12_17_114343) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -66,7 +66,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_16_162455) do
     t.datetime "updated_at", null: false
     t.integer "solution_steps_count"
     t.index ["lo_id"], name: "index_exercises_on_lo_id"
-    t.index ["title"], name: "index_exercises_on_title", unique: true
+    t.index ["title", "lo_id"], name: "index_exercises_on_title_and_lo_id", unique: true
   end
 
   create_table "exercises_visualizations", force: :cascade do |t|
@@ -89,7 +89,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_16_162455) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["lo_id"], name: "index_introductions_on_lo_id"
-    t.index ["title"], name: "index_introductions_on_title", unique: true
+    t.index ["title", "lo_id"], name: "index_introductions_on_title_and_lo_id", unique: true
   end
 
   create_table "introductions_visualizations", force: :cascade do |t|
@@ -137,7 +137,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_16_162455) do
     t.integer "tips_count"
     t.integer "tips_display_mode", default: 0
     t.index ["exercise_id"], name: "index_solution_steps_on_exercise_id"
-    t.index ["title"], name: "index_solution_steps_on_title", unique: true
+    t.index ["title", "exercise_id"], name: "index_solution_steps_on_title_and_exercise_id", unique: true
   end
 
   create_table "solution_steps_visualizations", force: :cascade do |t|
@@ -171,7 +171,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_16_162455) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.index ["solution_step_id"], name: "index_tips_on_solution_step_id"
-    t.index ["title"], name: "index_tips_on_title", unique: true
+    t.index ["title", "solution_step_id"], name: "index_tips_on_title_and_solution_step_id", unique: true
   end
 
   create_table "tips_visualizations", force: :cascade do |t|

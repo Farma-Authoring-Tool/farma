@@ -1,9 +1,41 @@
-<h1 class="text-xl font-bold"><%= @lo.title %></h1>
-<p class="mt-2 text-gray-600"><%= @lo.description %></p>
+<% provide :page_title, @lo.title %>
+<% provide :page_heading, @lo.title %>
 
-<% if @lo.picture.attached? %>
-    <%= image_tag url_for(@lo.picture), class: "mt-4 w-full h-64 object-cover object-top rounded-md" %>
-<% end %>
+<div class="space-y-10">
 
+  <section class="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+    <div class="grid md:grid-cols-3">
+      <div class="p-6 md:p-8 md:col-span-2 space-y-4">
+        <p class="text-xs font-semibold uppercase tracking-wide text-indigo-600"><%= Lo.model_name.human %></p>
+        <h1 class="text-2xl font-semibold text-gray-900 leading-tight"><%= @lo.title %></h1>
+        <div><%= simple_format(@lo.description) %></div>
+      </div>
+      <div class="h-full bg-slate-50">
+        <%= image_tag @lo.picture_url, class: "w-full h-full object-cover" %>
+      </div>
+    </div>
+  </section>
 
+  <section class="space-y-4">
 
+    <div class="flex items-center justify-between">
+      <h2 class="text-xl font-semibold text-gray-900"><%= t(".contents.title") %></h2>
+    </div>
+
+    <% if @lo.pages.any? %>
+      <%= render @lo.pages.all %>
+    <% else %>
+      <div class="rounded-xl border border-dashed border-gray-300 bg-white p-6 text-gray-600">
+        <%= t(".contents.empty_state") %>
+      </div>
+    <% end %>
+
+  </section>
+</div>
+
+<%= render Button::FloatingActionComponent.new(
+  actions: [
+    { url: new_educators_lo_introduction_path(@lo), text: t(".actions.introduction.create") },
+    { url: new_educators_lo_exercise_path(@lo), text: t(".actions.exercise.create") }
+  ]
+) %>

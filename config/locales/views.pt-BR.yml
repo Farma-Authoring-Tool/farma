@@ -5,11 +5,13 @@ pt-BR:
     title: FARMA
     description: Construa Objetos de Aprendizagem para o ensino de matemática
   links:
-    forgot_password: 'Esqueceu sua senha?'
-    remembered_password: 'Lembrou sua senha?'
+    forgot_password: Esqueceu sua senha?
+    remembered_password: Lembrou sua senha?
     profile: Perfil
     sign_out: Sair
     choose_profile: Escolher perfil
+  prompts:
+    confirm: Tem certeza?
   home:
     header:
       logo_alt: Logo do FARMA
@@ -47,39 +49,150 @@ pt-BR:
           desc: Acesse o painel de estudante
         select: Selecione seu perfil
   educators:
+    aside:
+      navigation:
+        home: Home
+        my_los: Meus OAs
+        teams: Turmas
     home:
       breadcrumbs: Home
       dashboard:
-        title: Dashboard
+        page_title: Página Inicial
+        page_heading: Página Inicial
         welcome: Bem-vindo à
         span: FARMA
         los:
-          recents: 'Objetos de aprendizagem vistos recentemente'
+          recent: 'OAs recentes'
     los:
       breadcrumbs:
-        index: Meus objetos de Aprendizagem
+        index: Meus objetos de Aprendizagens
         new: Novo Objeto de Aprendizagem
         show: "Objeto de Aprendizagem #%{id}"
-        edit: "Editar Objeto de Aprendizagem #%{id}"
+        edit: Editar
       create:
-        success: "Objeto de Aprendizagem criado com sucesso!"
+        success: Objeto de Aprendizagem criado com sucesso!
       update:
-        success: "Objeto de Aprendizagem atualizado com sucesso!"
+        success: Objeto de Aprendizagem atualizado com sucesso!
       destroy:
-        success: "Objeto de Aprendizagem removido com sucesso!"
+        success: Objeto de Aprendizagem removido com sucesso!
+      duplicate:
+        success: LO duplicado com sucesso!
       new:
-        title: Crie seu Objeto de Aprendizagem
-        title_nav: Criação OA
-        submit: Criar Objeto de Aprendizagem
-        form:
-          name: Nome
-          description: Descrição
+        page_title: Novo Objeto de Aprendizagem
+        page_heading: Novo Objeto de Aprendizagem
       edit:
-        title: Edição do seu Objeto de Aprendizagem
-        title_nav: Edição OA
-        submit: Atualizar Objeto de Aprendizagem
-      empty:
-        oa_not_found: Nenhum Objeto de Aprendizagem encontrado
+        page_title: "Editar Objeto de Aprendizagem #%{id}"
+        page_heading: "Editar Objeto de Aprendizagem #%{id}"
       index:
-        title: Meus Objetos de Aprendizagem
-        title_nav: Meus OAs
+        page_title: Meus Objetos de Aprendizagem
+        page_heading: Meus Objetos de Aprendizagem
+        empty: Nenhum Objeto de Aprendizagem encontrado
+        actions:
+          lo:
+            create: Criar novo OA
+      show:
+        page_title: "OA #%{id}"
+        page_heading: "Objeto de Aprendizagem #%{id}"
+        contents:
+          title: Conteúdos
+          empty_state: Ainda não há páginas. Crie uma introdução ou um exercício para começar.
+        actions:
+          introduction:
+            create: Criar Introdução
+          exercise:
+            create: Criar Exercício
+    introductions:
+      breadcrumbs:
+        new: Nova Introdução
+        edit: "Editar Introdução #%{id}"
+      create:
+        success: Introdução criada com sucesso!
+      update:
+        success: Introdução atualizada com sucesso!
+      destroy:
+        success: Introdução removida com sucesso!
+      duplicate:
+        success: Introdução duplicada com sucesso!
+      new:
+        page_title: Nova Introdução
+        page_heading: Nova Introdução
+        content_title: "Nova introdução para o OA %{title}"
+      edit:
+        page_title: Editar Introdução
+        page_heading: Editar Introdução
+        content_title: "Editar introdução do OA %{title}"
+    exercises:
+      breadcrumbs:
+        new: Novo Exercício
+        edit: "Editar Exercício #%{id}"
+        show: "Exercício #%{id}"
+      create:
+        success: Exercício criado com sucesso!
+      update:
+        success: Exercício atualizado com sucesso!
+      destroy:
+        success: Exercício removido com sucesso!
+      duplicate:
+        success: Exercício duplicado com sucesso!
+      new:
+        page_title: Novo Exercício
+        page_heading: Novo Exercício
+        content_title: "Novo exercício para o OA %{title}"
+      edit:
+        page_title: Editar Exercício
+        page_heading: Editar Exercício
+        content_title: "Editar exercício do OA %{title}"
+      exercise:
+        actions:
+          steps: Passos de solução
+    solution_steps:
+      breadcrumbs:
+        new: Novo
+        edit: "Editar #%{id}"
+        index: Passos de solução
+      create:
+        success: Passo de solução criado com sucesso!
+      update:
+        success: Passo de solução atualizado com sucesso!
+      destroy:
+        success: Passo de solução removido com sucesso!
+      duplicate:
+        success: Passo de solução duplicado com sucesso!
+      new:
+        page_title: Novo Passo de Solução
+        page_heading: "Novo passo de solução para o exercício #%{exercise_id} do OA #%{lo_id}"
+        content_title: "Novo passo de solução para o exercício %{exercise} do OA %{lo}"
+      edit:
+        page_title: Editar Passo de Solução
+        page_heading: "Editar passo de solução para o exercício #%{exercise_id} do OA #%{lo_id}"
+        content_title: "Editar passo de solução para o exercício %{exercise} do OA %{lo}"
+      index:
+        page_title: Passos de Solução do Exercício
+        page_heading: "Passos de solução do exercício #%{exercise_id} do OA #%{lo_id}"
+        content_title: "Passos de solução para o exercício %{exercise} do OA %{lo}"
+        empty: Nenhum exercício encontrado
+        contents:
+          title: Passos de solução
+        actions:
+          solution_step:
+            create: Criar passo de solução
+    tips:
+      breadcrumbs:
+        new: "Nova Dica"
+        edit: "Editar Dica #%{id}"
+      create:
+        success: Dica criada com sucesso!
+      update:
+        success: Dica atualizada com sucesso!
+      destroy:
+        success: Dica removida com sucesso!
+      new:
+        page_title: Nova Dica
+        page_heading: "Nova dica para o passo #%{solution_step_id} do exercício #%{exercise_id} do OA #%{lo_id}"
+        content_title: "Nova dica para o passo %{solution_step} do exercício %{exercise} do OA %{lo}"
+      edit:
+        page_title: Editar Dica
+        page_heading: "Editar dica #%{tip_id} para o passo #%{solution_step_id} do exercício #%{exercise_id} do OA #%{lo_id}"
+        content_title: "Editar dica %{tip} para o passo %{solution_step} do exercício %{exercise} do OA %{lo}"
+      tip:
+        number_attempts: "Tentativas necessárias: "

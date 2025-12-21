@@ -1,0 +1,38 @@
+<div class="flex flex-col gap-3 text-gray-700 bg-gray-50 p-4 rounded-lg border border-gray-200 shadow-sm">
+  <div class="flex items-center text-green-800">
+    <%= icon(:tips) %>
+    <h3 class="ml-2 font-semibold text-base"><%= tip.title %></h3>
+  </div>
+
+  <% if tip.description.present? %>
+    <div class="text-sm text-gray-600 prose max-w-none">
+      <%= sanitize(tip.description) %>
+    </div>
+  <% end %>
+
+  <div class="flex items-center justify-between mt-2">
+    <p class="text-sm text-gray-500">
+      <%= t(".number_attempts") %>: <%= tip.number_attempts %>
+    </p>
+
+    <div class="flex items-center space-x-2">
+      <%= link_to edit_educators_lo_exercise_solution_step_tip_path(@lo, @exercise, solution_step, tip),
+                  class: "text-gray-400 hover:text-green-500" do %>
+        <%= icon(:edit) %>
+      <% end %>
+
+      <%= link_to duplicate_educators_lo_exercise_solution_step_tip_path(@lo, @exercise, solution_step, tip),
+                  class: "text-gray-400 hover:text-blue-500",
+                  data: { turbo_method: :post } do %>
+        <%= icon(:duplicable) %>
+      <% end %>
+
+      <%= link_to educators_lo_exercise_solution_step_tip_path(@lo, @exercise, solution_step, tip),
+                  method: :delete,
+                  data: { turbo_method: :delete, turbo_confirm: t("prompts.confirm") },
+                  class: "text-gray-400 hover:text-red-500" do %>
+        <%= icon(:trash) %>
+      <% end %>
+    </div>
+  </div>
+</div>

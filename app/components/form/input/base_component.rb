@@ -15,11 +15,19 @@ class Form::Input::BaseComponent < ViewComponent::Base
   end
 
   def input
-    classes = 'text-xs text-gray-800 md:text-base mt-1 block w-full rounded-md border border-gray-300'
-    classes += 'py-2 px-3 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500'
+    classes = 'text-xs text-gray-800 md:text-base mt-1 block w-full border-0 border-b border-gray-300'
+    classes += 'py-1 px-3 focus:outline-none focus:ring-0'
     classes += " #{error_input_class}"
 
-    @form.send(input_type, @attribute, class: classes, id: id, **@options)
+    options = @options.dup
+
+    if @type.to_s == 'text_area'
+      options[:data] ||= {}
+      options[:data][:controller] ||= 'tinymce'
+      options[:data][:tinymce_upload_url_value] ||= helpers.educators_uploader_image_path
+    end
+
+    @form.send(input_type, @attribute, class: classes, id: id, **options)
   end
 
   def label
@@ -35,7 +43,7 @@ class Form::Input::BaseComponent < ViewComponent::Base
   private
 
     def input_type
-      { 'text_area' => 'text_area', 'checkbox' => 'check_box' }[@type.to_s] || "#{@type}_field"
+      { 'text_area' => 'text_area', 'checkbox' => 'check_box', 'number' => 'number' }[@type.to_s] || "#{@type}_field"
     end
 
     # Errors

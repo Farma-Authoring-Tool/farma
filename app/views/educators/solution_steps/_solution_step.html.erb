@@ -1,0 +1,47 @@
+<div class="rounded-xl border border-gray-200 bg-white shadow-sm p-5 md:p-6">
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-center w-full gap-4">
+    <h2 class="flex-1 text-left text-lg font-semibold text-blue-950 flex items-center gap-2">
+      <%= solution_step.title %>
+    </h2>
+
+    <div class="flex items-center space-x-2">
+      <%= link_to new_educators_lo_exercise_solution_step_tip_path(@lo, @exercise, solution_step),
+                  class: "text-gray-400 hover:text-yellow-500" do %>
+        <%= icon(:tips) %>
+      <% end %>
+
+      <%= button_to duplicate_educators_lo_exercise_solution_step_path(@lo, @exercise, solution_step),
+                    method: :post,
+                    class: "text-gray-400 hover:text-blue-500 mt-2" do %>
+        <%= icon(:duplicable) %>
+      <% end %>
+
+      <%= link_to edit_educators_lo_exercise_solution_step_path(@lo, @exercise, solution_step),
+                  class: "text-gray-400 hover:text-green-500" do %>
+        <%= icon(:edit) %>
+      <% end %>
+
+      <%= link_to educators_lo_exercise_solution_step_path(@lo, @exercise, solution_step),
+                  data: { turbo_method: :delete, turbo_confirm: t("prompts.confirm") },
+                  class: "text-gray-400 hover:text-red-500" do %>
+        <%= icon(:trash) %>
+      <% end %>
+    </div>
+  </div>
+
+  <% if solution_step.description.present? %>
+    <p class="text-gray-600 mt-6">
+      <%= sanitize(solution_step.description) %>
+    </p>
+  <% end %>
+
+  <% tips = solution_step.tips.to_a.sort_by(&:number_attempts) %>
+
+  <section class="mt-5 space-y-2">
+    <h4 class="text-sm font-semibold text-gray-900"><%= Tip.model_name.human(count: tips.size) %></h4>
+    <%= render partial: "educators/tips/tip",
+               collection: tips,
+               as: :tip,
+               locals: { solution_step: solution_step } %>
+  </section>
+</div>

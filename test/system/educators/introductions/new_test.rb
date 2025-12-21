@@ -1,0 +1,39 @@
+require 'application_system_test_case'
+
+class NewTest < ApplicationSystemTestCase
+  setup do
+    @user = create(:user)
+    sign_in(@user)
+
+    @lo = FactoryBot.create(:lo, user: @user)
+
+    visit new_educators_lo_introduction_path(@lo)
+  end
+
+  should 'successfully create a new Introduction' do
+    fill_in I18n.t('activerecord.attributes.introduction.title'), with: 'Nova introdução'
+
+    assert_selector('iframe.tox-edit-area__iframe', wait: 5)
+
+    within_frame(find('iframe.tox-edit-area__iframe')) do
+      find_by_id('tinymce').set('Descrição da introdução')
+    end
+
+    check I18n.t('activerecord.attributes.introduction.draft')
+
+    find("input[type='submit']").click
+
+    assert_current_path educators_lo_path(@lo)
+
+    assert_text I18n.t('educators.introductions.create.success')
+
+    assert_text 'Nova introdução'
+    assert_text 'Descrição da introdução'
+  end
+
+  should 'show validation errors when fields are blank' do
+    find("input[type='submit']").click
+
+    assert_selector '.introduction_title p', text: I18n.t('errors.messages.blank')
+  end
+end
