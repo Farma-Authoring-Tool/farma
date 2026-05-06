@@ -24,11 +24,11 @@ class LoTest < ActiveSupport::TestCase
 
   context 'duplicating an lo' do
     setup do
-      @lo = FactoryBot.create(:lo)
-      @introductions = FactoryBot.create_list(:introduction, 2, lo: @lo)
-      @exercises = FactoryBot.create_list(:exercise, 2, lo: @lo)
+      @lo = create(:lo)
+      @introductions = create_list(:introduction, 2, lo: @lo)
+      @exercises = create_list(:exercise, 2, lo: @lo)
       @exercises.each do |exercise|
-        FactoryBot.create_list(:solution_step, 2, exercise: exercise)
+        create_list(:solution_step, 2, exercise: exercise)
       end
     end
 

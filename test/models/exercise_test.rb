@@ -29,10 +29,10 @@ class ExerciseTest < ActiveSupport::TestCase
 
   context 'duplicating an exercise' do
     setup do
-      @exercise = FactoryBot.create(:exercise, title: 'Original Exercise')
-      @solution_steps = FactoryBot.create_list(:solution_step, 2, exercise: @exercise)
+      @exercise = create(:exercise, title: 'Original Exercise')
+      @solution_steps = create_list(:solution_step, 2, exercise: @exercise)
       @solution_steps.each do |step|
-        FactoryBot.create_list(:tip, 2, solution_step: step)
+        create_list(:tip, 2, solution_step: step)
       end
     end
 
@@ -57,8 +57,8 @@ class ExerciseTest < ActiveSupport::TestCase
 
   context 'reordering solution steps' do
     setup do
-      @exercise = FactoryBot.create(:exercise)
-      @solution_steps = FactoryBot.create_list(:solution_step, 3, exercise: @exercise)
+      @exercise = create(:exercise)
+      @solution_steps = create_list(:solution_step, 3, exercise: @exercise)
     end
 
     should 'correctly reorder solution steps' do
@@ -78,7 +78,7 @@ class ExerciseTest < ActiveSupport::TestCase
 
   context 'position initialization' do
     should 'set position on create' do
-      exercise = FactoryBot.create(:exercise, position: nil)
+      exercise = create(:exercise, position: nil)
 
       assert_not_nil exercise.position
     end
@@ -86,13 +86,13 @@ class ExerciseTest < ActiveSupport::TestCase
 
   context 'visualizations and status' do
     setup do
-      @exercise = FactoryBot.create(:exercise)
-      @user = FactoryBot.create(:user)
-      @team = FactoryBot.create(:team)
+      @exercise = create(:exercise)
+      @user = create(:user)
+      @team = create(:team)
     end
 
     should 'return viewed status when visualization exists' do
-      FactoryBot.create(:exercises_visualization, exercise: @exercise, user: @user, team: @team)
+      create(:exercises_visualization, exercise: @exercise, user: @user, team: @team)
 
       assert_equal :viewed, @exercise.status(@user, @team)
     end
