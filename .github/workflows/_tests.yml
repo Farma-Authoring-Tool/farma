@@ -15,7 +15,7 @@ jobs:
   run-tests:
     runs-on: ubuntu-latest
     container:
-      image: ruby:3.4.2
+      image: ruby:3.4.7
       options: --network-alias testHost
     services:
       db:
@@ -51,7 +51,7 @@ jobs:
 
       - name: Install bundle gems
         run: |
-          gem install bundler
+          gem install bundler -v 2.6.6
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
 
