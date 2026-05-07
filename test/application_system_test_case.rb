@@ -8,11 +8,12 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   Capybara.default_max_wait_time = 10
 
   options = { screen_size: [1400, 1400] }
-  options[:using] = :headless_chrome unless ENV["LAUNCH_BROWSER"]
+  options[:using] = :headless_chrome unless ENV['LAUNCH_BROWSER']
 
   driven_by :selenium, **options do |driver_options|
     driver_options.add_preference(:credentials_enable_service, false)
-    driver_options.add_preference(:profile, { password_manager_leak_detection: false }) # not show dialog when password is weak
+    # not show dialog when password is weak
+    driver_options.add_preference(:profile, { password_manager_leak_detection: false })
   end
 end
 

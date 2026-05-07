@@ -1,12 +1,9 @@
 class Profile::ChooseBtnComponent < ViewComponent::Base
-  # rubocop:disable Lint/MissingSuper
   def initialize(path:, title:, desc:)
     @path = path
     @title = title
     @desc = desc
   end
-
-  # rubocop:enable Lint/MissingSuper
 
   def title
     content_tag :h2, @title, class: 'text-sm md:text-xl font-bold text-gray-800 mb-2'

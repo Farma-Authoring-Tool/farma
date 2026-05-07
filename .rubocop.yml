@@ -44,6 +44,10 @@ Style/HashTransformValues:
   Exclude:
     - "test/support/pretty_diff.rb"
 
+Style/OneClassPerFile:
+  Exclude:
+    - "app/controllers/concerns/breadcrumbs.rb"
+
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods
 
@@ -57,7 +61,6 @@ Metrics/BlockLength:
     - "config/environments/development.rb"
     - "config/routes.rb"
     - "config/routes/*.rb"
-    - "config/environments/devise.rb"
     - "test/controllers/**/*"
 
 Metrics/ClassLength:
@@ -76,11 +79,16 @@ Rails/LexicallyScopedActionFilter:
     - "app/controllers/users/auth/registrations_controller.rb"
 
 Lint/MissingSuper:
+  # ViewComponent initializers are plain Ruby constructors and do not need `super`
+  # unless the component hierarchy actually defines one.
   Exclude:
+    - "app/components/button/floating_action_component.rb"
+    - "app/components/profile/choose_btn_component.rb"
     - "app/components/form/input/base_component.rb"
+    - "app/components/form/input/checkbox_component.rb"
+    - "app/components/form/input/file_component.rb"
     - "app/components/form/input/submit_component.rb"
     - "app/components/flash/message_component.rb"
-    - "app/components/**/*.rb"
 
 Metrics/AbcSize:
   AllowedMethods:
