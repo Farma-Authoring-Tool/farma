@@ -9,7 +9,10 @@ on:
 env:
   RAILS_ENV: test
   RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY_TEST }}
-  DATABASE_URL: postgres://postgres:@db
+  DATABASE_HOST: db
+  DATABASE_PORT: 5432
+  DATABASE_USERNAME: postgres
+  DATABASE_PASSWORD: postgres
 
 jobs:
   run-tests:
@@ -20,7 +23,7 @@ jobs:
     services:
       db:
         image: postgres
-        ports: [ "5433:5432" ]
+        ports: [ "5432:5432" ]
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
