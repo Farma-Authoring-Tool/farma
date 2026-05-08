@@ -7,7 +7,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   include CapybaraCustomAssertions
   include TestAssetHelpers
 
-  SCREEN_SIZE = [1400, 1400]
+  SCREEN_SIZE = [1400, 1400].freeze
   REMOTE_DRIVER = :remote_chrome
 
   Capybara.default_max_wait_time = 10
