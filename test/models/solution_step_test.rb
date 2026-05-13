@@ -11,10 +11,10 @@ class SolutionStepTest < ActiveSupport::TestCase
     should_not allow_value('').for(:public)
 
     should 'enforce unique title per exercise' do
-      exercise = FactoryBot.create(:exercise)
-      FactoryBot.create(:solution_step, exercise: exercise, title: 'Duplicado')
+      exercise = create(:exercise)
+      create(:solution_step, exercise: exercise, title: 'Duplicado')
 
-      duplicate = FactoryBot.build(:solution_step, exercise: exercise, title: 'Duplicado')
+      duplicate = build(:solution_step, exercise: exercise, title: 'Duplicado')
 
       assert_not duplicate.valid?
       assert_includes duplicate.errors[:title], I18n.t('errors.messages.taken')
@@ -37,7 +37,7 @@ class SolutionStepTest < ActiveSupport::TestCase
 
   context 'duplicating a solution step' do
     setup do
-      @tip = FactoryBot.create(:tip)
+      @tip = create(:tip)
       @solution_step = @tip.solution_step
     end
 
@@ -60,8 +60,8 @@ class SolutionStepTest < ActiveSupport::TestCase
 
   context 'reordering tips' do
     setup do
-      @solution_step = FactoryBot.create(:solution_step)
-      @tips = FactoryBot.create_list(:tip, 3, solution_step: @solution_step)
+      @solution_step = create(:solution_step)
+      @tips = create_list(:tip, 3, solution_step: @solution_step)
     end
 
     should 'correctly reorder tips' do
@@ -81,7 +81,7 @@ class SolutionStepTest < ActiveSupport::TestCase
 
   context 'setting display mode' do
     setup do
-      @solution_step = FactoryBot.create(:solution_step)
+      @solution_step = create(:solution_step)
     end
 
     should 'have the default display mode' do
@@ -111,9 +111,9 @@ class SolutionStepTest < ActiveSupport::TestCase
 
   context 'create an answer' do
     setup do
-      @solution_step = FactoryBot.create(:solution_step, response: 'correct_answer')
-      @team = FactoryBot.create(:team)
-      @user = FactoryBot.create(:user, teams: [@team])
+      @solution_step = create(:solution_step, response: 'correct_answer')
+      @team = create(:team)
+      @user = create(:user, teams: [@team])
     end
 
     should 'create a correct answer' do
@@ -141,7 +141,7 @@ class SolutionStepTest < ActiveSupport::TestCase
 
   context 'visualizations and status' do
     setup do
-      @solution_step = FactoryBot.create(:solution_step)
+      @solution_step = create(:solution_step)
       @user = create(:user)
       @team = create(:team)
     end

@@ -1,31 +1,4 @@
-x-app: &app
-  build:
-    context: .
-    dockerfile: Dockerfile.dev
-  volumes:
-    - .:/var/www/farma
-    - bundle_path:/bundle
-    - /dev/shm:/dev/shm
-  depends_on:
-    - db
-  networks:
-    - app-network
-  stdin_open: true
-  tty: true
-
 services:
-  app:
-    <<: *app
-    command: >
-      bash -c "
-        rm -f tmp/pids/server.pid && sudo cron &&
-        bin/dev
-        " # Removing server.pid is technically a cleanup script
-    ports:
-      - 3000:3000
-    environment:
-      RAILS_ENV: development
-
   db:
     image: postgres:17
     environment:
@@ -35,32 +8,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
-      - 5432:5432
-    networks:
-      - app-network
-
-  app-tests:
-    <<: *app
-    environment:
-      RAILS_ENV: test
-      DATABASE_URL: postgres://postgres@db
-      SELENIUM_HOST: chrome-server
-      SELENIUM_PORT: 4444
-      TEST_APP_HOST: app-tests
-      DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: true
-    shm_size: '2gb' #set shared memory
-    depends_on:
-      - db
-      - chrome-server
-
-  chrome-server:
-    image: selenium/standalone-chrome:latest
-    volumes:
-      - ./test/samples:/var/www/farma/test/samples
-      - /dev/shm:/dev/shm
-    ports:
-      - 4444:4444
-      - 5900:5900
+      - 5433:5432
     networks:
       - app-network
 

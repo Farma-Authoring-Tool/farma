@@ -2,6 +2,7 @@
 <html>
 <head>
   <%= render "layouts/shared/head" %>
+  <%= tinymce_assets "data-turbo-track": "reload" %>
 </head>
 
 <body class="bg-gray-50">
@@ -33,5 +34,7 @@
 
   </div>
 </main>
+
+<%= tinymce convert_urls: true, uploadimage: true %>
 </body>
 </html>

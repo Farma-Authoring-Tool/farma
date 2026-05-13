@@ -12,7 +12,7 @@ class TipTest < ActiveSupport::TestCase
 
   context 'duplicate' do
     setup do
-      @tip = FactoryBot.create(:tip)
+      @tip = create(:tip)
     end
 
     should 'create a duplicate with the same attributes except id and title' do
@@ -36,9 +36,9 @@ class TipTest < ActiveSupport::TestCase
 
   context 'viewing a tip' do
     setup do
-      @user = FactoryBot.create(:user)
-      @team = FactoryBot.create(:team)
-      @tip = FactoryBot.create(:tip)
+      @user = create(:user)
+      @team = create(:team)
+      @tip = create(:tip)
     end
 
     should 'mark a tip as viewed' do

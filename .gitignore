@@ -53,3 +53,5 @@ package-lock.json
 
 # Ignore yarn integrity file
 .tool-versions
+.codex
+.ai

@@ -6,6 +6,23 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
 
+if defined?(Rails::TestUnitReporter)
+  Rails::TestUnitReporter.class_eval do
+    private
+
+      def format_rerun_snippet(result)
+        location, line =
+          if result.respond_to?(:source_location)
+            result.source_location
+          else
+            result.method(result.name).source_location
+          end
+
+        "#{self.class.executable} #{relative_path_for(location)}:#{line}"
+      end
+  end
+end
+
 module ActiveSupport
   class TestCase
     # Run tests in parallel with specified workers

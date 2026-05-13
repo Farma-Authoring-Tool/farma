@@ -10,10 +10,10 @@ class IntroductionTest < ActiveSupport::TestCase
     should_not allow_value('').for(:public)
 
     should 'enforce unique title per lo' do
-      lo = FactoryBot.create(:lo)
-      FactoryBot.create(:introduction, lo: lo, title: 'Duplicado')
+      lo = create(:lo)
+      create(:introduction, lo: lo, title: 'Duplicado')
 
-      duplicate = FactoryBot.build(:introduction, lo: lo, title: 'Duplicado')
+      duplicate = build(:introduction, lo: lo, title: 'Duplicado')
 
       assert_not duplicate.valid?
       assert_includes duplicate.errors[:title], I18n.t('errors.messages.taken')
@@ -27,7 +27,7 @@ class IntroductionTest < ActiveSupport::TestCase
 
   context 'duplicate' do
     setup do
-      @introduction = FactoryBot.create(:introduction)
+      @introduction = create(:introduction)
     end
 
     should 'create a duplicate with the same attributes except id and title' do
@@ -50,7 +50,7 @@ class IntroductionTest < ActiveSupport::TestCase
 
   context 'position initialization' do
     should 'set position on create' do
-      introduction = FactoryBot.create(:introduction, position: nil)
+      introduction = create(:introduction, position: nil)
 
       assert_not_nil introduction.position
     end
@@ -58,13 +58,13 @@ class IntroductionTest < ActiveSupport::TestCase
 
   context 'visualizations and status' do
     setup do
-      @introduction = FactoryBot.create(:introduction)
-      @user = FactoryBot.create(:user)
-      @team = FactoryBot.create(:team)
+      @introduction = create(:introduction)
+      @user = create(:user)
+      @team = create(:team)
     end
 
     should 'return viewed status when visualization exists' do
-      FactoryBot.create(:introductions_visualization, introduction: @introduction, user: @user, team: @team)
+      create(:introductions_visualization, introduction: @introduction, user: @user, team: @team)
 
       assert_equal :viewed, @introduction.status(@user, @team)
     end
