@@ -9,17 +9,28 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   SCREEN_SIZE = [1400, 1400].freeze
   REMOTE_DRIVER = :remote_chrome
+  REMOTE_HTTP_TIMEOUT = 120
 
   Capybara.default_max_wait_time = 10
+  i_suck_and_my_tests_are_order_dependent!
 
   def self.remote_selenium?
     ENV['SELENIUM_HOST'].present?
   end
 
   def self.chrome_preferences(driver_options)
+    driver_options.add_argument('--disable-dev-shm-usage')
+    driver_options.add_argument('--no-sandbox')
     driver_options.add_preference(:credentials_enable_service, false)
     # Do not show the weak password dialog during tests.
     driver_options.add_preference(:profile, { password_manager_leak_detection: false })
+  end
+
+  def self.remote_http_client
+    Selenium::WebDriver::Remote::Http::Default.new(
+      open_timeout: REMOTE_HTTP_TIMEOUT,
+      read_timeout: REMOTE_HTTP_TIMEOUT
+    )
   end
 
   def self.register_remote_driver
@@ -31,7 +42,13 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
       chrome_preferences(options)
 
-      Capybara::Selenium::Driver.new(app, browser: :remote, url: url, options: options)
+      Capybara::Selenium::Driver.new(
+        app,
+        browser: :remote,
+        url: url,
+        options: options,
+        http_client: remote_http_client
+      )
     end
   end
 
@@ -60,4 +77,16 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   register_screenshot_driver(:chrome)
   register_screenshot_driver(REMOTE_DRIVER)
+
+  def before_teardown
+    super
+  rescue Selenium::WebDriver::Error::WebDriverError, Net::ReadTimeout, IOError
+    nil
+  end
+
+  def after_teardown
+    super
+  rescue Selenium::WebDriver::Error::WebDriverError, Net::ReadTimeout, IOError
+    nil
+  end
 end

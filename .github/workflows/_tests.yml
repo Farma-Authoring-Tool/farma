@@ -33,9 +33,6 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-      chrome-server:
-        image: selenium/standalone-chrome:134.0.6998.35-20250303
-        ports: [ "4444:4444" ]
     steps:
       - uses: actions/checkout@v6
         with:
@@ -71,10 +68,6 @@ jobs:
           bundle exec rails db:migrate
 
       - name: Run tests
-        env:
-          SELENIUM_HOST: chrome-server
-          SELENIUM_PORT: 4444
-          TEST_APP_HOST: testHost
-          # COVERAGE: true # Enable when we finish the tests for authentication
+        # COVERAGE: true # Enable when we finish the tests for authentication
         run: |
           bundle exec rails test:all
