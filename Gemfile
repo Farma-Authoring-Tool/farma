@@ -71,8 +71,9 @@ end
 group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
-  gem 'selenium-webdriver', '4.35.0'
-  gem 'shoulda-context', '~> 2.0'
-  gem 'shoulda-matchers', '~> 6.4.0'
+  gem 'mocha'
+  gem 'selenium-webdriver'
+  gem 'shoulda-context', '~> 3.0.0.rc1'
+  gem 'shoulda-matchers', '~> 7.0'
   gem 'simplecov', require: false
 end

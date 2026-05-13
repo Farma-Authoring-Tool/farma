@@ -17,9 +17,6 @@ env:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
-    container:
-      image: ruby:3.4.7
-      options: --network-alias testHost
     services:
       db:
         image: postgres
@@ -34,26 +31,17 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - uses: actions/checkout@v6
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-
       - name: Install libpq-dev for postgres
-        run: apt-get -yqq install libpq-dev
+        run: sudo apt-get -yqq install libpq-dev
 
-      - name: Cache bundle gems
-        uses: actions/cache@v5
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-
-      - name: Install bundle gems
-        run: |
-          gem install bundler -v 2.6.6
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
+          ruby-version: .ruby-version
+          bundler-cache: true
 
       - name: Compile assets
         env:
@@ -64,10 +52,17 @@ jobs:
 
       - name: Prepare database
         run: |
-          bundle exec rails db:create
-          bundle exec rails db:migrate
+          bundle exec rails db:test:prepare
 
       - name: Run tests
         # COVERAGE: true # Enable when we finish the tests for authentication
         run: |
           bundle exec rails test:all
+
+      - name: Keep screenshots from failed system tests
+        uses: actions/upload-artifact@v6
+        if: failure()
+        with:
+          name: screenshots
+          path: ${{ github.workspace }}/tmp/screenshots
+          if-no-files-found: ignore
